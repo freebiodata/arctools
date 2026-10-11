@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { kibbleRecipes } from '../data/kibble';
+import { EGG_LAYERS } from '../data/eggs';
+import { creatures } from '../data/creatures';
+
+const preferers = creatures
+  .filter((c) => c.preferredKibble)
+  .map((c) => ({
+    name: c.name,
+    slug: c.slug,
+    method: c.tameMethod,
+    tier: c.preferredKibble!,
+    role: c.role,
+  }))
+  .sort((a, b) => a.name.localeCompare(b.name));
+
+const byTier = (tier: string) => preferers.filter((p) => p.tier === tier);
+
+const faq = [
+  {
+    q: 'Which kibble should I use?',
+    a: 'Always the tier the creature prefers - it gives full taming affinity (400 per piece). The tier above also works at full value, anything below or unrelated drops to 16 affinity per piece (worse than raw prime meat). Pick the creature in the reverse lookup below to see its tier.',
+  },
+  {
+    q: 'How do I cook kibble?',
+    a: 'Put the egg and ingredients into a Cooking Pot or Industrial Cooker with water (a waterskin/jar/cante at least 25% full, or irrigation on the Industrial Cooker) and fuel. One batch cooks in 30 seconds and yields one kibble. Fertilized eggs work too.',
+  },
+  {
+    q: 'Do fertilized or larger eggs make better kibble?',
+    a: 'No - any egg of the right size tier gives the same kibble. A dodo egg and a vulture egg both make Basic Kibble with identical taming power. Only the SIZE class matters (Extra Small → Basic, Small → Simple, Medium → Regular, Large → Superior, Extra Large → Exceptional, Special → Extraordinary).',
+  },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'ARK Kibble Chart',
+    applicationCategory: 'GameApplication',
+    operatingSystem: 'Web',
+    description:
+      'ARK kibble chart: all six kibble recipes (Basic to Extraordinary), egg size tiers, which creatures lay which eggs, and which kibble every creature prefers.',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+];
+---
+<BaseLayout
+  title="ARK Kibble Chart - All Recipes, Egg Sizes & Preferences"
+  description="Complete ARK kibble chart: exact recipes for Basic, Simple, Regular, Superior, Exceptional and Extraordinary kibble, which egg sizes and creatures produce each tier, and which kibble every popular creature prefers."
+  path="/kibble-chart"
+  schema={schema}
+>
+  <section class="page-head">
+    <span class="eyebrow"><Icon name="egg" size={15} /> Tool 03 - the kitchen wall chart</span>
+    <h1>ARK Kibble Chart &amp; Recipes</h1>
+    <p class="lead">
+      Six tiers, six recipes, zero guesswork. Each tier maps to an egg size, and
+      every creature prefers exactly one tier (the tier above also works at full
+      value - anything else is worse than raw prime).
+    </p>
+    <div class="tag-row">
+      <span class="badge">Homestead system</span>
+      <span class="badge">Cooking pot · 30s per kibble</span>
+      <span class="badge">Water required</span>
+    </div>
+  </section>
+
+  <div class="cards" id="kibble-cards">
+    {kibbleRecipes.map((k) => (
+      <section class="card" style="cursor:default">
+        <h2><Icon name="egg" size={20} /> {k.tier} Kibble</h2>
+        <p style="margin-bottom:.6rem"><span class="badge">{k.eggSize}</span></p>
+        <ul style="list-style:none;padding:0;margin:0 0 .7rem;font-size:.95rem;color:var(--bone-200)">
+          {k.recipe.filter((r) => r.ingredient !== 'Water').map((r) => (
+            <li style="display:flex;justify-content:space-between;gap:.5rem;border-bottom:1px dashed rgba(245,240,230,.12);padding:.18rem 0">
+              <span>{r.ingredient}</span><strong style="color:var(--amber-300)">×{r.qty}</strong>
+            </li>
+          ))}
+          <li style="display:flex;justify-content:space-between;gap:.5rem;padding-top:.18rem">
+            <span>Water (any container ≥25%)</span><strong style="color:var(--amber-300)">1</strong>
+          </li>
+        </ul>
+        <p class="muted" style="font-size:.85rem">{k.note}</p>
+      </section>
+    ))}
+  </div>
+
+  <section class="panel" style="margin-top:1.5rem">
+    <h2 class="with-icon"><Icon name="boxes" size={20} /> Which creatures lay which eggs <span class="muted" style="text-transform:none;font-family:var(--font-body);font-size:.85rem;font-weight:400">(kibble ingredients)</span></h2>
+    {Object.entries(EGG_LAYERS).map(([tier, layers]) => (
+      <div style="margin-bottom:.8rem">
+        <strong class="amber">{tier}:</strong>
+        <span style="color:var(--bone-200)">{layers.join(', ')}</span>
+      </div>
+    ))}
+    <p class="muted" style="font-size:.85rem">
+      Mammals (Mammoth, Anky-adjacent glyptodonts like Doedicurus, Equus, Rhinos,
+      Bears, Paracers…) give live birth and never lay eggs. Insects and some
+      others lay eggs that can't be used for kibble.
+    </p>
+  </section>
+
+  <section class="panel" style="margin-top:1.5rem">
+    <h2 class="with-icon"><Icon name="search" size={20} /> Reverse lookup: what does my creature prefer?</h2>
+    <div class="field" style="max-width:380px">
+      <label for="kb-search">Search creature <span class="hint">(e.g. rex, argy, doed)</span></label>
+      <input type="text" id="kb-search" placeholder="Type a creature name…" autocomplete="off" />
+    </div>
+    <div class="table-wrap">
+      <table class="data" id="kb-table">
+        <thead>
+          <tr><th>Creature</th><th>Preferred kibble</th><th>Method</th><th>Role</th></tr>
+        </thead>
+        <tbody>
+          {preferers.map((p) => (
+            <tr data-name={p.name.toLowerCase()}>
+              <td><strong>{p.name}</strong></td>
+              <td><span class="badge">{p.tier} Kibble</span></td>
+              <td><span class={`badge badge--${p.method}`}>{p.method}</span></td>
+              <td style="white-space:normal">{p.role}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="muted" style="font-size:.85rem;margin-top:.6rem">
+      Preferers by tier:
+      {kibbleRecipes.map((k) => ` ${k.tier}: ${byTier(k.tier).length} ·`)}
+ - full coverage of our verified subset. Special-mechanic tames (Wyvern, Rock
+      Drake, Reaper, Titanosaur, Carcharodontosaurus) don't use kibble.
+    </p>
+  </section>
+
+  <section class="prose" style="margin-top:2.5rem">
+    <h2>The Homestead kibble system in one paragraph</h2>
+    <p>
+      Since the Homestead update (v285.106) kibble no longer means 50+ species-specific
+      recipes: there are six quality tiers tied to egg sizes. A creature eats its
+      preferred tier at full affinity, the tier above at full affinity too, and every
+      other tier at a miserable 16 affinity per piece - so a mismatched kibble is worse
+      than raw prime meat. The fastest farm loop is usually: keep a cheap egg layer of
+      the size you need (dodos for Basic, raptors for Small, stegos/ankys for Medium,
+      argies/carnos for Large, rexes for Extra Large), cook in a grid of cooking pots or
+      one Industrial Cooker, and always cook with the exact quantities above - one batch
+      yields exactly one kibble.
+    </p>
+  </section>
+
+  <section style="margin-top:2.5rem" aria-label="FAQ">
+    <h2>Kibble FAQ</h2>
+    {faq.map((f) => (
+      <details class="faq">
+        <summary>{f.q}</summary>
+        <div class="faq-body"><p>{f.a}</p></div>
+      </details>
+    ))}
+  </section>
+
+  <script>
+    const input = document.getElementById('kb-search') as HTMLInputElement;
+    const rows = Array.from(document.querySelectorAll<HTMLTableRowElement>('#kb-table tbody tr'));
+    input.addEventListener('input', () => {
+      const q = input.value.trim().toLowerCase();
+      for (const row of rows) {
+        row.hidden = q.length > 0 && !row.dataset.name!.includes(q);
+      }
+    });
+  </script>
+</BaseLayout>

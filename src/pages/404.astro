@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+---
+<BaseLayout
+  title="Page not found"
+  description="This page wandered off the map."
+  path="/404"
+  noindex
+>
+  <section class="page-head" style="text-align:center;padding-top:3rem">
+    <span class="eyebrow"><Icon name="bone" size={15} /> 404</span>
+    <h1>This trail went cold</h1>
+    <p class="lead" style="margin:0 auto 1.5rem">
+      The page you were looking for isn't on this server. Your tame is safe - 
+      head back to camp:
+    </p>
+    <a class="btn" href="/"><Icon name="house" size={16} /> Back to base</a>
+    <a class="btn btn--ghost" href="/taming-calculator"><Icon name="drumstick" size={16} /> Taming calculator</a>
+  </section>
+</BaseLayout>

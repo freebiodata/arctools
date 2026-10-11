@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+
+const faqs = [
+  {
+    q: 'What is taming effectiveness?',
+    a: 'Taming effectiveness (TE) starts at 100% when a creature is knocked out and drops every time it eats (and whenever it takes damage). It converts directly into bonus levels after the tame: bonus = floor(wild level × TE ÷ 2). Kibble preserves ~98–99% TE on a 150, raw meat only ~55%. The taming calculator shows TE and the exact post-tame level for every food.',
+  },
+  {
+    q: 'How do mutations work?',
+    a: 'Every baby gets 3 mutation rolls at 2.5% each (7.31% chance of at least one when both parents\' counters are under 20). A mutation adds +2 wild levels to one random stat (Health, Stamina, Oxygen, Food, Weight or Melee) and rerolls a color region. Once a parent\'s combined counter hits 20, that parent stops producing new mutations - but its stats still inherit normally, which is how you stack lines. Full math on the breeding calculator page.',
+  },
+  {
+    q: 'How many narcotics does a tame need?',
+    a: 'Exactly enough to replace the torpor lost during the tame: narcotic = deficit ÷ (40 + 8 × drain/s), where the deficit is drain × tame time − the creature\'s total torpor. Big-food creatures often need zero (they stay KO\'d naturally); Giganotosaurus at 150 needs 500+ because its torpor drains over 400/s. The taming calculator computes it exactly.',
+  },
+  {
+    q: 'Which kibble does my creature eat?',
+    a: 'Every creature prefers one of six kibble tiers matching its egg-size class, and also accepts the tier above at full value - any other tier is worse than raw prime meat. Check the reverse-lookup table on the kibble chart page.',
+  },
+  {
+    q: 'What is the highest level a tame can reach?',
+    a: 'On official settings wild creatures max at 150; a perfect 100%-TE tame adds floor(150 ÷ 2) = 75 bonus levels → 225 right after taming. With mutations the wild level keeps growing (+2 per mutation) up to the server level cap (450 on official ASE for most creatures).',
+  },
+  {
+    q: 'Does imprinting affect speed?',
+    a: 'Yes on ground creatures (+20% at 100% imprint in ASE), no on flyers. Stamina, Oxygen and Crafting never get the imprint bonus. And the ×1.3 damage rider bonus only applies while the imprinter is riding.',
+  },
+  {
+    q: 'How accurate is ARKTools?',
+    a: 'Every number is computed from the game\'s own formulas using species constants extracted from the game files (published by the open-source ARK Smart Breeding project) and cross-checked against the ARK Community Wiki. The math is covered by unit tests with hand-worked examples - e.g. the level 150 Rex + 17 Exceptional Kibble → level 224 case. Coverage is a curated 60+ creature subset; anything outside it is clearly flagged instead of estimated.',
+  },
+  {
+    q: 'Do the calculators work for ARK: Survival Ascended?',
+    a: 'The formulas and creature constants are from Survival Evolved (v313.5+ rules). ASA uses the same core systems with minor rebalances and adds Augmented Kibble; treat ASA numbers as close approximations until you verify in-game.',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<BaseLayout
+  title="ARK Calculators FAQ - Taming, Breeding & Kibble Questions"
+  description="Straight answers on ARK: Survival Evolved math: what taming effectiveness does, how mutations and the 20/20 rule work, narcotics math, kibble tiers, imprinting and how ARKTools computes every number."
+  path="/faq"
+  schema={[schema]}
+>
+  <section class="page-head">
+    <span class="eyebrow"><Icon name="circle-help" size={15} /> Field manual</span>
+    <h1>Frequently Asked Questions</h1>
+    <p class="lead">
+      The ARK mechanics questions that decide whether your tame is worth it - 
+      answered with the actual formulas, not folk wisdom.
+    </p>
+  </section>
+
+  <section>
+    {faqs.map((f) => (
+      <details class="faq">
+        <summary>{f.q}</summary>
+        <div class="faq-body"><p>{f.a}</p></div>
+      </details>
+    ))}
+  </section>
+
+  <section class="panel" style="margin-top:2rem">
+    <h2 class="with-icon"><Icon name="map" size={20} /> Still stuck?</h2>
+    <p>
+      Each tool page has a deeper explainer with the full math:
+      <a href="/taming-calculator">taming mechanics</a>,
+      <a href="/breeding-calculator">inheritance &amp; mutations</a>,
+      <a href="/kibble-chart">the kibble system</a> and
+      <a href="/stat-calculator">stat layers</a>. For raw sources see
+      <a href="/sources">Data &amp; Sources</a>.
+    </p>
+  </section>
+</BaseLayout>

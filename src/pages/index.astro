@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { CREATURE_COUNT, DATA_VERSION } from '../data/creatures';
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'ARKTools',
+    url: 'https://arctools.top',
+    description:
+      'Free ARK: Survival Evolved calculators: taming calculator with food counts, time and narcotics, breeding stat-inheritance and mutation probabilities, kibble recipes, and wild-vs-tamed stat projection.',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: 'https://arctools.top/taming-calculator',
+      'query-input': 'ARK taming calculator',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'ARKTools Calculators',
+    applicationCategory: 'GameApplication',
+    operatingSystem: 'Web',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  },
+];
+---
+<BaseLayout
+  title="ARK Taming, Breeding & Kibble Calculators for ARK: Survival Evolved"
+  description="Free ARK calculators built on game-file data: taming calculator (food count, time, narcotics), breeding stat-inheritance and mutation chances, kibble chart with recipes, and a wild-vs-tamed-vs-imprinted stat calculator."
+  path="/"
+  schema={schema}
+>
+  <section class="page-head">
+    <span class="eyebrow"><Icon name="footprints" size={15} /> Prehistoric expedition kit</span>
+    <h1>Tame smarter. Breed better. Plan exactly.</h1>
+    <p class="lead">
+      ARKTools runs the same math ARK: Survival Evolved uses - straight from the
+      game files - for {CREATURE_COUNT} of the most-tamed creatures. Food counts,
+      taming time, narcotics, stat inheritance odds, mutation chances and kibble
+      recipes, all verified against the community wiki.
+    </p>
+    <div class="tag-row">
+      <span class="badge">Game data v{DATA_VERSION}</span>
+      <span class="badge">{CREATURE_COUNT} creatures</span>
+      <span class="badge">1x – 50x rates</span>
+      <span class="badge">No signup, runs in your browser</span>
+    </div>
+  </section>
+
+  <section class="cards" aria-label="Tools">
+    <a class="card" href="/taming-calculator">
+      <Icon name="drumstick" size={30} strokeWidth={1.8} />
+      <h2>Taming Calculator</h2>
+      <p>
+        Pick a creature, level and food: get exact food count, taming time,
+        taming effectiveness, post-tame level, narcotics and tranq counts for
+        server rates from 1x to 50x.
+      </p>
+      <span class="go">Open calculator <Icon name="arrow-right" size={15} /></span>
+    </a>
+    <a class="card" href="/breeding-calculator">
+      <Icon name="dna" size={30} strokeWidth={1.8} />
+      <h2>Breeding Calculator</h2>
+      <p>
+        Enter both parents' stat levels and see the chance of the perfect baby:
+        55/45 stat inheritance, mutation probability with the 20/20 rule, and
+        expected eggs till your target stats.
+      </p>
+      <span class="go">Crunch the odds <Icon name="arrow-right" size={15} /></span>
+    </a>
+    <a class="card" href="/kibble-chart">
+      <Icon name="egg" size={30} strokeWidth={1.8} />
+      <h2>Kibble Chart</h2>
+      <p>
+        All six kibble tiers with exact recipes, which eggs work, and which
+        creature prefers which tier - plus a reverse lookup for every creature
+        in our verified subset.
+      </p>
+      <span class="go">Find your kibble <Icon name="arrow-right" size={15} /></span>
+    </a>
+    <a class="card" href="/stat-calculator">
+      <Icon name="chart-column" size={30} strokeWidth={1.8} />
+      <h2>Stat Calculator</h2>
+      <p>
+        Wild vs tamed vs imprinted stat accounting: project any creature's
+        stats through taming effectiveness, imprinting (+20%) and domestic
+        level-ups before you spend a single point.
+      </p>
+      <span class="go">Project stats <Icon name="arrow-right" size={15} /></span>
+    </a>
+  </section>
+
+  <section class="panel" style="margin-top: 2rem">
+    <h2 class="with-icon"><Icon name="shield-check" size={22} /> Why trust these numbers?</h2>
+    <p>
+      Every calculator here is a port of the formulas ARK itself uses, using the
+      species constants published by the
+      <a href="https://github.com/cadon/ARKStatsExtractor" rel="noopener">ARK Smart Breeding</a>
+      project from extracted game files, cross-checked against the
+      <a href="https://ark.wiki.gg/wiki/Taming" rel="noopener">ARK Community Wiki</a>.
+      The formulas are unit-tested against hand-worked examples - for instance a
+      level&nbsp;150 Rex with Exceptional Kibble at 1x needs exactly 17 kibble,
+      tames in ~58 minutes at 98.7% effectiveness and comes out at level 224.
+    </p>
+    <p>
+      Coverage is deliberately a curated subset - {CREATURE_COUNT} of the
+      most-tamed creatures - so that everything shown is verified rather than
+      crowd-guessed. Special-mechanic tames (Wyvern milk, Rock Drake venom,
+      Reaper gestation, Titanosaur, Carcharodontosaurus corpse-feeding) are
+      included and clearly flagged instead of silently miscomputed.
+      See <a href="/sources">Data &amp; Sources</a> for the full method.
+    </p>
+  </section>
+</BaseLayout>

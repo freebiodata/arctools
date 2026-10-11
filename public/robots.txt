@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://arctools.top/sitemap-index.xml

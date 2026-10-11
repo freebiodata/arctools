@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { SOURCES, METHOD_NOTE } from '../data/sources';
+import { creatures, CREATURE_COUNT, DATA_VERSION } from '../data/creatures';
+
+const ko = creatures.filter((c) => c.tameMethod === 'knockout').length;
+const passive = creatures.filter((c) => c.tameMethod === 'passive').length;
+const special = creatures.filter((c) => c.tameMethod === 'special').length;
+---
+<BaseLayout
+  title="Data & Sources - How ARKTools Computes Every Number"
+  description="How ARKTools is built: game-file constants from the ARK Smart Breeding project, formulas documented on the ARK Community Wiki, unit-tested against hand-worked examples. Full source list and coverage."
+  path="/sources"
+>
+  <section class="page-head">
+    <span class="eyebrow"><Icon name="scroll-text" size={15} /> Provenance</span>
+    <h1>Data &amp; Sources</h1>
+    <p class="lead">
+      {METHOD_NOTE.replace(/\s+/g, ' ')}
+    </p>
+  </section>
+
+  <section class="panel">
+    <h2 class="with-icon"><Icon name="book-open-text" size={20} /> Where the numbers come from</h2>
+    <div class="table-wrap">
+      <table class="data">
+        <thead><tr><th>Source</th><th>Used for</th></tr></thead>
+        <tbody>
+          {SOURCES.map((s) => (
+            <tr>
+              <td><a href={s.url} rel="noopener">{s.name}</a></td>
+              <td style="white-space:normal">{s.what}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="muted" style="font-size:.85rem">
+      Game-file constants via the MIT-licensed
+      <a href="https://github.com/cadon/ARKStatsExtractor" rel="noopener">ARK Smart Breeding</a>
+      values set (v{DATA_VERSION}); formulas from its published Taming.cs and
+      StatValueCalculation, cross-checked against ark.wiki.gg. Retrieved October 2026.
+    </p>
+  </section>
+
+  <section class="panel">
+    <h2 class="with-icon"><Icon name="list-checks" size={20} /> Coverage - {CREATURE_COUNT} creatures, honestly labeled</h2>
+    <div class="stat-grid" style="margin-bottom:1rem">
+      <div class="stat"><span class="stat__label">Knockout tames</span><span class="stat__value">{ko}</span><span class="stat__sub">full simulation</span></div>
+      <div class="stat"><span class="stat__label">Passive tames</span><span class="stat__value">{passive}</span><span class="stat__sub">wake-tame multipliers</span></div>
+      <div class="stat"><span class="stat__label">Special mechanics</span><span class="stat__value">{special}</span><span class="stat__sub">documented, not simulated</span></div>
+    </div>
+    <p>
+      This site deliberately ships a <strong>curated subset</strong> of the most-tamed
+      creatures rather than all 1000+ species, so every number can be verified.
+      Creatures with unique taming mechanics (Wyvern milk, Rock Drake venom, Reaper
+      gestation, Titanosaur starvation, Carcharodontosaurus corpse feeding) are listed
+      with their mechanics but excluded from the standard food-affinity calculator - 
+      a food table would be actively wrong for them.
+    </p>
+    <div class="table-wrap">
+      <table class="data">
+        <thead><tr><th>Creature</th><th>Method</th><th>Preferred kibble</th><th>Egg tier</th></tr></thead>
+        <tbody>
+          {creatures.map((c) => (
+            <tr>
+              <td><strong>{c.name}</strong></td>
+              <td><span class={`badge badge--${c.tameMethod}`}>{c.tameMethod}</span></td>
+              <td>{c.preferredKibble ? `${c.preferredKibble} Kibble` : '-'}</td>
+              <td>{c.eggSize ?? '-'}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2 class="with-icon"><Icon name="microscope" size={20} /> Verification</h2>
+    <p>
+      The math libraries are unit-tested (vitest) against hand-worked examples,
+      including values the community knows cold: a level 150 Rex needs exactly
+      17 Exceptional Kibble and finishes at level 224 at 1x; a level 150 Tusoteuthis
+      needs 200 Black Pearls; two clean parents have a 7.31% chance of at least one
+      mutation; a perfect 150-tame tops out at 225.
+    </p>
+    <p class="muted">
+      Found a number that disagrees with your in-game result? Damage taken during a
+      tame lowers effectiveness, server settings may differ from the defaults, and
+      ASA rebalances some constants - all of which sit outside this model by design.
+    </p>
+  </section>
+</BaseLayout>

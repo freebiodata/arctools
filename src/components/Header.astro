@@ -1,0 +1,29 @@
+---
+import Icon from './Icon.astro';
+const path = Astro.url.pathname.replace(/\/$/, '');
+const nav = [
+  { href: '/', label: 'Home', icon: 'house' },
+  { href: '/taming-calculator', label: 'Taming', icon: 'drumstick' },
+  { href: '/breeding-calculator', label: 'Breeding', icon: 'dna' },
+  { href: '/kibble-chart', label: 'Kibble', icon: 'egg' },
+  { href: '/stat-calculator', label: 'Stats', icon: 'chart-column' },
+  { href: '/faq', label: 'FAQ', icon: 'circle-help' },
+];
+const current = (href: string) =>
+  href === '/' ? path === '' : path.startsWith(href);
+---
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="/" aria-label="ARKTools home">
+      <span class="brand__mark"><Icon name="paw-print" size={20} strokeWidth={2.4} /></span>
+      <span><b>ARK</b>Tools</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      {nav.map((item) => (
+        <a href={item.href} aria-current={current(item.href) ? 'page' : undefined}>
+          <Icon name={item.icon} size={15} strokeWidth={2.2} /> {item.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>

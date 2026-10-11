@@ -1,0 +1,286 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+
+const STAT_KEYS = [
+  { id: 'hp', label: 'Health' },
+  { id: 'stam', label: 'Stamina' },
+  { id: 'oxy', label: 'Oxygen' },
+  { id: 'food', label: 'Food' },
+  { id: 'weight', label: 'Weight' },
+  { id: 'melee', label: 'Melee' },
+];
+
+const faq = [
+  {
+    q: 'How do mutations work in ARK?',
+    a: 'Each baby gets 3 independent mutation rolls at 2.5% each (7.31% chance of at least one when both parents\' counters are under 20). A successful mutation adds +2 wild levels to one of the six mutable stats (Health, Stamina, Oxygen, Food, Weight, Melee) and rerolls a color region. The 20/20 rule blocks new mutations from a parent whose combined matrilineal + patrilineal counter is at 20 or higher - but its stats still pass on, which is how mutation stacking works: keep breeding clean females to a mutated male.',
+  },
+  {
+    q: 'What are the odds the baby keeps the better stat?',
+    a: '55%. For every stat the baby independently picks one parent\'s value with a 55% bias toward the higher one (45% the lower; 100% when equal). That bias is also why a fresh stat mutation is only kept ~55% of the time - the mutated stat competes in the same inheritance roll.',
+  },
+  {
+    q: 'How many eggs until I get my perfect baby?',
+    a: 'Multiply the per-stat odds: a baby needing 4 different stats from the stronger parent lands at 0.55^4 ≈ 9.2% - about 11 eggs on average. Add a new mutation to a specific stat on top (7.31% × 1/6 × 55% ≈ 0.67% per stat) and you are looking at roughly 1 in 150 eggs. The calculator below combines all of this for your exact pair.',
+  },
+  {
+    q: 'Do levels above 20 mutations still count?',
+    a: 'The counters track ancestry totals on each side and only gate NEW mutations at 20. The stat levels themselves are unaffected - creatures with hundreds of mutation levels still pass them at the same 55/45 odds. Counters can even overflow to negative values (signed 32-bit) which still counts as "under 20" for eligibility.',
+  },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'ARK Breeding Calculator',
+    applicationCategory: 'GameApplication',
+    operatingSystem: 'Web',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    description:
+      'ARK breeding calculator: stat inheritance probability (55/45 model), mutation chance with the 20/20 rule, and expected eggs for a max-stat baby.',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+];
+---
+<BaseLayout
+  title="ARK Breeding Calculator - Stat Inheritance & Mutation Chances"
+  description="ARK breeding calculator: enter both parents' stat levels and get the exact probability of a max-stat baby - 55%/45% stat inheritance, mutation odds with the 20/20 rule, expected eggs, and baby wild level."
+  path="/breeding-calculator"
+  schema={schema}
+>
+  <section class="page-head">
+    <span class="eyebrow"><Icon name="dna" size={15} /> Tool 02 - the punnett square, ARK edition</span>
+    <h1>ARK Breeding Calculator</h1>
+    <p class="lead">
+      ARK rolls each stat independently: the baby takes the higher parent value
+      with <strong>55%</strong> probability, the lower with 45%. Enter your pair below to
+      see the chance of the perfect combination - and how mutations stack the odds.
+    </p>
+    <div class="tag-row">
+      <span class="badge">55/45 inheritance model</span>
+      <span class="badge">Mutation rolls 3 × 2.5%</span>
+      <span class="badge">20/20 rule aware</span>
+    </div>
+  </section>
+
+  <div class="grid-2">
+    <form class="panel" id="breed-form" aria-label="Breeding calculator inputs">
+      <h2 class="with-icon" style="font-size:1.35rem"><Icon name="heart-handshake" size={20} /> Parents</h2>
+      <div class="table-wrap">
+        <table class="data" id="breed-table">
+          <thead>
+            <tr><th>Stat</th><th class="num">Mother</th><th class="num">Father</th><th class="num">Target ≥</th></tr>
+          </thead>
+          <tbody>
+            {STAT_KEYS.map((s) => (
+              <tr>
+                <td>{s.label}</td>
+                <td class="num"><input type="number" min="0" max="255" value={s.id === 'hp' ? '40' : '0'} data-row={s.id} data-col="a" style="width:90px" aria-label={`${s.label} mother points`} /></td>
+                <td class="num"><input type="number" min="0" max="255" value={s.id === 'hp' ? '20' : '0'} data-row={s.id} data-col="b" style="width:90px" aria-label={`${s.label} father points`} /></td>
+                <td class="num"><input type="number" min="0" max="255" value={s.id === 'hp' ? '40' : '0'} data-row={s.id} data-col="t" style="width:90px" aria-label={`${s.label} target points`} /></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="muted" style="font-size:.85rem">
+        Values are <strong>wild stat points</strong> (what a stats tool or the server
+        shows), not displayed stat values. A fresh 150-tame distributes ~149 points
+        across these six stats.
+      </p>
+
+      <h2 class="with-icon" style="font-size:1.2rem;margin-top:1.4rem"><Icon name="repeat-2" size={18} /> Mutation counters</h2>
+      <div style="display:flex;gap:1rem">
+        <div class="field" style="flex:1">
+          <label for="breed-mut-m">Mother (matrilineal + patrilineal)</label>
+          <input type="number" id="breed-mut-m" min="0" max="255" value="0" />
+        </div>
+        <div class="field" style="flex:1">
+          <label for="breed-mut-f">Father (combined)</label>
+          <input type="number" id="breed-mut-f" min="0" max="255" value="0" />
+        </div>
+      </div>
+      <p class="muted" style="font-size:.85rem">
+        Find the counters in a creature's ancestry page (in-game) or your stats tool.
+        A parent at 20+ can no longer roll new mutations (20/20 rule).
+      </p>
+
+      <div class="field">
+        <label for="breed-mut-stats">Stats you are mutating into</label>
+        <select id="breed-mut-stats">
+          <option value="1" selected>1 stat (e.g. Health only)</option>
+          <option value="2">2 stats</option>
+          <option value="3">3 stats</option>
+        </select>
+      </div>
+    </form>
+
+    <div>
+      <section class="panel" aria-label="Baby odds">
+        <h2 class="with-icon" style="font-size:1.35rem"><Icon name="baby" size={20} /> Baby odds</h2>
+        <div class="stat-grid">
+          <div class="stat"><span class="stat__label"><Icon name="sparkles" size={13} /> Perfect-stat baby</span><span class="stat__value" id="br-prob">–</span><span class="stat__sub" id="br-prob-sub"></span></div>
+          <div class="stat"><span class="stat__label"><Icon name="egg" size={13} /> Eggs needed (avg)</span><span class="stat__value" id="br-eggs">–</span><span class="stat__sub">1-in-N for the full combo</span></div>
+          <div class="stat"><span class="stat__label"><Icon name="dices" size={13} /> Any mutation</span><span class="stat__value" id="br-mutany">–</span><span class="stat__sub" id="br-mutany-sub">per baby</span></div>
+          <div class="stat"><span class="stat__label"><Icon name="target" size={13} /> Useful mutation</span><span class="stat__value" id="br-mutuse">–</span><span class="stat__sub" id="br-mutuse-sub">lands on your tracked stat</span></div>
+        </div>
+        <div class="table-wrap" style="margin-top:.9rem">
+          <table class="data" id="br-perstat">
+            <thead><tr><th>Stat</th><th class="num">Mother</th><th class="num">Father</th><th class="num">Baby target ≥</th><th class="num">Chance</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <p class="muted" style="font-size:.85rem;margin:.7rem 0 0">
+          Baby wild level shown assumes no mutation: 1 + inherited points per stat.
+        </p>
+      </section>
+
+      <section class="panel" aria-label="Reading the odds">
+        <h2 class="with-icon" style="font-size:1.2rem"><Icon name="percent" size={18} /> Reading the odds</h2>
+        <div class="stat-grid">
+          <div class="stat"><span class="stat__label"><Icon name="trending-up" size={13} /> Best-case baby level</span><span class="stat__value" id="br-level">–</span><span class="stat__sub">taking the higher stat each roll</span></div>
+          <div class="stat"><span class="stat__label"><Icon name="trending-down" size={13} /> Worst-case baby level</span><span class="stat__value" id="br-level-worst">–</span><span class="stat__sub">taking the lower stat each roll</span></div>
+          <div class="stat"><span class="stat__label"><Icon name="dices" size={13} /> Mutation levels</span><span class="stat__value">+2 / mutation</span><span class="stat__sub">on one random mutable stat</span></div>
+        </div>
+        <div class="callout">
+          <strong>Rule of thumb:</strong> each additional stat you demand from the
+          stronger parent divides your odds by ~1.8 (×0.55). Two stats ≈ 30%,
+          three ≈ 17%, six ≈ 2.8%. Chase stats in separate lines first, then combine.
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <section class="prose" style="margin-top:2.5rem">
+    <h2>The documented inheritance &amp; mutation model</h2>
+    <p>
+      When an egg hatches, ARK builds the baby stat-by-stat: for each of the six
+      stats it compares both parents and gives the baby the higher value with 55%
+      probability (45% the lower; certain when equal). Wild points and mutation
+      points inherit together - the baby's wild level is 1 plus the points it took.
+    </p>
+    <p>
+      After inheritance, up to three mutation rolls happen. Each roll first picks a
+      random parent; if that parent's combined mutation counter is 20 or higher the
+      roll dies (the 20/20 rule), otherwise it succeeds with 2.5%. A success adds
+      +2 wild levels to one of the six mutable stats and rerolls one color region - 
+      speed can never mutate. With both parents clean, at least one mutation lands
+      with 1 − 0.975³ = <strong>7.31%</strong> probability; with one parent blocked it
+      roughly halves to ≈ 3.7%; with both blocked it is zero.
+    </p>
+    <p>
+      A fresh mutation is only useful if the baby then keeps the mutated stat - 
+      the same 55% inheritance bias - so a mutation landing on your single tracked
+      stat survives at 7.31% × (1/6) × 0.55 ≈ <strong>0.67%</strong>, or about
+      1 in 150 eggs. This is exactly the "useful mutation" figure above.
+    </p>
+    <p>
+      Stacking works because counters gate new mutations, not inheritance: breed
+      clean-counter females to a high-counter male and his mutated stats keep
+      passing at full 55/45 odds while the mother's side stays eligible for new
+      rolls. This is the backbone of every serious mutation line.
+    </p>
+  </section>
+
+  <section style="margin-top:2.5rem" aria-label="FAQ">
+    <h2>Breeding FAQ</h2>
+    {faq.map((f) => (
+      <details class="faq">
+        <summary>{f.q}</summary>
+        <div class="faq-body"><p>{f.a}</p></div>
+      </details>
+    ))}
+  </section>
+
+  <script>
+    import {
+      babyStatProbability,
+      babyWildLevel,
+      mutationChances,
+      usefulMutationChance,
+    } from '../lib/breeding';
+
+    const el = <T extends HTMLElement>(id: string): T => document.getElementById(id) as T;
+    const STAT_KEYS = ['hp', 'stam', 'oxy', 'food', 'weight', 'melee'];
+    const STAT_LABEL: Record<string, string> = {
+      hp: 'Health', stam: 'Stamina', oxy: 'Oxygen',
+      food: 'Food', weight: 'Weight', melee: 'Melee',
+    };
+
+    function readInputs() {
+      const rows = STAT_KEYS.map((id) => {
+        const a = Number((document.querySelector(`[data-row="${id}"][data-col="a"]`) as HTMLInputElement).value) || 0;
+        const b = Number((document.querySelector(`[data-row="${id}"][data-col="b"]`) as HTMLInputElement).value) || 0;
+        const t = Number((document.querySelector(`[data-row="${id}"][data-col="t"]`) as HTMLInputElement).value) || 0;
+        return { key: id, stat: STAT_LABEL[id], levelA: a, levelB: b, target: t };
+      });
+      const mother = Number(el<HTMLInputElement>('breed-mut-m').value) || 0;
+      const father = Number(el<HTMLInputElement>('breed-mut-f').value) || 0;
+      const wanted = Number(el<HTMLSelectElement>('breed-mut-stats').value) || 1;
+      return { rows, mother, father, wanted };
+    }
+
+    function pct(p: number, digits = 2): string {
+      return (p * 100).toFixed(digits) + '%';
+    }
+
+    function render() {
+      const { rows, mother, father, wanted } = readInputs();
+
+      const targets: Record<string, number> = {};
+      for (const r of rows) targets[r.stat] = r.target;
+
+      const out = babyStatProbability(
+        rows.map((r) => ({ stat: r.stat, levelA: r.levelA, levelB: r.levelB })),
+        targets,
+      );
+      el('br-prob').textContent = out.probability > 0 ? pct(out.probability) : '0%';
+      el('br-prob-sub').textContent = out.probability > 0 ? 'per egg (or live birth)' : 'impossible - raise a target\u2019s parents';
+      el('br-eggs').textContent = out.probability > 0
+        ? '1 in ' + Math.round(1 / out.probability).toLocaleString('en-US')
+        : '∞';
+
+      const tbody = el('br-perstat').querySelector('tbody')!;
+      tbody.innerHTML = rows.map((r) => {
+        const row = out.perStat.find((p) => p.stat === r.stat)!;
+        const chance = row.chance === 1 ? 'certain' : row.chance === 0 ? 'impossible*' : pct(row.chance, 1);
+        const cls = row.chance === 1 ? '' : row.chance === 0 ? 'style="color:var(--danger)"' : '';
+        return `<tr ${cls}><td>${r.stat}</td><td class="num">${r.levelA}</td><td class="num">${r.levelB}</td><td class="num">${r.target}</td><td class="num">${chance}</td></tr>`;
+      }).join('');
+
+      const best = rows.map((r) => Math.max(r.levelA, r.levelB));
+      const worst = rows.map((r) => Math.min(r.levelA, r.levelB));
+      el('br-level').textContent = String(babyWildLevel(best));
+      el('br-level-worst').textContent = String(babyWildLevel(worst));
+
+      const mut = mutationChances(mother, father);
+      el('br-mutany').textContent = mut.atLeastOne > 0 ? pct(mut.atLeastOne) : '0%';
+      el('br-mutany-sub').textContent = mother >= 20 && father >= 20
+        ? 'both counters ≥ 20 (20/20 rule)'
+        : `${mut.atLeastOne > 0 ? '1−0.975³ or 1−0.9875³' : ''}`;
+      const use = usefulMutationChance(wanted, mother, father);
+      el('br-mutuse').textContent = use.chance > 0 ? pct(use.chance) : '0%';
+      el('br-mutuse-sub').textContent = use.chance > 0
+        ? `1 in ${Math.round(1 / use.chance)} eggs for ${wanted} tracked stat${wanted > 1 ? 's' : ''}`
+        : 'counters exhausted';
+    }
+
+    document.querySelectorAll('#breed-table input').forEach((i) =>
+      i.addEventListener('input', render),
+    );
+    el('breed-mut-m').addEventListener('input', render);
+    el('breed-mut-f').addEventListener('input', render);
+    el('breed-mut-stats').addEventListener('change', render);
+    render();
+  </script>
+</BaseLayout>

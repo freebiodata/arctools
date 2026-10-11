@@ -1,0 +1,4559 @@
+{
+  "sha": "cfb7affa783f175903de97fd4212f7fc63e04067",
+  "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/cfb7affa783f175903de97fd4212f7fc63e04067",
+  "tree": [
+    {
+      "path": ".gitattributes",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1ff0c423042b46cb1d617b81efb715defbe8054d",
+      "size": 2518,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1ff0c423042b46cb1d617b81efb715defbe8054d"
+    },
+    {
+      "path": ".github",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1d6bb518a7c173641a78a72e5d4d454c4b2c90ef",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/1d6bb518a7c173641a78a72e5d4d454c4b2c90ef"
+    },
+    {
+      "path": ".github/FUNDING.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "18027b50da1099dc4a0fe2329ac230e3422bdc88",
+      "size": 611,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/18027b50da1099dc4a0fe2329ac230e3422bdc88"
+    },
+    {
+      "path": ".github/workflows",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "68461e8ddeebb903148663faf9b67a571b5492b3",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/68461e8ddeebb903148663faf9b67a571b5492b3"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4bdd40476b025e4f96d5cc6ec53592d46d88e9e7",
+      "size": 1287,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/4bdd40476b025e4f96d5cc6ec53592d46d88e9e7"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5abc68f9b1c089373c6e6cd62b95bf23932328e5",
+      "size": 3185,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/5abc68f9b1c089373c6e6cd62b95bf23932328e5"
+    },
+    {
+      "path": ".gitmodules",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "24edb462713ee080767c62a1bb6fac68becc2f2f",
+      "size": 132,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/24edb462713ee080767c62a1bb6fac68becc2f2f"
+    },
+    {
+      "path": "ARKBreedingStats.Tests",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "366279c515609e5e64175044545ba119382f6003",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/366279c515609e5e64175044545ba119382f6003"
+    },
+    {
+      "path": "ARKBreedingStats.Tests/ARKBreedingStats.Tests.csproj",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f001248e136e86a0a217a843b94c210641b0e55b",
+      "size": 683,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/f001248e136e86a0a217a843b94c210641b0e55b"
+    },
+    {
+      "path": "ARKBreedingStats.Tests/BasicSmokeTests.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a24447b37825a1bf4f4cd7c5cf1ea6b00c6956d8",
+      "size": 2714,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/a24447b37825a1bf4f4cd7c5cf1ea6b00c6956d8"
+    },
+    {
+      "path": "ARKBreedingStats.Tests/DiceCoefficientTests.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a09d6b64e530dbab7cb2c36c650222d4d421a9e5",
+      "size": 2580,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/a09d6b64e530dbab7cb2c36c650222d4d421a9e5"
+    },
+    {
+      "path": "ARKBreedingStats.Tests/LevelAllocationSolverTests.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e63e2e08c5e44f7d7fdc874d3c152ff7c7a0effe",
+      "size": 12738,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/e63e2e08c5e44f7d7fdc874d3c152ff7c7a0effe"
+    },
+    {
+      "path": "ARKBreedingStats.Tests/ModernInfoGraphicTests.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9646a0036a184c22a64dda080c4287a55a92f6ca",
+      "size": 32578,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/9646a0036a184c22a64dda080c4287a55a92f6ca"
+    },
+    {
+      "path": "ARKBreedingStats.Tests/SpeechRecognitionTests.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "55b7ad359b778b849e74314ed8ba4c714b374ea5",
+      "size": 1072,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/55b7ad359b778b849e74314ed8ba4c714b374ea5"
+    },
+    {
+      "path": "ARKBreedingStats.Tests/StatResultTests.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1a07506e2c4fb2dbe87f083e3d705a3580cf8c79",
+      "size": 6677,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1a07506e2c4fb2dbe87f083e3d705a3580cf8c79"
+    },
+    {
+      "path": "ARKBreedingStats.Tests/UtilsTests.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3baa75e82869c58c57a770d751a76995877e63e8",
+      "size": 11837,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/3baa75e82869c58c57a770d751a76995877e63e8"
+    },
+    {
+      "path": "ARKBreedingStats.sln",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cdb3de6174292885be45c68192227fdac4e28786",
+      "size": 3969,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/cdb3de6174292885be45c68192227fdac4e28786"
+    },
+    {
+      "path": "ARKBreedingStats.sln.DotSettings",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9c5189be2fceb6694e16524ca5cabc4258c4c803",
+      "size": 2786,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/9c5189be2fceb6694e16524ca5cabc4258c4c803"
+    },
+    {
+      "path": "ARKBreedingStats",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a98b79d50916c20ae0a03446f784caf3fedf5765",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/a98b79d50916c20ae0a03446f784caf3fedf5765"
+    },
+    {
+      "path": "ARKBreedingStats/ARKBreedingStats.csproj",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "40b25f958bd8c7b4987d46252632aea03d30c4cf",
+      "size": 2839,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/40b25f958bd8c7b4987d46252632aea03d30c4cf"
+    },
+    {
+      "path": "ARKBreedingStats/ARKOverlay.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ccfbd6242bc0c16316cf53132b12e147501d04d5",
+      "size": 11905,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/ccfbd6242bc0c16316cf53132b12e147501d04d5"
+    },
+    {
+      "path": "ARKBreedingStats/ARKOverlay.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e1a0a18c6d8d97947f9bd1e1a3c69126a9999ed6",
+      "size": 12982,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/e1a0a18c6d8d97947f9bd1e1a3c69126a9999ed6"
+    },
+    {
+      "path": "ARKBreedingStats/ARKOverlay.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1af7de150c99c12dd67a509fe57c10d63e4eeb04",
+      "size": 5698,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1af7de150c99c12dd67a509fe57c10d63e4eeb04"
+    },
+    {
+      "path": "ARKBreedingStats/ARKSmartBreeding.ico",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "92f1c8b7828821e63527f4d235b5b6f8e995d8cc",
+      "size": 64871,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/92f1c8b7828821e63527f4d235b5b6f8e995d8cc"
+    },
+    {
+      "path": "ARKBreedingStats/AboutBox1.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f1eb560c1f2df8e9174309dbed008aa3f9540ec1",
+      "size": 13037,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/f1eb560c1f2df8e9174309dbed008aa3f9540ec1"
+    },
+    {
+      "path": "ARKBreedingStats/AboutBox1.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "64adf3836247aaf791982882fe6dfb83a04cd2bc",
+      "size": 6372,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/64adf3836247aaf791982882fe6dfb83a04cd2bc"
+    },
+    {
+      "path": "ARKBreedingStats/AboutBox1.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b2ff64a11300290ddac7e7d9bc26e5e0a766508",
+      "size": 5629,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/8b2ff64a11300290ddac7e7d9bc26e5e0a766508"
+    },
+    {
+      "path": "ARKBreedingStats/App.config",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f93cfac4da3b5b6646d06dda14582ead9b7917d9",
+      "size": 29162,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/f93cfac4da3b5b6646d06dda14582ead9b7917d9"
+    },
+    {
+      "path": "ARKBreedingStats/Ark.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b12e87c67488c0c449c35ca90addb3a125abcdfa",
+      "size": 10404,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/b12e87c67488c0c449c35ca90addb3a125abcdfa"
+    },
+    {
+      "path": "ARKBreedingStats/Asb.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e6d0af87f0c9021ca63fb43954dc745101f2d0b7",
+      "size": 393,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/e6d0af87f0c9021ca63fb43954dc745101f2d0b7"
+    },
+    {
+      "path": "ARKBreedingStats/AsbServer",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d1f80de6bd5c1d9d954a3699b942c6d5ea3e3594",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/d1f80de6bd5c1d9d954a3699b942c6d5ea3e3594"
+    },
+    {
+      "path": "ARKBreedingStats/AsbServer/Connection.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fb421c14afc0ce6a8305b27c2bad58fc38225cb9",
+      "size": 22588,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/fb421c14afc0ce6a8305b27c2bad58fc38225cb9"
+    },
+    {
+      "path": "ARKBreedingStats/AsbServer/ProgressReportAsbServer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "68b2145870d33071dab7bc12b851fbbf48693aff",
+      "size": 780,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/68b2145870d33071dab7bc12b851fbbf48693aff"
+    },
+    {
+      "path": "ARKBreedingStats/AsbServer/ServerSendName.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3ba70622331fff1c1703be344d31abf1df95390b",
+      "size": 313,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/3ba70622331fff1c1703be344d31abf1df95390b"
+    },
+    {
+      "path": "ARKBreedingStats/BreedingInfo.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "97aee9e6c3ea847445381099edc1f2042d4a8b48",
+      "size": 3224,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/97aee9e6c3ea847445381099edc1f2042d4a8b48"
+    },
+    {
+      "path": "ARKBreedingStats/BreedingInfo.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "376dc2067bfbaece3ec34f01161786ae08348cd8",
+      "size": 3178,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/376dc2067bfbaece3ec34f01161786ae08348cd8"
+    },
+    {
+      "path": "ARKBreedingStats/BreedingInfo.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1af7de150c99c12dd67a509fe57c10d63e4eeb04",
+      "size": 5698,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1af7de150c99c12dd67a509fe57c10d63e4eeb04"
+    },
+    {
+      "path": "ARKBreedingStats/BreedingPlanning",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "6ab4d345e899de7a24d8e17dd6219b45f48c720a",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/6ab4d345e899de7a24d8e17dd6219b45f48c720a"
+    },
+    {
+      "path": "ARKBreedingStats/BreedingPlanning/BreedingPlan.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ffe8c63501a4ab49210d8fc2d7094a46ff0c668d",
+      "size": 59742,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/ffe8c63501a4ab49210d8fc2d7094a46ff0c668d"
+    },
+    {
+      "path": "ARKBreedingStats/BreedingPlanning/BreedingPlan.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a26e7cb3e7876b540f197359451062f4b6e82bd2",
+      "size": 65901,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/a26e7cb3e7876b540f197359451062f4b6e82bd2"
+    },
+    {
+      "path": "ARKBreedingStats/BreedingPlanning/BreedingPlan.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b2ff64a11300290ddac7e7d9bc26e5e0a766508",
+      "size": 5629,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/8b2ff64a11300290ddac7e7d9bc26e5e0a766508"
+    },
+    {
+      "path": "ARKBreedingStats/BreedingPlanning/BreedingScore.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "44c49ffe9ca3b4af6956d3a60bd089ec42822a51",
+      "size": 23055,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/44c49ffe9ca3b4af6956d3a60bd089ec42822a51"
+    },
+    {
+      "path": "ARKBreedingStats/BreedingPlanning/ColorGroup.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a98d2487ad26a9e83d61f38e2833dbd645bc2d76",
+      "size": 1797,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/a98d2487ad26a9e83d61f38e2833dbd645bc2d76"
+    },
+    {
+      "path": "ARKBreedingStats/BreedingPlanning/ColorPattern.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9193d90a1893ce71ecadd99c7c553acdf5e12913",
+      "size": 1712,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/9193d90a1893ce71ecadd99c7c553acdf5e12913"
+    },
+    {
+      "path": "ARKBreedingStats/BreedingPlanning/ColorPatternForm.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a116cd833ad88f44b25cec3096e960f0c324d0a2",
+      "size": 17007,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/a116cd833ad88f44b25cec3096e960f0c324d0a2"
+    },
+    {
+      "path": "ARKBreedingStats/BreedingPlanning/ColorPatternForm.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d856504fdee2ac8805ca9e87686849ba20a07f96",
+      "size": 6944,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/d856504fdee2ac8805ca9e87686849ba20a07f96"
+    },
+    {
+      "path": "ARKBreedingStats/BreedingPlanning/ColorPatternForm.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b2ff64a11300290ddac7e7d9bc26e5e0a766508",
+      "size": 5629,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/8b2ff64a11300290ddac7e7d9bc26e5e0a766508"
+    },
+    {
+      "path": "ARKBreedingStats/BreedingPlanning/CurrentBreedingPair.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a2f51af1cc222009643836c837432c4b9cc0ad7f",
+      "size": 1982,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/a2f51af1cc222009643836c837432c4b9cc0ad7f"
+    },
+    {
+      "path": "ARKBreedingStats/BreedingPlanning/Score.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fc8cbcbb070b87e2721742083c8b8de23a2b9114",
+      "size": 3225,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/fc8cbcbb070b87e2721742083c8b8de23a2b9114"
+    },
+    {
+      "path": "ARKBreedingStats/CreatureBox.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "968592b4228a0faa3e37a0f114da8018927f320a",
+      "size": 19317,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/968592b4228a0faa3e37a0f114da8018927f320a"
+    },
+    {
+      "path": "ARKBreedingStats/CreatureBox.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "974e5651754fd32b625f3b6957d6a98f7a97f177",
+      "size": 11494,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/974e5651754fd32b625f3b6957d6a98f7a97f177"
+    },
+    {
+      "path": "ARKBreedingStats/CreatureBox.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b2ff64a11300290ddac7e7d9bc26e5e0a766508",
+      "size": 5629,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/8b2ff64a11300290ddac7e7d9bc26e5e0a766508"
+    },
+    {
+      "path": "ARKBreedingStats/CreatureInfoInput.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5307ed6842e382eaf82733ea77ce8fd6c7e1fb84",
+      "size": 41757,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/5307ed6842e382eaf82733ea77ce8fd6c7e1fb84"
+    },
+    {
+      "path": "ARKBreedingStats/CreatureInfoInput.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "383bf6900d2c6529d7969d375d8e59e16b1a59a8",
+      "size": 41107,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/383bf6900d2c6529d7969d375d8e59e16b1a59a8"
+    },
+    {
+      "path": "ARKBreedingStats/CreatureInfoInput.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b2ff64a11300290ddac7e7d9bc26e5e0a766508",
+      "size": 5629,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/8b2ff64a11300290ddac7e7d9bc26e5e0a766508"
+    },
+    {
+      "path": "ARKBreedingStats/DiceCoefficient.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7f541222e87296a063130c74d771533d8bc04653",
+      "size": 877,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/7f541222e87296a063130c74d771533d8bc04653"
+    },
+    {
+      "path": "ARKBreedingStats/Extraction.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a60b2955bed7eb710513b66480b28d28bca7d4c1",
+      "size": 57837,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/a60b2955bed7eb710513b66480b28d28bca7d4c1"
+    },
+    {
+      "path": "ARKBreedingStats/FileService.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "70e2de8f8154b03f13729554eff160f2465432db",
+      "size": 13604,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/70e2de8f8154b03f13729554eff160f2465432db"
+    },
+    {
+      "path": "ARKBreedingStats/FileSync.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f4b0fa95dbe475bd766b58dabbe635fbfd652fad",
+      "size": 5179,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/f4b0fa95dbe475bd766b58dabbe635fbfd652fad"
+    },
+    {
+      "path": "ARKBreedingStats/Form1.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f5b6d809c1f2761183bfc6742677569e25bd5c23",
+      "size": 274032,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/f5b6d809c1f2761183bfc6742677569e25bd5c23"
+    },
+    {
+      "path": "ARKBreedingStats/Form1.collection.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f8bc73f12fa806e7c413ad724aac65094c4e370f",
+      "size": 47614,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/f8bc73f12fa806e7c413ad724aac65094c4e370f"
+    },
+    {
+      "path": "ARKBreedingStats/Form1.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e5a9bf9172a4f64a12f1b3a9b90418575a47c727",
+      "size": 195961,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/e5a9bf9172a4f64a12f1b3a9b90418575a47c727"
+    },
+    {
+      "path": "ARKBreedingStats/Form1.exportGun.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "47013f22fae9d73dbed2cd70625fe560c9867bdb",
+      "size": 13727,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/47013f22fae9d73dbed2cd70625fe560c9867bdb"
+    },
+    {
+      "path": "ARKBreedingStats/Form1.extractor.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "06c49197449f91a035db47b81bf5a621c64c2362",
+      "size": 87153,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/06c49197449f91a035db47b81bf5a621c64c2362"
+    },
+    {
+      "path": "ARKBreedingStats/Form1.importExported.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1412a9fb27c333621b6f28c86aeba92cd7866ddb",
+      "size": 27732,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1412a9fb27c333621b6f28c86aeba92cd7866ddb"
+    },
+    {
+      "path": "ARKBreedingStats/Form1.importSave.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d3a1a9d4cb03b19ff78c69a6fd7b1fbe6bbb94f0",
+      "size": 20723,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/d3a1a9d4cb03b19ff78c69a6fd7b1fbe6bbb94f0"
+    },
+    {
+      "path": "ARKBreedingStats/Form1.l10n.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "50f79fbc1bb1d785748884e93e43751244f102ce",
+      "size": 10572,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/50f79fbc1bb1d785748884e93e43751244f102ce"
+    },
+    {
+      "path": "ARKBreedingStats/Form1.library.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e6dca870498df9be0e48f81e845d4324b2facb4f",
+      "size": 133148,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/e6dca870498df9be0e48f81e845d4324b2facb4f"
+    },
+    {
+      "path": "ARKBreedingStats/Form1.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b4c845fadda6fed3140b5592ca60d049764b4630",
+      "size": 86400,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/b4c845fadda6fed3140b5592ca60d049764b4630"
+    },
+    {
+      "path": "ARKBreedingStats/Form1.tester.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4b67539e17a0522ed8751d7ebde69531860b658b",
+      "size": 20777,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/4b67539e17a0522ed8751d7ebde69531860b658b"
+    },
+    {
+      "path": "ARKBreedingStats/Form1.values.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "381b8cad425798c6fafeef06039cf40b1f2b6574",
+      "size": 13953,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/381b8cad425798c6fafeef06039cf40b1f2b6574"
+    },
+    {
+      "path": "ARKBreedingStats/ImportSavegame.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9f486c0cd434bdacba8a1f7d04ef326cb9fd5362",
+      "size": 13648,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/9f486c0cd434bdacba8a1f7d04ef326cb9fd5362"
+    },
+    {
+      "path": "ARKBreedingStats/IncubationTimerEntry.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e032cb12d2b6ae3303925b691048dacb1a3fb812",
+      "size": 2623,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/e032cb12d2b6ae3303925b691048dacb1a3fb812"
+    },
+    {
+      "path": "ARKBreedingStats/InfoGraphic",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e91db1ee48f5573accf72c3008c78b0687cfcdca",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/e91db1ee48f5573accf72c3008c78b0687cfcdca"
+    },
+    {
+      "path": "ARKBreedingStats/InfoGraphic/CreatureInfoGraphic.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a5301348ac536bef3cfdfd4c416628d6abaa9ada",
+      "size": 47241,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/a5301348ac536bef3cfdfd4c416628d6abaa9ada"
+    },
+    {
+      "path": "ARKBreedingStats/InfoGraphic/InfoGraphicSettings.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f9018df2095926a62e5331d28969129801117b88",
+      "size": 2447,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/f9018df2095926a62e5331d28969129801117b88"
+    },
+    {
+      "path": "ARKBreedingStats/InfoGraphic/Modern",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "66f331f3d20d1041785822e28ff5ca6016209345",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/66f331f3d20d1041785822e28ff5ca6016209345"
+    },
+    {
+      "path": "ARKBreedingStats/InfoGraphic/Modern/DrawingPrimitives.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "99936d77cd9d0e38e56d9ce6976d54968a731dc8",
+      "size": 11913,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/99936d77cd9d0e38e56d9ce6976d54968a731dc8"
+    },
+    {
+      "path": "ARKBreedingStats/InfoGraphic/Modern/ModernInfoGraphic.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bc05ae2e08b986b05f307aca8dca5ed6ca867275",
+      "size": 42317,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/bc05ae2e08b986b05f307aca8dca5ed6ca867275"
+    },
+    {
+      "path": "ARKBreedingStats/InfoGraphic/Modern/ModernInfoGraphicSettings.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c707b8388ec565817b0399f5bc06f5b375f76e50",
+      "size": 5627,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/c707b8388ec565817b0399f5bc06f5b375f76e50"
+    },
+    {
+      "path": "ARKBreedingStats/InfoGraphic/Modern/ModernTheme.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0ed40eb12974b7b0625b0fded30e31e5db5ec73c",
+      "size": 5617,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/0ed40eb12974b7b0625b0fded30e31e5db5ec73c"
+    },
+    {
+      "path": "ARKBreedingStats/InfoGraphic/Modern/SexSymbols.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "618ee2e7c59b1af3b88985e112ce18e8eab03268",
+      "size": 4211,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/618ee2e7c59b1af3b88985e112ce18e8eab03268"
+    },
+    {
+      "path": "ARKBreedingStats/InfoGraphic/Modern/StatIcons.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9d43ddb0c434282d02bd4610ac6f5dbd345f03f2",
+      "size": 10683,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/9d43ddb0c434282d02bd4610ac6f5dbd345f03f2"
+    },
+    {
+      "path": "ARKBreedingStats/InfoGraphic/Stitching.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cf39e0aaacb2822d9f2f161d634cdb1c6bad0c97",
+      "size": 4481,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/cf39e0aaacb2822d9f2f161d634cdb1c6bad0c97"
+    },
+    {
+      "path": "ARKBreedingStats/Kibbles.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4d3c97e8dd8226534c536adee9ce0860ff55c9e1",
+      "size": 1462,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/4d3c97e8dd8226534c536adee9ce0860ff55c9e1"
+    },
+    {
+      "path": "ARKBreedingStats/ListViewColumnSorter.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "66bc68a6e3c841b10e8744b1d304dba619d420a3",
+      "size": 5302,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/66bc68a6e3c841b10e8744b1d304dba619d420a3"
+    },
+    {
+      "path": "ARKBreedingStats/Loc.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "46caeb9a74739e5f83d9e32403bcad58236ec90d",
+      "size": 4646,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/46caeb9a74739e5f83d9e32403bcad58236ec90d"
+    },
+    {
+      "path": "ARKBreedingStats/NOTICE.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "92c984035493bd876571bd61f1d7d3c6cd278a2c",
+      "size": 6695,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/92c984035493bd876571bd61f1d7d3c6cd278a2c"
+    },
+    {
+      "path": "ARKBreedingStats/NamePatterns",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "60d8cb4bd792a1842dbdc22619d7feef6508eca2",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/60d8cb4bd792a1842dbdc22619d7feef6508eca2"
+    },
+    {
+      "path": "ARKBreedingStats/NamePatterns/JavaScriptNamePattern.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "851a6214d6ef8f470a0ace794552c565b5eec528",
+      "size": 5330,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/851a6214d6ef8f470a0ace794552c565b5eec528"
+    },
+    {
+      "path": "ARKBreedingStats/NamePatterns/NameList.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eaf7799849405eac2a7ab8959d08b06f6b5141fb",
+      "size": 2363,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/eaf7799849405eac2a7ab8959d08b06f6b5141fb"
+    },
+    {
+      "path": "ARKBreedingStats/NamePatterns/NamePattern.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "90e5da166cd08f539de42a8dad15d044741eb9df",
+      "size": 28353,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/90e5da166cd08f539de42a8dad15d044741eb9df"
+    },
+    {
+      "path": "ARKBreedingStats/NamePatterns/NamePatternEntry.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9283e530e91629df97389dbb5b079174fb02fae8",
+      "size": 501,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/9283e530e91629df97389dbb5b079174fb02fae8"
+    },
+    {
+      "path": "ARKBreedingStats/NamePatterns/NamePatternFunctions.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "79d1e303982ad80814c9c8ec8a1adc3568642868",
+      "size": 22712,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/79d1e303982ad80814c9c8ec8a1adc3568642868"
+    },
+    {
+      "path": "ARKBreedingStats/NamePatterns/PatternEditor.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "772244d88fb85bbc29588a2f9ae4192bfb19d45a",
+      "size": 26395,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/772244d88fb85bbc29588a2f9ae4192bfb19d45a"
+    },
+    {
+      "path": "ARKBreedingStats/NamePatterns/PatternEditor.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0c0de29fd246d7b6f55898202561b582f9705534",
+      "size": 43036,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/0c0de29fd246d7b6f55898202561b582f9705534"
+    },
+    {
+      "path": "ARKBreedingStats/NamePatterns/PatternEditor.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3eb7cc83cf95979a325cb105fafc54a816128e50",
+      "size": 6376,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/3eb7cc83cf95979a325cb105fafc54a816128e50"
+    },
+    {
+      "path": "ARKBreedingStats/NamePatterns/PatternTemplate.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "36ba1e9fb86cbfda948d59979d61bc4112a08410",
+      "size": 377,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/36ba1e9fb86cbfda948d59979d61bc4112a08410"
+    },
+    {
+      "path": "ARKBreedingStats/NamePatterns/PatternTemplates.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7fb7d347d2122ccabe76017045d35c9d0cf68551",
+      "size": 239,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/7fb7d347d2122ccabe76017045d35c9d0cf68551"
+    },
+    {
+      "path": "ARKBreedingStats/NamePatterns/TokenModel.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b6edfa60a0f76900a4ee8d3b94482e8f59eec717",
+      "size": 4027,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/b6edfa60a0f76900a4ee8d3b94482e8f59eec717"
+    },
+    {
+      "path": "ARKBreedingStats/NotesControl.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b4c3a8dfaebf2f48a6537f94b4b9f01750e7d221",
+      "size": 8084,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/b4c3a8dfaebf2f48a6537f94b4b9f01750e7d221"
+    },
+    {
+      "path": "ARKBreedingStats/NotesControl.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "57580cd9f9cda6e4c5e5ba23411428672cf95c9a",
+      "size": 5554,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/57580cd9f9cda6e4c5e5ba23411428672cf95c9a"
+    },
+    {
+      "path": "ARKBreedingStats/NotesControl.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1af7de150c99c12dd67a509fe57c10d63e4eeb04",
+      "size": 5698,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1af7de150c99c12dd67a509fe57c10d63e4eeb04"
+    },
+    {
+      "path": "ARKBreedingStats/OffspringPossibilities.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d0e00edd0d1acc41e920405a814a8376d9d7cf22",
+      "size": 1234,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/d0e00edd0d1acc41e920405a814a8376d9d7cf22"
+    },
+    {
+      "path": "ARKBreedingStats/OffspringPossibilities.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "440f18a713400ae773435e8987e87eeb849ce1b6",
+      "size": 8109,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/440f18a713400ae773435e8987e87eeb849ce1b6"
+    },
+    {
+      "path": "ARKBreedingStats/OffspringPossibilities.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1af7de150c99c12dd67a509fe57c10d63e4eeb04",
+      "size": 5698,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1af7de150c99c12dd67a509fe57c10d63e4eeb04"
+    },
+    {
+      "path": "ARKBreedingStats/Pedigree",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f5896d1bef55d672950e75cce96e65be5ecf7732",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/f5896d1bef55d672950e75cce96e65be5ecf7732"
+    },
+    {
+      "path": "ARKBreedingStats/Pedigree/IPedigreeCreature.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7fb453898b901a1a0301b3ad07f1a4eaa6d90155",
+      "size": 920,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/7fb453898b901a1a0301b3ad07f1a4eaa6d90155"
+    },
+    {
+      "path": "ARKBreedingStats/Pedigree/PedigreeControl.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d860590a6e3b82e270dad7b33dabfe834f4f20c7",
+      "size": 16637,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/d860590a6e3b82e270dad7b33dabfe834f4f20c7"
+    },
+    {
+      "path": "ARKBreedingStats/Pedigree/PedigreeControl.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1b52e01da95d5b48cb824d3087a46e18611f546a",
+      "size": 32317,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1b52e01da95d5b48cb824d3087a46e18611f546a"
+    },
+    {
+      "path": "ARKBreedingStats/Pedigree/PedigreeControl.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b2ff64a11300290ddac7e7d9bc26e5e0a766508",
+      "size": 5629,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/8b2ff64a11300290ddac7e7d9bc26e5e0a766508"
+    },
+    {
+      "path": "ARKBreedingStats/Pedigree/PedigreeCreation.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8723d56d46f94d0ea89362c055e920e5b8689182",
+      "size": 25041,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/8723d56d46f94d0ea89362c055e920e5b8689182"
+    },
+    {
+      "path": "ARKBreedingStats/Pedigree/PedigreeCreature.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "758cd05538c7e3bd4f0afce1ffbe5dbb6626eb18",
+      "size": 25106,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/758cd05538c7e3bd4f0afce1ffbe5dbb6626eb18"
+    },
+    {
+      "path": "ARKBreedingStats/Pedigree/PedigreeCreature.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "49c547b01cbb81b127f05a996987b70a6ee01b35",
+      "size": 24154,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/49c547b01cbb81b127f05a996987b70a6ee01b35"
+    },
+    {
+      "path": "ARKBreedingStats/Pedigree/PedigreeCreature.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "68d1a9952a88a98a0121dc689361ecae59708b04",
+      "size": 5831,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/68d1a9952a88a98a0121dc689361ecae59708b04"
+    },
+    {
+      "path": "ARKBreedingStats/Pedigree/PedigreeCreatureCompact.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bcf61d2d62618ecaf522afabacdb309861772bbb",
+      "size": 24022,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/bcf61d2d62618ecaf522afabacdb309861772bbb"
+    },
+    {
+      "path": "ARKBreedingStats/Program.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8adb542adcbae1dc38bb0544c01bcfebe741b20f",
+      "size": 5211,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/8adb542adcbae1dc38bb0544c01bcfebe741b20f"
+    },
+    {
+      "path": "ARKBreedingStats/Properties",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "dcb540218c86d07353acaa809ce83039874c8422",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/dcb540218c86d07353acaa809ce83039874c8422"
+    },
+    {
+      "path": "ARKBreedingStats/Properties/AssemblyInfo.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "038158b75c7a9af067c963c3937a9bbbaf1ad017",
+      "size": 151,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/038158b75c7a9af067c963c3937a9bbbaf1ad017"
+    },
+    {
+      "path": "ARKBreedingStats/Properties/DataSources",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "75d6c7ce78e844242567f7e5c15c4d68bdec8d29",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/75d6c7ce78e844242567f7e5c15c4d68bdec8d29"
+    },
+    {
+      "path": "ARKBreedingStats/Properties/DataSources/ARKBreedingStats.settings.ATImportFileLocation.datasource",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a961bf4df5965e8b03a2146450deb9dd1399417e",
+      "size": 625,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/a961bf4df5965e8b03a2146450deb9dd1399417e"
+    },
+    {
+      "path": "ARKBreedingStats/Properties/Resources.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eaadadb71cfe9fc201afcceca520cc15186a603d",
+      "size": 9358,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/eaadadb71cfe9fc201afcceca520cc15186a603d"
+    },
+    {
+      "path": "ARKBreedingStats/Properties/Resources.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3fce72c71c56f41c2ae0db956d26d502b1423159",
+      "size": 10165,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/3fce72c71c56f41c2ae0db956d26d502b1423159"
+    },
+    {
+      "path": "ARKBreedingStats/Properties/Settings.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "059680a69fcfec02ce9e50afdbec203a26ac9465",
+      "size": 118153,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/059680a69fcfec02ce9e50afdbec203a26ac9465"
+    },
+    {
+      "path": "ARKBreedingStats/Properties/Settings.settings",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "87945a91eecbc4e5d0500ad095aa98a3afc21848",
+      "size": 36034,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/87945a91eecbc4e5d0500ad095aa98a3afc21848"
+    },
+    {
+      "path": "ARKBreedingStats/RadarChart.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "14f39f7bcae93281c3ab5fd3e6a0c5f3aac6e2a5",
+      "size": 13300,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/14f39f7bcae93281c3ab5fd3e6a0c5f3aac6e2a5"
+    },
+    {
+      "path": "ARKBreedingStats/Resources",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "259cc4d0b1fe66d79d837c9affc1aa346bb9e341",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/259cc4d0b1fe66d79d837c9affc1aa346bb9e341"
+    },
+    {
+      "path": "ARKBreedingStats/Resources/ARKSmartBreeding.ico",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2de68efda2b825c47807bf4197552338b6393c20",
+      "size": 63847,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/2de68efda2b825c47807bf4197552338b6393c20"
+    },
+    {
+      "path": "ARKBreedingStats/Resources/failure.wav",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "39edc6c1e0dd6ce25e03455eb63cb06db662404a",
+      "size": 30608,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/39edc6c1e0dd6ce25e03455eb63cb06db662404a"
+    },
+    {
+      "path": "ARKBreedingStats/Resources/indifferent.wav",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5b7d8f6d2d658d4eeeee0763eea20c5e2ffa760b",
+      "size": 40786,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/5b7d8f6d2d658d4eeeee0763eea20c5e2ffa760b"
+    },
+    {
+      "path": "ARKBreedingStats/Resources/kofi.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "697ade0db30ece9c8883ec732700eb0ef5eea07f",
+      "size": 10543,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/697ade0db30ece9c8883ec732700eb0ef5eea07f"
+    },
+    {
+      "path": "ARKBreedingStats/Resources/lock.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0c7742ecd9c412d842f4ce19c1ee9a4c4a0c38df",
+      "size": 175,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/0c7742ecd9c412d842f4ce19c1ee9a4c4a0c38df"
+    },
+    {
+      "path": "ARKBreedingStats/Resources/newColor.wav",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6b118f53c3214a8d86fd7a32a54118a3e2faa702",
+      "size": 66264,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/6b118f53c3214a8d86fd7a32a54118a3e2faa702"
+    },
+    {
+      "path": "ARKBreedingStats/Resources/newDesiredColor.wav",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4444797b209515355aa3335158ea866c297e6e47",
+      "size": 66264,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/4444797b209515355aa3335158ea866c297e6e47"
+    },
+    {
+      "path": "ARKBreedingStats/Resources/newMutation.wav",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "82faae579c7a2537b1a7095af879b952435257ab",
+      "size": 66264,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/82faae579c7a2537b1a7095af879b952435257ab"
+    },
+    {
+      "path": "ARKBreedingStats/Resources/newPlayer.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f2c7fc9836da103352278afa702f88fc1241d2c8",
+      "size": 278,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/f2c7fc9836da103352278afa702f88fc1241d2c8"
+    },
+    {
+      "path": "ARKBreedingStats/Resources/newRegionColor.wav",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6bca549b867808f0e981d692c681db2a26d9f222",
+      "size": 66264,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/6bca549b867808f0e981d692c681db2a26d9f222"
+    },
+    {
+      "path": "ARKBreedingStats/Resources/newTribe.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "74b76c18ba3666175464a61d9c4be2b95491a617",
+      "size": 349,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/74b76c18ba3666175464a61d9c4be2b95491a617"
+    },
+    {
+      "path": "ARKBreedingStats/Resources/newtopstat.wav",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7d79aa97706c378d983dcc8624f9548b3bc69f03",
+      "size": 71316,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/7d79aa97706c378d983dcc8624f9548b3bc69f03"
+    },
+    {
+      "path": "ARKBreedingStats/Resources/open.gif",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c3e1ac54a48cd70a4c722662bebfbb04b9bb9338",
+      "size": 1006,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/c3e1ac54a48cd70a4c722662bebfbb04b9bb9338"
+    },
+    {
+      "path": "ARKBreedingStats/Resources/pen.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "716a136d6b0891885d7d58b6710ca4a4e5f11bd8",
+      "size": 183,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/716a136d6b0891885d7d58b6710ca4a4e5f11bd8"
+    },
+    {
+      "path": "ARKBreedingStats/Resources/settings.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "42b6d4c62a3d3e612b4f978c9760f94c40f72415",
+      "size": 626,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/42b6d4c62a3d3e612b4f978c9760f94c40f72415"
+    },
+    {
+      "path": "ARKBreedingStats/Resources/success.wav",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bd402eea1ac10c8e4dd99e59fcf59432ce22e37d",
+      "size": 30608,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/bd402eea1ac10c8e4dd99e59fcf59432ce22e37d"
+    },
+    {
+      "path": "ARKBreedingStats/Resources/topstat.wav",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1bd3ae0b2cc06546333ddc2452ecb07892358ed5",
+      "size": 50962,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1bd3ae0b2cc06546333ddc2452ecb07892358ed5"
+    },
+    {
+      "path": "ARKBreedingStats/Resources/unlocked.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f3ee95e494434a4183c231441f0e09dc5a8425d1",
+      "size": 180,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/f3ee95e494434a4183c231441f0e09dc5a8425d1"
+    },
+    {
+      "path": "ARKBreedingStats/Resources/updated.wav",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cf03f3275023cd39738820d71b10bbb1413f77e5",
+      "size": 66264,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/cf03f3275023cd39738820d71b10bbb1413f77e5"
+    },
+    {
+      "path": "ARKBreedingStats/Settings.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1748686a01946291053a0e61e1487d1c1e3bc6b1",
+      "size": 1237,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1748686a01946291053a0e61e1487d1c1e3bc6b1"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesImages",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "494a9d4875d7c642f45df7cb5cd1195120e60a60",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/494a9d4875d7c642f45df7cb5cd1195120e60a60"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesImages/CreatureColored.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c41981b094bb34b47675aa3c7e4801710b84aa5b",
+      "size": 25547,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/c41981b094bb34b47675aa3c7e4801710b84aa5b"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesImages/CreatureImageDisplayWithPose.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f3b09dab5e0cc29b86f0dbd188d10f7c5c4a8ef8",
+      "size": 3241,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/f3b09dab5e0cc29b86f0dbd188d10f7c5c4a8ef8"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesImages/CreatureImageFile.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d397c03681557ecdbae0b3713f5fb19561ac805",
+      "size": 16862,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/2d397c03681557ecdbae0b3713f5fb19561ac805"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesImages/CreatureImageParameters.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d26ea75a126d8348223539086a4b1f6ae8c255ed",
+      "size": 5932,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/d26ea75a126d8348223539086a4b1f6ae8c255ed"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesImages/FileHashList.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "04b2c33eeba2d89fae06ec7c0b0c2bd41e6e2567",
+      "size": 391,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/04b2c33eeba2d89fae06ec7c0b0c2bd41e6e2567"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesImages/ImageCollection.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3aa0af517e761df1113a9865abc36df93292eea1",
+      "size": 5847,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/3aa0af517e761df1113a9865abc36df93292eea1"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesImages/ImageCollections.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "529c79745899eb66dcdd2ac77f262c9bf8416065",
+      "size": 11920,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/529c79745899eb66dcdd2ac77f262c9bf8416065"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesImages/ImageComposition.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b267b3b48cd119910cf8ce9dc2c204db94e400b5",
+      "size": 4317,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/b267b3b48cd119910cf8ce9dc2c204db94e400b5"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesImages/ImageCompositionPart.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "60254b1e45ee07be9d0cea9911d17965cbc76790",
+      "size": 6649,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/60254b1e45ee07be9d0cea9911d17965cbc76790"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesImages/ImageCompositions.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f50fc71b49bb7a1b11539e2cf8ff3573ca438d8b",
+      "size": 1391,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/f50fc71b49bb7a1b11539e2cf8ff3573ca438d8b"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesImages/ImagePackSelection.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6ddab208b6f2cbf0b99ad4a7c7379c0dfc4f22cc",
+      "size": 23362,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/6ddab208b6f2cbf0b99ad4a7c7379c0dfc4f22cc"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesImages/ImagePackSelection.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "493ac0187007d1af6ae132f99dee26bf5a34641b",
+      "size": 6396,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/493ac0187007d1af6ae132f99dee26bf5a34641b"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesImages/ImagePackSelection.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "448993e2155a4716f2182a5b354563662e6a1a33",
+      "size": 6118,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/448993e2155a4716f2182a5b354563662e6a1a33"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesImages/ImagesManifest.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "587dced414543d2ccd87578f11c0ea79629a5a79",
+      "size": 7266,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/587dced414543d2ccd87578f11c0ea79629a5a79"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesImages/Poses.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f4165f174bc3f660933b2fb9c6b11625fceaaec5",
+      "size": 2473,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/f4165f174bc3f660933b2fb9c6b11625fceaaec5"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesOptions",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5b62b5f4d7a44fb989ca99c3fcce6b5580997bcd",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/5b62b5f4d7a44fb989ca99c3fcce6b5580997bcd"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesOptions/ColorOptions.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b92dab9702f797c841f355bfe9c1918e67b8748c",
+      "size": 368,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/b92dab9702f797c841f355bfe9c1918e67b8748c"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesOptions/ColorSettings",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5bc105e7f3cf3122e2f76b423f25d357226d54f6",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/5bc105e7f3cf3122e2f76b423f25d357226d54f6"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesOptions/ColorSettings/WantedRegionColors.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9f74a7098e02bfd9d450facbe30be6641dd9c681",
+      "size": 5752,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/9f74a7098e02bfd9d450facbe30be6641dd9c681"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesOptions/ColorSettings/WantedRegionColorsControl.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c2e0457efc2a1faca411c7e608eb83382048b04d",
+      "size": 3556,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/c2e0457efc2a1faca411c7e608eb83382048b04d"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesOptions/LevelColorSettings",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4b27326094e3020f5b93928b5f8a6db925e7e570",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/4b27326094e3020f5b93928b5f8a6db925e7e570"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesOptions/LevelColorSettings/HueControl.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "72d0468a8004599c944d3ccb03a035d5c640f513",
+      "size": 6546,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/72d0468a8004599c944d3ccb03a035d5c640f513"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesOptions/LevelColorSettings/HueControl.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ede734b215854eba4d7075cb477c7553ace07597",
+      "size": 8898,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/ede734b215854eba4d7075cb477c7553ace07597"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesOptions/LevelColorSettings/HueControl.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5dd9f9f59996fbe22755440dbac05d2e49475e93",
+      "size": 5826,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/5dd9f9f59996fbe22755440dbac05d2e49475e93"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesOptions/LevelColorSettings/LevelGraphOptionsControl.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "98bf62d843f4ea7463fd28f7cd1f55afb3687ce6",
+      "size": 3015,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/98bf62d843f4ea7463fd28f7cd1f55afb3687ce6"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesOptions/LevelColorSettings/LevelGraphRepresentation.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "82ff12e85880c00f9108abf9e1fbdffc0994eaa6",
+      "size": 7426,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/82ff12e85880c00f9108abf9e1fbdffc0994eaa6"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesOptions/LevelColorSettings/StatLevelColors.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e503cfee6e3bd69b1b19a04ccc76e16bdd80a854",
+      "size": 4608,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/e503cfee6e3bd69b1b19a04ccc76e16bdd80a854"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesOptions/LevelColorSettings/StatLevelGraphOptionsControl.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "05ab0c0db48d6f2041c5d063a14719d20570c1f2",
+      "size": 7268,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/05ab0c0db48d6f2041c5d063a14719d20570c1f2"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesOptions/LevelColorSettings/StatLevelGraphOptionsControl.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8cb59df025f297a5984e57f585f0e701f7143acd",
+      "size": 4230,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/8cb59df025f297a5984e57f585f0e701f7143acd"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesOptions/LevelColorSettings/StatLevelGraphOptionsControl.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa0ca0f640c5b01bc9cb1e9c600b78dfe3795f98",
+      "size": 5895,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/aa0ca0f640c5b01bc9cb1e9c600b78dfe3795f98"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesOptions/SpeciesOptionBase.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2f3cda0a5ee29f5d49f81beb2815aba2d490c7a1",
+      "size": 621,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/2f3cda0a5ee29f5d49f81beb2815aba2d490c7a1"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesOptions/SpeciesOptionsBase.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b2daa365de15041649e724b454a3b980e6800336",
+      "size": 2443,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/b2daa365de15041649e724b454a3b980e6800336"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesOptions/SpeciesOptionsControl.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "28c21ab1a59af8295c2e807a790cfbb35509e3d4",
+      "size": 14195,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/28c21ab1a59af8295c2e807a790cfbb35509e3d4"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesOptions/SpeciesOptionsSettings.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b0fdd52c88beceacadf298e68f13f1b3f094c886",
+      "size": 9418,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/b0fdd52c88beceacadf298e68f13f1b3f094c886"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesOptions/StatsOptions.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b04836fabaa8213316f69971d1de8d1768348765",
+      "size": 366,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/b04836fabaa8213316f69971d1de8d1768348765"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesOptions/StatsOptionsForm.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7707f0129ee136c9534ee0e1739dad99455b6d90",
+      "size": 3093,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/7707f0129ee136c9534ee0e1739dad99455b6d90"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesOptions/TopStatsSettings",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4f7609c23ddf3d8e2ad34ba1328dee12e6d97f12",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/4f7609c23ddf3d8e2ad34ba1328dee12e6d97f12"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesOptions/TopStatsSettings/ConsiderTopStats.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2c0ea866bdebd3bd20f99ec3493828cb9093b4b5",
+      "size": 1659,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/2c0ea866bdebd3bd20f99ec3493828cb9093b4b5"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesOptions/TopStatsSettings/ConsiderTopStatsControl.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d77fcb428fbe44d839cbaa13b72982637ff49d27",
+      "size": 3324,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/d77fcb428fbe44d839cbaa13b72982637ff49d27"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesSelector.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2190908244d5d5ab560a844cff7c0fea14f719c2",
+      "size": 16740,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/2190908244d5d5ab560a844cff7c0fea14f719c2"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesSelector.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3d3574056db146ce589a24f6538905e970c7e491",
+      "size": 21980,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/3d3574056db146ce589a24f6538905e970c7e491"
+    },
+    {
+      "path": "ARKBreedingStats/SpeciesSelector.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b2ff64a11300290ddac7e7d9bc26e5e0a766508",
+      "size": 5629,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/8b2ff64a11300290ddac7e7d9bc26e5e0a766508"
+    },
+    {
+      "path": "ARKBreedingStats/SpeechRecognition.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0ab09d4717983f1a489b15008c0c1621750b8fef",
+      "size": 6547,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/0ab09d4717983f1a489b15008c0c1621750b8fef"
+    },
+    {
+      "path": "ARKBreedingStats/StatResult.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c8ae0bd152015a3635a401197c322e5d7b9c0872",
+      "size": 748,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/c8ae0bd152015a3635a401197c322e5d7b9c0872"
+    },
+    {
+      "path": "ARKBreedingStats/Stats.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5cb1dc247c9a1d167765c5b68a1424b36fad769f",
+      "size": 5756,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/5cb1dc247c9a1d167765c5b68a1424b36fad769f"
+    },
+    {
+      "path": "ARKBreedingStats/Taming.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f9c0a65ab7676b31b9676c1a01c06a40ea6601d1",
+      "size": 17833,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/f9c0a65ab7676b31b9676c1a01c06a40ea6601d1"
+    },
+    {
+      "path": "ARKBreedingStats/TamingControl.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ff0798431d74a93029923422f7fdbc2d10de4f9c",
+      "size": 34073,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/ff0798431d74a93029923422f7fdbc2d10de4f9c"
+    },
+    {
+      "path": "ARKBreedingStats/TamingControl.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3069fe780d5f6f9d0daaf7d99bbc619cd055d95c",
+      "size": 26128,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/3069fe780d5f6f9d0daaf7d99bbc619cd055d95c"
+    },
+    {
+      "path": "ARKBreedingStats/TamingControl.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9555c9cb146528b600af5841a5f537a71da0fc87",
+      "size": 59842,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/9555c9cb146528b600af5841a5f537a71da0fc87"
+    },
+    {
+      "path": "ARKBreedingStats/TamingFoodControl.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "21f370c81173485430e9e5710830ce7207823bf7",
+      "size": 5566,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/21f370c81173485430e9e5710830ce7207823bf7"
+    },
+    {
+      "path": "ARKBreedingStats/TamingFoodControl.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4bbe8b189611f077243f7e07226d3ab24be45dc3",
+      "size": 3628,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/4bbe8b189611f077243f7e07226d3ab24be45dc3"
+    },
+    {
+      "path": "ARKBreedingStats/TamingFoodControl.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1af7de150c99c12dd67a509fe57c10d63e4eeb04",
+      "size": 5698,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1af7de150c99c12dd67a509fe57c10d63e4eeb04"
+    },
+    {
+      "path": "ARKBreedingStats/TimerControl.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "381a57cd8fadeab00f42a434347454e93ab85d79",
+      "size": 23224,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/381a57cd8fadeab00f42a434347454e93ab85d79"
+    },
+    {
+      "path": "ARKBreedingStats/TimerControl.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4d480d7b771ea91b7ab7914d09b9e5084c287e32",
+      "size": 21139,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/4d480d7b771ea91b7ab7914d09b9e5084c287e32"
+    },
+    {
+      "path": "ARKBreedingStats/TimerControl.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "97e153aa3a083f89f88e990bdd799dcd2c18b383",
+      "size": 6044,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/97e153aa3a083f89f88e990bdd799dcd2c18b383"
+    },
+    {
+      "path": "ARKBreedingStats/TimerListEntry.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "879922b48510a33f20591764473e47232fcb40ed",
+      "size": 2144,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/879922b48510a33f20591764473e47232fcb40ed"
+    },
+    {
+      "path": "ARKBreedingStats/Traits",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b48f1b100205a000f2fda53c6cc1394d8f6c9306",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/b48f1b100205a000f2fda53c6cc1394d8f6c9306"
+    },
+    {
+      "path": "ARKBreedingStats/Traits/CreatureTrait.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9a2e171a1a913428db60368001e8e5599d551c74",
+      "size": 3432,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/9a2e171a1a913428db60368001e8e5599d551c74"
+    },
+    {
+      "path": "ARKBreedingStats/Traits/TraitDefinition.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fefcbe2e91b8cd3bf10e7001679426372642f981",
+      "size": 4020,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/fefcbe2e91b8cd3bf10e7001679426372642f981"
+    },
+    {
+      "path": "ARKBreedingStats/TribesControl.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2a4768a6cf14bdb16063877b4f1a6c5c02d812b7",
+      "size": 23662,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/2a4768a6cf14bdb16063877b4f1a6c5c02d812b7"
+    },
+    {
+      "path": "ARKBreedingStats/TribesControl.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cb6a7b05ccc17fb20ab36dc03608b875b1c32f1d",
+      "size": 17159,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/cb6a7b05ccc17fb20ab36dc03608b875b1c32f1d"
+    },
+    {
+      "path": "ARKBreedingStats/TribesControl.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b2ff64a11300290ddac7e7d9bc26e5e0a766508",
+      "size": 5629,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/8b2ff64a11300290ddac7e7d9bc26e5e0a766508"
+    },
+    {
+      "path": "ARKBreedingStats/Updater",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "25bb2aad4a54a16d42ed6aa860c7c34f7815e0b0",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/25bb2aad4a54a16d42ed6aa860c7c34f7815e0b0"
+    },
+    {
+      "path": "ARKBreedingStats/Updater/AsbManifest.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7d34cc0faeef9ecdf79fc0502d6ccf1226cf35d1",
+      "size": 1411,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/7d34cc0faeef9ecdf79fc0502d6ccf1226cf35d1"
+    },
+    {
+      "path": "ARKBreedingStats/Updater/AsbModule.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "45b95d88de4745187364cf98de4c65211d11fdb0",
+      "size": 6696,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/45b95d88de4745187364cf98de4c65211d11fdb0"
+    },
+    {
+      "path": "ARKBreedingStats/Updater/UpdateModules.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "08172d691582ad354c4180fbe204ec0cfbfa4ea1",
+      "size": 5552,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/08172d691582ad354c4180fbe204ec0cfbfa4ea1"
+    },
+    {
+      "path": "ARKBreedingStats/Updater/UpdateModules.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "99bfebfa74e3541e3d4661e46cc240b19e12bab2",
+      "size": 8148,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/99bfebfa74e3541e3d4661e46cc240b19e12bab2"
+    },
+    {
+      "path": "ARKBreedingStats/Updater/UpdateModules.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1af7de150c99c12dd67a509fe57c10d63e4eeb04",
+      "size": 5698,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1af7de150c99c12dd67a509fe57c10d63e4eeb04"
+    },
+    {
+      "path": "ARKBreedingStats/Updater/Updater.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b6af2149684da652be25003657c9cd51cf4bae39",
+      "size": 13837,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/b6af2149684da652be25003657c9cd51cf4bae39"
+    },
+    {
+      "path": "ARKBreedingStats/Updater/ValueModule.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "de7511440f76871c77a620fd8d487d75dbb02231",
+      "size": 520,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/de7511440f76871c77a620fd8d487d75dbb02231"
+    },
+    {
+      "path": "ARKBreedingStats/Utils.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "567fdf4529a69d2c2dfaea8ea505402e9dcc6009",
+      "size": 30947,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/567fdf4529a69d2c2dfaea8ea505402e9dcc6009"
+    },
+    {
+      "path": "ARKBreedingStats/_manifest.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7df22d5f3fb2f899d7859e7662da25a4cc5e4633",
+      "size": 827,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/7df22d5f3fb2f899d7859e7662da25a4cc5e4633"
+    },
+    {
+      "path": "ARKBreedingStats/duplicates",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "86726b53b7d9017cdbc89c326c1f174b574bc75f",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/86726b53b7d9017cdbc89c326c1f174b574bc75f"
+    },
+    {
+      "path": "ARKBreedingStats/duplicates/MergingDuplicates.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3522d87829258f74324cb03dc339b77271cd7667",
+      "size": 5029,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/3522d87829258f74324cb03dc339b77271cd7667"
+    },
+    {
+      "path": "ARKBreedingStats/duplicates/MergingDuplicatesUI.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f2bc9ae9dd6ce1214ebb6d302dd7cdf77bfc5f87",
+      "size": 10582,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/f2bc9ae9dd6ce1214ebb6d302dd7cdf77bfc5f87"
+    },
+    {
+      "path": "ARKBreedingStats/duplicates/MergingDuplicatesUI.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e0944a3a5b42ae6286f3f8597a15de6d93c59b00",
+      "size": 574,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/e0944a3a5b42ae6286f3f8597a15de6d93c59b00"
+    },
+    {
+      "path": "ARKBreedingStats/duplicates/MergingDuplicatesUI.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1af7de150c99c12dd67a509fe57c10d63e4eeb04",
+      "size": 5698,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1af7de150c99c12dd67a509fe57c10d63e4eeb04"
+    },
+    {
+      "path": "ARKBreedingStats/duplicates/MergingDuplicatesWindow.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cab7ff899845af56c533a1946977fcbd23a9bcf2",
+      "size": 11854,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/cab7ff899845af56c533a1946977fcbd23a9bcf2"
+    },
+    {
+      "path": "ARKBreedingStats/duplicates/MergingDuplicatesWindow.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7f5ae3e9bda18696bcae4098cc061e7014170c25",
+      "size": 1100,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/7f5ae3e9bda18696bcae4098cc061e7014170c25"
+    },
+    {
+      "path": "ARKBreedingStats/duplicates/MergingDuplicatesWindow.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1af7de150c99c12dd67a509fe57c10d63e4eeb04",
+      "size": 5698,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1af7de150c99c12dd67a509fe57c10d63e4eeb04"
+    },
+    {
+      "path": "ARKBreedingStats/importExportGun",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "2481da3ac222b9de8755e85a2ccd48b7eae86f69",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/2481da3ac222b9de8755e85a2ccd48b7eae86f69"
+    },
+    {
+      "path": "ARKBreedingStats/importExportGun/ExportGunCreatureFile.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e997a4f944cc48a9b11c418c09765d07ad8c27e8",
+      "size": 3517,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/e997a4f944cc48a9b11c418c09765d07ad8c27e8"
+    },
+    {
+      "path": "ARKBreedingStats/importExportGun/ExportGunFileExtensions.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "537c65c9073abea6e1275cece44606c96b71ca60",
+      "size": 1654,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/537c65c9073abea6e1275cece44606c96b71ca60"
+    },
+    {
+      "path": "ARKBreedingStats/importExportGun/ExportGunServerFile.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "739457777ddc47696e483413027ea0ae0b5b9484",
+      "size": 1876,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/739457777ddc47696e483413027ea0ae0b5b9484"
+    },
+    {
+      "path": "ARKBreedingStats/importExportGun/ImportExportGun.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5a884fe9ec3f5fa079fc81f4b371501ded0999a9",
+      "size": 19496,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/5a884fe9ec3f5fa079fc81f4b371501ded0999a9"
+    },
+    {
+      "path": "ARKBreedingStats/importExportGun/ReadExportFile.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d905901d9c30243f4157a0d1c89d3087f71779e8",
+      "size": 5913,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/d905901d9c30243f4157a0d1c89d3087f71779e8"
+    },
+    {
+      "path": "ARKBreedingStats/importExported",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c10833132c9b33e02dad94d36284a557cb4ba94e",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/c10833132c9b33e02dad94d36284a557cb4ba94e"
+    },
+    {
+      "path": "ARKBreedingStats/importExported/ExportedCreatureControl.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dcc84ec7db646b7d229127109e2ecff47c9e5167",
+      "size": 4119,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/dcc84ec7db646b7d229127109e2ecff47c9e5167"
+    },
+    {
+      "path": "ARKBreedingStats/importExported/ExportedCreatureControl.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "23064ec8f3e9987034565f61a75218d9d6cfd8f3",
+      "size": 5137,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/23064ec8f3e9987034565f61a75218d9d6cfd8f3"
+    },
+    {
+      "path": "ARKBreedingStats/importExported/ExportedCreatureControl.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1af7de150c99c12dd67a509fe57c10d63e4eeb04",
+      "size": 5698,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1af7de150c99c12dd67a509fe57c10d63e4eeb04"
+    },
+    {
+      "path": "ARKBreedingStats/importExported/ExportedCreatureList.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b18ee5dbe37193ddb7a7a7f9ca6a3fef40880653",
+      "size": 21991,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/b18ee5dbe37193ddb7a7a7f9ca6a3fef40880653"
+    },
+    {
+      "path": "ARKBreedingStats/importExported/ExportedCreatureList.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ab42e0dd2801960987fda0e25a1a5468702aea43",
+      "size": 26621,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/ab42e0dd2801960987fda0e25a1a5468702aea43"
+    },
+    {
+      "path": "ARKBreedingStats/importExported/ExportedCreatureList.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "864ee1adf6afb1ba959a7f86d82c5790d77f5216",
+      "size": 6287,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/864ee1adf6afb1ba959a7f86d82c5790d77f5216"
+    },
+    {
+      "path": "ARKBreedingStats/importExported/FileWatcherExports.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8ad4d3ec68aaca50a9d7b14300ccf3ba000a8edf",
+      "size": 2470,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/8ad4d3ec68aaca50a9d7b14300ccf3ba000a8edf"
+    },
+    {
+      "path": "ARKBreedingStats/importExported/ImportExported.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8bccab808682ef51312ec5425832a134f8ea5558",
+      "size": 10576,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/8bccab808682ef51312ec5425832a134f8ea5558"
+    },
+    {
+      "path": "ARKBreedingStats/json",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "3727cfeeb09a9582155a4319a5ce575afe23460f",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/3727cfeeb09a9582155a4319a5ce575afe23460f"
+    },
+    {
+      "path": "ARKBreedingStats/json/aliases.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "574333479bfd359f7c802cde3645e6b683a94cb3",
+      "size": 2264,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/574333479bfd359f7c802cde3645e6b683a94cb3"
+    },
+    {
+      "path": "ARKBreedingStats/json/canHaveWildLevelExceptions.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a14090bbcde420afa09eadd9c43c52f9aa3acfd1",
+      "size": 70,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/a14090bbcde420afa09eadd9c43c52f9aa3acfd1"
+    },
+    {
+      "path": "ARKBreedingStats/json/creatureNamesF.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "784baa652a90b0bdbacb43c3ba7ee26dfe6bc617",
+      "size": 250,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/784baa652a90b0bdbacb43c3ba7ee26dfe6bc617"
+    },
+    {
+      "path": "ARKBreedingStats/json/creatureNamesM.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "062216f24e6e27a85a916d2514f648d883d98d72",
+      "size": 135,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/062216f24e6e27a85a916d2514f648d883d98d72"
+    },
+    {
+      "path": "ARKBreedingStats/json/creatureNamesU.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "71d013db1b8ce8ffb38a24ac95b7a03b4aa71cee",
+      "size": 169,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/71d013db1b8ce8ffb38a24ac95b7a03b4aa71cee"
+    },
+    {
+      "path": "ARKBreedingStats/json/ignoreSpeciesClasses.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7b701bddcf4dc7d4dfe08ee4cf45f60c3b32c539",
+      "size": 250,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/7b701bddcf4dc7d4dfe08ee4cf45f60c3b32c539"
+    },
+    {
+      "path": "ARKBreedingStats/json/imagePacks.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1118246ec99463daffddd89f636fe7d093205a85",
+      "size": 332,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1118246ec99463daffddd89f636fe7d093205a85"
+    },
+    {
+      "path": "ARKBreedingStats/json/kibbles.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7e7a051244933e577af8279fc976364fb13f712a",
+      "size": 645,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/7e7a051244933e577af8279fc976364fb13f712a"
+    },
+    {
+      "path": "ARKBreedingStats/json/namePatternTemplates.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "06f46570f41ae4df0158f3a09cd92c11394766f8",
+      "size": 4323,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/06f46570f41ae4df0158f3a09cd92c11394766f8"
+    },
+    {
+      "path": "ARKBreedingStats/json/ocr",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "6caa4cdcf1d396a3656b87fe694f5308523f3baf",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/6caa4cdcf1d396a3656b87fe694f5308523f3baf"
+    },
+    {
+      "path": "ARKBreedingStats/json/ocr/ocr_1920x1080_100.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e06d6e7116a1b769a06c8a0a1cb0c5a2db2ebbf6",
+      "size": 12804,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/e06d6e7116a1b769a06c8a0a1cb0c5a2db2ebbf6"
+    },
+    {
+      "path": "ARKBreedingStats/json/ocr/ocr_2560x1440_100.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b4175b9944f75ed18483dbe9d96b3b43c6de760",
+      "size": 15997,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/8b4175b9944f75ed18483dbe9d96b3b43c6de760"
+    },
+    {
+      "path": "ARKBreedingStats/json/serverMultipliers.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6739b2bcd75e8c368753ca7c631322b2bc2a804a",
+      "size": 1954,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/6739b2bcd75e8c368753ca7c631322b2bc2a804a"
+    },
+    {
+      "path": "ARKBreedingStats/json/sortNames.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ec02e4777d91e4355d492a36e263c034c8c16777",
+      "size": 19,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/ec02e4777d91e4355d492a36e263c034c8c16777"
+    },
+    {
+      "path": "ARKBreedingStats/json/speciesSpecificExtractionFails.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3074ba78803a8a4b32333e2d7f615157e379d64a",
+      "size": 760,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/3074ba78803a8a4b32333e2d7f615157e379d64a"
+    },
+    {
+      "path": "ARKBreedingStats/json/tamingFoodData.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c3ddceb8c0de1341b382bb408509a20abdacfb03",
+      "size": 103649,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/c3ddceb8c0de1341b382bb408509a20abdacfb03"
+    },
+    {
+      "path": "ARKBreedingStats/json/traitDefinitions.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e5da30cf04db9dd1208ac7d552f331c76aad3fc3",
+      "size": 11412,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/e5da30cf04db9dd1208ac7d552f331c76aad3fc3"
+    },
+    {
+      "path": "ARKBreedingStats/json/values",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "71ead9a9add7e2c8e5c33e4cbdcff565d442b3b7",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/71ead9a9add7e2c8e5c33e4cbdcff565d442b3b7"
+    },
+    {
+      "path": "ARKBreedingStats/json/values/ASA-values.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0af6e1359842ef1995c6d7d08667e48221441ae2",
+      "size": 1194747,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/0af6e1359842ef1995c6d7d08667e48221441ae2"
+    },
+    {
+      "path": "ARKBreedingStats/json/values/ATLAS",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d2097f489f71838d9930a18afc79cdec897de721",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/d2097f489f71838d9930a18afc79cdec897de721"
+    },
+    {
+      "path": "ARKBreedingStats/json/values/ATLAS/ATLAS_values.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5491b85658070174217a7d3d16c58d5083d4fa0a",
+      "size": 103282,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/5491b85658070174217a7d3d16c58d5083d4fa0a"
+    },
+    {
+      "path": "ARKBreedingStats/json/values/ATLAS/_manifestCustom.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f997803f81f045a676f5c351111eeef9c2f9a6bb",
+      "size": 301,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/f997803f81f045a676f5c351111eeef9c2f9a6bb"
+    },
+    {
+      "path": "ARKBreedingStats/json/values/_manifest.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6c8ca7d3968da329c91cc340d5bb8bd8cf934be2",
+      "size": 40400,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/6c8ca7d3968da329c91cc340d5bb8bd8cf934be2"
+    },
+    {
+      "path": "ARKBreedingStats/json/values/values.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3ac99156c28b6464dffd28aef06d28272f94a551",
+      "size": 2536263,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/3ac99156c28b6464dffd28aef06d28272f94a551"
+    },
+    {
+      "path": "ARKBreedingStats/json/variantsDefaultUnselected.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2a9f22b76f00d56562e1a15807bcd6290134fe96",
+      "size": 161,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/2a9f22b76f00d56562e1a15807bcd6290134fe96"
+    },
+    {
+      "path": "ARKBreedingStats/leveling",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "97efb50b964c3ad9b5c4a30b2a87cd837ebe2094",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/97efb50b964c3ad9b5c4a30b2a87cd837ebe2094"
+    },
+    {
+      "path": "ARKBreedingStats/leveling/LevelAllocationSolver.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6e43ee37396aca155374890d1e0c48c1ce07851c",
+      "size": 11727,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/6e43ee37396aca155374890d1e0c48c1ce07851c"
+    },
+    {
+      "path": "ARKBreedingStats/leveling/LevelSolverControl.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2f49533c74aa5bfdd085a498b5d36e5f96495734",
+      "size": 26157,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/2f49533c74aa5bfdd085a498b5d36e5f96495734"
+    },
+    {
+      "path": "ARKBreedingStats/library",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "da88855e29a7ed21fc1838c8cf6e01aa053bb790",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/da88855e29a7ed21fc1838c8cf6e01aa053bb790"
+    },
+    {
+      "path": "ARKBreedingStats/library/AddDummyCreaturesSettings.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3a33cb5c50d83d27a351958194826cee99f8184e",
+      "size": 23699,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/3a33cb5c50d83d27a351958194826cee99f8184e"
+    },
+    {
+      "path": "ARKBreedingStats/library/AddDummyCreaturesSettings.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4d0834384ed545f3bc67e355dc0a14142004a615",
+      "size": 3099,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/4d0834384ed545f3bc67e355dc0a14142004a615"
+    },
+    {
+      "path": "ARKBreedingStats/library/AddDummyCreaturesSettings.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0423caf02bd3c843431d3ff21cdce3216b41a479",
+      "size": 5825,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/0423caf02bd3c843431d3ff21cdce3216b41a479"
+    },
+    {
+      "path": "ARKBreedingStats/library/ArkConsoleCommands.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "05456f122d8f5e1b8e1d6359ea8bc721f38ffd79",
+      "size": 8215,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/05456f122d8f5e1b8e1d6359ea8bc721f38ffd79"
+    },
+    {
+      "path": "ARKBreedingStats/library/Creature.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c4936c34b7bc0e19b77c448bb9219304b40e0de2",
+      "size": 29108,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/c4936c34b7bc0e19b77c448bb9219304b40e0de2"
+    },
+    {
+      "path": "ARKBreedingStats/library/CreatureCollection.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cf4c28511de60126cb28ef6ed967309cac2ab001",
+      "size": 32831,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/cf4c28511de60126cb28ef6ed967309cac2ab001"
+    },
+    {
+      "path": "ARKBreedingStats/library/CreatureValues.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9f569bb335fc4f17486321a6bbd6cf6964b93898",
+      "size": 6105,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/9f569bb335fc4f17486321a6bbd6cf6964b93898"
+    },
+    {
+      "path": "ARKBreedingStats/library/DummyCreatures.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e749f617801e26965571decaff066788248fdc36",
+      "size": 23610,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/e749f617801e26965571decaff066788248fdc36"
+    },
+    {
+      "path": "ARKBreedingStats/library/ExportImportCreatures.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c69f589a0a61f358f0503ec80fcd893ff8b9deea",
+      "size": 24968,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/c69f589a0a61f358f0503ec80fcd893ff8b9deea"
+    },
+    {
+      "path": "ARKBreedingStats/library/LevelColorStatusFlags.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "122c2ffc0958f2ea54a67dcf0cc21530af6a83bf",
+      "size": 8809,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/122c2ffc0958f2ea54a67dcf0cc21530af6a83bf"
+    },
+    {
+      "path": "ARKBreedingStats/library/Note.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d29c3fa69f1881acc9c2c01438fadf390005f4c6",
+      "size": 242,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/d29c3fa69f1881acc9c2c01438fadf390005f4c6"
+    },
+    {
+      "path": "ARKBreedingStats/library/Player.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "10e20eceb8afdfbdefcd5d92f8cefa4c48ecfd11",
+      "size": 220,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/10e20eceb8afdfbdefcd5d92f8cefa4c48ecfd11"
+    },
+    {
+      "path": "ARKBreedingStats/library/TopLevels.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b58ad4b53e819004fc7bf11de74375493d3617ca",
+      "size": 1870,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/b58ad4b53e819004fc7bf11de74375493d3617ca"
+    },
+    {
+      "path": "ARKBreedingStats/library/Tribe.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7227e9ada180662245004676edbea762fe727cc0",
+      "size": 345,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/7227e9ada180662245004676edbea762fe727cc0"
+    },
+    {
+      "path": "ARKBreedingStats/local",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "3d31aea2c91898b101aca30da983f3e471fb1d7a",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/3d31aea2c91898b101aca30da983f3e471fb1d7a"
+    },
+    {
+      "path": "ARKBreedingStats/local/strings.de.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b7fdb42e80866f97d407ac494f36c48561753c0b",
+      "size": 56255,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/b7fdb42e80866f97d407ac494f36c48561753c0b"
+    },
+    {
+      "path": "ARKBreedingStats/local/strings.es.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6970df5558ff4fa1efc958c8f12592caae39fe8e",
+      "size": 41738,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/6970df5558ff4fa1efc958c8f12592caae39fe8e"
+    },
+    {
+      "path": "ARKBreedingStats/local/strings.fr.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ce99fd29d9130e01c1b6773bf546f12028427154",
+      "size": 58350,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/ce99fd29d9130e01c1b6773bf546f12028427154"
+    },
+    {
+      "path": "ARKBreedingStats/local/strings.it.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e94234a2828f0ca4e3053f46fb542f873406163b",
+      "size": 39366,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/e94234a2828f0ca4e3053f46fb542f873406163b"
+    },
+    {
+      "path": "ARKBreedingStats/local/strings.ja.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a30efdf163df2a6586513b24cc54f3672838b371",
+      "size": 55162,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/a30efdf163df2a6586513b24cc54f3672838b371"
+    },
+    {
+      "path": "ARKBreedingStats/local/strings.pl.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e7087e2f28769e99dbd40eb5846b5fe4f2e2c233",
+      "size": 47498,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/e7087e2f28769e99dbd40eb5846b5fe4f2e2c233"
+    },
+    {
+      "path": "ARKBreedingStats/local/strings.pt-br.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "19da33274779dc28e4e6639ddbbdfe5cfa0e46fa",
+      "size": 55250,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/19da33274779dc28e4e6639ddbbdfe5cfa0e46fa"
+    },
+    {
+      "path": "ARKBreedingStats/local/strings.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8ba3602b6671843a71f50b89f41d7315b54eda91",
+      "size": 57397,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/8ba3602b6671843a71f50b89f41d7315b54eda91"
+    },
+    {
+      "path": "ARKBreedingStats/local/strings.ru.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b983cb23a72e6b1bcecdcd12456558b7502dfbc8",
+      "size": 62422,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/b983cb23a72e6b1bcecdcd12456558b7502dfbc8"
+    },
+    {
+      "path": "ARKBreedingStats/local/strings.tr.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "89fddcc2d5460302b8086a8e0617f9fd88208ca6",
+      "size": 21340,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/89fddcc2d5460302b8086a8e0617f9fd88208ca6"
+    },
+    {
+      "path": "ARKBreedingStats/local/strings.zh-tw.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "010ac7bd521e4dfd785a12b7486dca34fdc356a6",
+      "size": 51816,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/010ac7bd521e4dfd785a12b7486dca34fdc356a6"
+    },
+    {
+      "path": "ARKBreedingStats/local/strings.zh.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "200c5987527c29c0189a893ce0ecb6d8760dfac1",
+      "size": 38586,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/200c5987527c29c0189a893ce0ecb6d8760dfac1"
+    },
+    {
+      "path": "ARKBreedingStats/miscClasses",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ca6694dd1c59d07651f1b06ca6a50c4e77352631",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/ca6694dd1c59d07651f1b06ca6a50c4e77352631"
+    },
+    {
+      "path": "ARKBreedingStats/miscClasses/Encryption.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dabe074ebd42a136ba7f09db2fe3cad8084402cc",
+      "size": 4513,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/dabe074ebd42a136ba7f09db2fe3cad8084402cc"
+    },
+    {
+      "path": "ARKBreedingStats/miscClasses/FtpCredentials.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "693c24fe5505618c37038ca153d619bc7e24a58a",
+      "size": 181,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/693c24fe5505618c37038ca153d619bc7e24a58a"
+    },
+    {
+      "path": "ARKBreedingStats/miscClasses/IssueNotes.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d8cfaa6e006ce6605e35b8c8db085bcf1ca30d42",
+      "size": 3781,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/d8cfaa6e006ce6605e35b8c8db085bcf1ca30d42"
+    },
+    {
+      "path": "ARKBreedingStats/miscClasses/ValueMinMax.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b6676d347144216a0631c498b7ba6ef9d460ba2f",
+      "size": 4168,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/b6676d347144216a0631c498b7ba6ef9d460ba2f"
+    },
+    {
+      "path": "ARKBreedingStats/mods",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "fc2a136dfc75ef9986c5918a8aaf77ad9aa8fe8d",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/fc2a136dfc75ef9986c5918a8aaf77ad9aa8fe8d"
+    },
+    {
+      "path": "ARKBreedingStats/mods/CustomStatOverridesEditor.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d06b6e300af30a1bc8490e89a1149058cc460539",
+      "size": 19858,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/d06b6e300af30a1bc8490e89a1149058cc460539"
+    },
+    {
+      "path": "ARKBreedingStats/mods/CustomStatOverridesEditor.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8f489696e957dbb2b06f00dc640d9ed33b1a5ba2",
+      "size": 10697,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/8f489696e957dbb2b06f00dc640d9ed33b1a5ba2"
+    },
+    {
+      "path": "ARKBreedingStats/mods/CustomStatOverridesEditor.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d5494e3059c87919b94557df37b22e34d7b39fe9",
+      "size": 5893,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/d5494e3059c87919b94557df37b22e34d7b39fe9"
+    },
+    {
+      "path": "ARKBreedingStats/mods/HandleUnknownMods.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4827919a04d6aff6538cfe8e835074a7923a36bc",
+      "size": 3702,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/4827919a04d6aff6538cfe8e835074a7923a36bc"
+    },
+    {
+      "path": "ARKBreedingStats/mods/Mod.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3eddf4e08e252465a133880ecf03b313908d1a3b",
+      "size": 3450,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/3eddf4e08e252465a133880ecf03b313908d1a3b"
+    },
+    {
+      "path": "ARKBreedingStats/mods/ModInfo.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "361d5d8c2ad4712817405cd16d9a868f755a86ea",
+      "size": 1742,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/361d5d8c2ad4712817405cd16d9a868f755a86ea"
+    },
+    {
+      "path": "ARKBreedingStats/mods/ModValuesManager.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ef42933fe65b36f769fc5b64e718560da3be2b0f",
+      "size": 31047,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/ef42933fe65b36f769fc5b64e718560da3be2b0f"
+    },
+    {
+      "path": "ARKBreedingStats/mods/ModValuesManager.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3dcad7e843e9b9a4694bc5f3b7488810b4955965",
+      "size": 12587,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/3dcad7e843e9b9a4694bc5f3b7488810b4955965"
+    },
+    {
+      "path": "ARKBreedingStats/mods/ModValuesManager.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a86b2438fea81bfb8a1fcb77e92ccd6167d89c1e",
+      "size": 5990,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/a86b2438fea81bfb8a1fcb77e92ccd6167d89c1e"
+    },
+    {
+      "path": "ARKBreedingStats/mods/ModsManifest.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3d60718a75feaf0d45fbf8e09074a1c84297c1cd",
+      "size": 8000,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/3d60718a75feaf0d45fbf8e09074a1c84297c1cd"
+    },
+    {
+      "path": "ARKBreedingStats/mods/StatBaseValuesEdit.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7819a45cdda80eb3e8ede7ce6b4158ccdf67d59a",
+      "size": 9520,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/7819a45cdda80eb3e8ede7ce6b4158ccdf67d59a"
+    },
+    {
+      "path": "ARKBreedingStats/mods/StatBaseValuesEdit.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4cf25b82c1a733ddf95190ecefa32a309ce847ab",
+      "size": 3653,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/4cf25b82c1a733ddf95190ecefa32a309ce847ab"
+    },
+    {
+      "path": "ARKBreedingStats/mods/StatBaseValuesEdit.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1af7de150c99c12dd67a509fe57c10d63e4eeb04",
+      "size": 5698,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1af7de150c99c12dd67a509fe57c10d63e4eeb04"
+    },
+    {
+      "path": "ARKBreedingStats/multiplierTesting",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "88b9a3bad0167df89702251e294627ca14b5d868",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/88b9a3bad0167df89702251e294627ca14b5d868"
+    },
+    {
+      "path": "ARKBreedingStats/multiplierTesting/CalculateMultipliers.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "46e9f3b23040d03b835c547978bfaf2333d218b3",
+      "size": 8824,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/46e9f3b23040d03b835c547978bfaf2333d218b3"
+    },
+    {
+      "path": "ARKBreedingStats/multiplierTesting/SpeciesStatsExtractor.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b783e1cb143ef4dc56254cdc8ad454e0be049fd8",
+      "size": 16468,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/b783e1cb143ef4dc56254cdc8ad454e0be049fd8"
+    },
+    {
+      "path": "ARKBreedingStats/multiplierTesting/StatMultiplierTestingControl.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "13bd6b5990e97e722a85c7f4f33404b615bfd4a3",
+      "size": 52680,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/13bd6b5990e97e722a85c7f4f33404b615bfd4a3"
+    },
+    {
+      "path": "ARKBreedingStats/multiplierTesting/StatMultiplierTestingControl.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2bbd1c32b1b847eebfcf91762a919e3737557ecd",
+      "size": 45874,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/2bbd1c32b1b847eebfcf91762a919e3737557ecd"
+    },
+    {
+      "path": "ARKBreedingStats/multiplierTesting/StatMultiplierTestingControl.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "68d1a9952a88a98a0121dc689361ecae59708b04",
+      "size": 5831,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/68d1a9952a88a98a0121dc689361ecae59708b04"
+    },
+    {
+      "path": "ARKBreedingStats/multiplierTesting/StatsMultiplierTesting.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e04841a1ce07f13a6e75495b4c9b4c24baf21bac",
+      "size": 56500,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/e04841a1ce07f13a6e75495b4c9b4c24baf21bac"
+    },
+    {
+      "path": "ARKBreedingStats/multiplierTesting/StatsMultiplierTesting.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a1a1147a13d5bd189ccc467e7cc8e0b63b840f4d",
+      "size": 40837,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/a1a1147a13d5bd189ccc467e7cc8e0b63b840f4d"
+    },
+    {
+      "path": "ARKBreedingStats/multiplierTesting/StatsMultiplierTesting.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2f7730ea17c9bad70eb9212b211f551b3e700b23",
+      "size": 6350,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/2f7730ea17c9bad70eb9212b211f551b3e700b23"
+    },
+    {
+      "path": "ARKBreedingStats/multiplierTesting/TaTmSolver.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7b50dc57ec0e12fd4a12a0171b0cd2291db09494",
+      "size": 9356,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/7b50dc57ec0e12fd4a12a0171b0cd2291db09494"
+    },
+    {
+      "path": "ARKBreedingStats/ocr",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "970017647b350a2a9539aa69784dfb5891340aec",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/970017647b350a2a9539aa69784dfb5891340aec"
+    },
+    {
+      "path": "ARKBreedingStats/ocr/ArkOCR.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "003c278ea9534b4e577bc7843f7ca35d649413eb",
+      "size": 35148,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/003c278ea9534b4e577bc7843f7ca35d649413eb"
+    },
+    {
+      "path": "ARKBreedingStats/ocr/HammingWeight.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0f678e1e5376dc98de6a012c0a8f605e10cd890b",
+      "size": 1829,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/0f678e1e5376dc98de6a012c0a8f605e10cd890b"
+    },
+    {
+      "path": "ARKBreedingStats/ocr/OCRControl.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2a2c1feba5fbc127303813aabaed2d7925170ab7",
+      "size": 61480,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/2a2c1feba5fbc127303813aabaed2d7925170ab7"
+    },
+    {
+      "path": "ARKBreedingStats/ocr/OCRControl.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3fb991f8e22d1650449af35d9e88dd8d5454210d",
+      "size": 42833,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/3fb991f8e22d1650449af35d9e88dd8d5454210d"
+    },
+    {
+      "path": "ARKBreedingStats/ocr/OCRControl.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4e02a50510c344a78b26f024a68b87f337d894b6",
+      "size": 6829,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/4e02a50510c344a78b26f024a68b87f337d894b6"
+    },
+    {
+      "path": "ARKBreedingStats/ocr/OCRLetterEdit.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "796f729a85510d6768f76046dab34898f765ea0b",
+      "size": 12025,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/796f729a85510d6768f76046dab34898f765ea0b"
+    },
+    {
+      "path": "ARKBreedingStats/ocr/OCRTemplate.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3da6faf235a2702f14624fea44597c075168f0f8",
+      "size": 7945,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/3da6faf235a2702f14624fea44597c075168f0f8"
+    },
+    {
+      "path": "ARKBreedingStats/ocr/PatternMatching",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1a62ab4075707b40d5d9c9277fdeba55bf4b9f57",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/1a62ab4075707b40d5d9c9277fdeba55bf4b9f57"
+    },
+    {
+      "path": "ARKBreedingStats/ocr/PatternMatching/Boolean2DimArrayConverter.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "efda383f5f9457f18c20d99c665de856836121de",
+      "size": 3158,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/efda383f5f9457f18c20d99c665de856836121de"
+    },
+    {
+      "path": "ARKBreedingStats/ocr/PatternMatching/Coords.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "41096472c408de8069745eec52e296159b19418a",
+      "size": 245,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/41096472c408de8069745eec52e296159b19418a"
+    },
+    {
+      "path": "ARKBreedingStats/ocr/PatternMatching/CoordsData.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0f79e4d3f7b0df9de6ab87b5dcfc3a271170efa1",
+      "size": 1931,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/0f79e4d3f7b0df9de6ab87b5dcfc3a271170efa1"
+    },
+    {
+      "path": "ARKBreedingStats/ocr/PatternMatching/DirectBitmap.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "48a813e8c72005c397fc87127dea05fdb193b904",
+      "size": 2520,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/48a813e8c72005c397fc87127dea05fdb193b904"
+    },
+    {
+      "path": "ARKBreedingStats/ocr/PatternMatching/ImageUtils.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a225a95b02b73c7ec5d42f7374081dc419bba8bc",
+      "size": 1286,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/a225a95b02b73c7ec5d42f7374081dc419bba8bc"
+    },
+    {
+      "path": "ARKBreedingStats/ocr/PatternMatching/OcrUtils.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "01108475ce8edd4d9500de7c9a2cb2d9bbf60011",
+      "size": 664,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/01108475ce8edd4d9500de7c9a2cb2d9bbf60011"
+    },
+    {
+      "path": "ARKBreedingStats/ocr/PatternMatching/Pattern.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "680e154accdf572feb86ac6bd08d20b206948da9",
+      "size": 9925,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/680e154accdf572feb86ac6bd08d20b206948da9"
+    },
+    {
+      "path": "ARKBreedingStats/ocr/PatternMatching/PatternOcr.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bfce88bfc3c3210ffa707848bf1c693646c026d8",
+      "size": 11734,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/bfce88bfc3c3210ffa707848bf1c693646c026d8"
+    },
+    {
+      "path": "ARKBreedingStats/ocr/PatternMatching/RecognitionPatterns.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a648dca98fbe5011e5e60bd7efd86c31a9b8540d",
+      "size": 14227,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/a648dca98fbe5011e5e60bd7efd86c31a9b8540d"
+    },
+    {
+      "path": "ARKBreedingStats/ocr/PatternMatching/RecognitionTrainingForm.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a05413764b9f4760b3c58c7367c3aa1bac131ab8",
+      "size": 3796,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/a05413764b9f4760b3c58c7367c3aa1bac131ab8"
+    },
+    {
+      "path": "ARKBreedingStats/ocr/PatternMatching/RecognitionTrainingForm.designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d2da4b1c882e062b364bbc1d13fa5a2850e261e9",
+      "size": 7466,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/d2da4b1c882e062b364bbc1d13fa5a2850e261e9"
+    },
+    {
+      "path": "ARKBreedingStats/ocr/PatternMatching/RecognitionTrainingForm.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1af7de150c99c12dd67a509fe57c10d63e4eeb04",
+      "size": 5698,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1af7de150c99c12dd67a509fe57c10d63e4eeb04"
+    },
+    {
+      "path": "ARKBreedingStats/ocr/PatternMatching/RecognizedCharData.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6d114223bc7fc6fc7a9cb713d9b8ac745795fa14",
+      "size": 785,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/6d114223bc7fc6fc7a9cb713d9b8ac745795fa14"
+    },
+    {
+      "path": "ARKBreedingStats/ocr/PatternMatching/TextData.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ce2ecc673af71afa593a1e37afc5dc0ff2cde74f",
+      "size": 560,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/ce2ecc673af71afa593a1e37afc5dc0ff2cde74f"
+    },
+    {
+      "path": "ARKBreedingStats/ocr/PatternMatching/TrainingSettings.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b72ac5af426a83474a491a75eea1e7e554f8c04b",
+      "size": 296,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/b72ac5af426a83474a491a75eea1e7e554f8c04b"
+    },
+    {
+      "path": "ARKBreedingStats/raising",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "822b3c4697836da1a375f8f99c08b3966e9cf821",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/822b3c4697836da1a375f8f99c08b3966e9cf821"
+    },
+    {
+      "path": "ARKBreedingStats/raising/ParentStatValues.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "edfe6753b4b8ec9d13f608ed4dccc7525ee3369d",
+      "size": 3659,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/edfe6753b4b8ec9d13f608ed4dccc7525ee3369d"
+    },
+    {
+      "path": "ARKBreedingStats/raising/ParentStatValues.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c6c9e7beb903b55230a9ec31b6cd4890e4f1ef9b",
+      "size": 1717,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/c6c9e7beb903b55230a9ec31b6cd4890e4f1ef9b"
+    },
+    {
+      "path": "ARKBreedingStats/raising/ParentStatValues.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1af7de150c99c12dd67a509fe57c10d63e4eeb04",
+      "size": 5698,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1af7de150c99c12dd67a509fe57c10d63e4eeb04"
+    },
+    {
+      "path": "ARKBreedingStats/raising/ParentStats.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "65dbfb4034acf25930c712549f31816d11e93f3c",
+      "size": 5194,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/65dbfb4034acf25930c712549f31816d11e93f3c"
+    },
+    {
+      "path": "ARKBreedingStats/raising/ParentStats.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4b403a70598b564696860f69edf13977da40f76b",
+      "size": 4735,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/4b403a70598b564696860f69edf13977da40f76b"
+    },
+    {
+      "path": "ARKBreedingStats/raising/ParentStats.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1af7de150c99c12dd67a509fe57c10d63e4eeb04",
+      "size": 5698,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1af7de150c99c12dd67a509fe57c10d63e4eeb04"
+    },
+    {
+      "path": "ARKBreedingStats/raising/Raising.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "53c8dc87e5c8ff2672df37056691029bf8626718",
+      "size": 2725,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/53c8dc87e5c8ff2672df37056691029bf8626718"
+    },
+    {
+      "path": "ARKBreedingStats/raising/RaisingControl.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dd2fa737fc5325a09cf47fcb948cf90154eba1c5",
+      "size": 36892,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/dd2fa737fc5325a09cf47fcb948cf90154eba1c5"
+    },
+    {
+      "path": "ARKBreedingStats/raising/RaisingControl.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5072115554dd5878ca85999bfce28e4068dde7a8",
+      "size": 31622,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/5072115554dd5878ca85999bfce28e4068dde7a8"
+    },
+    {
+      "path": "ARKBreedingStats/raising/RaisingControl.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "203cb54e12003a0be79e354192f780c22e47fac8",
+      "size": 5907,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/203cb54e12003a0be79e354192f780c22e47fac8"
+    },
+    {
+      "path": "ARKBreedingStats/settings",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4dbc5e6b83affab2542f6ef744362385fa2203a3",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/4dbc5e6b83affab2542f6ef744362385fa2203a3"
+    },
+    {
+      "path": "ARKBreedingStats/settings/ATImportExportedFolderLoactionDialog.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e35954aef48ffdd8b754560fac7d504be74c17a3",
+      "size": 9083,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/e35954aef48ffdd8b754560fac7d504be74c17a3"
+    },
+    {
+      "path": "ARKBreedingStats/settings/ATImportExportedFolderLoactionDialog.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fa554f7e14effba51715e4cdc322116c0cbbff5d",
+      "size": 1923,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/fa554f7e14effba51715e4cdc322116c0cbbff5d"
+    },
+    {
+      "path": "ARKBreedingStats/settings/ATImportExportedFolderLoactionDialog.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "25aa624054fcd95e6d380b4e9c9d3849ab39d59d",
+      "size": 7534,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/25aa624054fcd95e6d380b4e9c9d3849ab39d59d"
+    },
+    {
+      "path": "ARKBreedingStats/settings/ATImportExportedFolderLocation.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "511961e3ab7ccc86f85ad96dba45b82d444f80fa",
+      "size": 3164,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/511961e3ab7ccc86f85ad96dba45b82d444f80fa"
+    },
+    {
+      "path": "ARKBreedingStats/settings/ATImportFileLocation.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1bee49cac828b8cd77f31ca1c9321ea2a5ad1b79",
+      "size": 1269,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1bee49cac828b8cd77f31ca1c9321ea2a5ad1b79"
+    },
+    {
+      "path": "ARKBreedingStats/settings/ATImportFileLocationDialog.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "75b0b3fe6f669e622c7aedbaf7e1903cb4d683fd",
+      "size": 8938,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/75b0b3fe6f669e622c7aedbaf7e1903cb4d683fd"
+    },
+    {
+      "path": "ARKBreedingStats/settings/ATImportFileLocationDialog.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3f053454771607341578fd8a6a82426543f68baf",
+      "size": 2525,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/3f053454771607341578fd8a6a82426543f68baf"
+    },
+    {
+      "path": "ARKBreedingStats/settings/ATImportFileLocationDialog.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "25aa624054fcd95e6d380b4e9c9d3849ab39d59d",
+      "size": 7534,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/25aa624054fcd95e6d380b4e9c9d3849ab39d59d"
+    },
+    {
+      "path": "ARKBreedingStats/settings/FtpCredentials.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4f95416f3715854896d330eb61c5d02b2563fd9d",
+      "size": 6452,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/4f95416f3715854896d330eb61c5d02b2563fd9d"
+    },
+    {
+      "path": "ARKBreedingStats/settings/FtpCredentials.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4b43b3b11b3871c1777997390999a1efaea3544b",
+      "size": 513,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/4b43b3b11b3871c1777997390999a1efaea3544b"
+    },
+    {
+      "path": "ARKBreedingStats/settings/FtpCredentials.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1af7de150c99c12dd67a509fe57c10d63e4eeb04",
+      "size": 5698,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1af7de150c99c12dd67a509fe57c10d63e4eeb04"
+    },
+    {
+      "path": "ARKBreedingStats/settings/FtpProgress.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3b4207f9c9d0496a0c5e9447c2e7273c2427f08a",
+      "size": 3430,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/3b4207f9c9d0496a0c5e9447c2e7273c2427f08a"
+    },
+    {
+      "path": "ARKBreedingStats/settings/FtpProgress.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d6f29ece473644910ca8d266b577865e2c033946",
+      "size": 1516,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/d6f29ece473644910ca8d266b577865e2c033946"
+    },
+    {
+      "path": "ARKBreedingStats/settings/FtpProgress.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1af7de150c99c12dd67a509fe57c10d63e4eeb04",
+      "size": 5698,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1af7de150c99c12dd67a509fe57c10d63e4eeb04"
+    },
+    {
+      "path": "ARKBreedingStats/settings/PaletteEditor.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1af7de150c99c12dd67a509fe57c10d63e4eeb04",
+      "size": 5698,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1af7de150c99c12dd67a509fe57c10d63e4eeb04"
+    },
+    {
+      "path": "ARKBreedingStats/settings/Settings.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3a895474f1dd6422724f075953400ccc8ef9e75c",
+      "size": 352726,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/3a895474f1dd6422724f075953400ccc8ef9e75c"
+    },
+    {
+      "path": "ARKBreedingStats/settings/Settings.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e7769723e71e172a6f8452b84b2d5e9c35f35d19",
+      "size": 139765,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/e7769723e71e172a6f8452b84b2d5e9c35f35d19"
+    },
+    {
+      "path": "ARKBreedingStats/settings/Settings.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a353dc5c9e7ad575a05b51950c8228efd96a7082",
+      "size": 11561,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/a353dc5c9e7ad575a05b51950c8228efd96a7082"
+    },
+    {
+      "path": "ARKBreedingStats/settings/StatMultipliers.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ca66e5d85b4fa487e1571b4ff427498ad7698d05",
+      "size": 3307,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/ca66e5d85b4fa487e1571b4ff427498ad7698d05"
+    },
+    {
+      "path": "ARKBreedingStats/settings/customSoundChooser.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bad6c708b370d26388a186e4b58832a1f84fe3d1",
+      "size": 3115,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/bad6c708b370d26388a186e4b58832a1f84fe3d1"
+    },
+    {
+      "path": "ARKBreedingStats/settings/customSoundChooser.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "087d8c2cfe698b70343a4bfb0748626530c24a19",
+      "size": 2747,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/087d8c2cfe698b70343a4bfb0748626530c24a19"
+    },
+    {
+      "path": "ARKBreedingStats/settings/customSoundChooser.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1af7de150c99c12dd67a509fe57c10d63e4eeb04",
+      "size": 5698,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1af7de150c99c12dd67a509fe57c10d63e4eeb04"
+    },
+    {
+      "path": "ARKBreedingStats/species",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d27c236aeb369a31ebafdf6ca05bbce2949fdc9c",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/d27c236aeb369a31ebafdf6ca05bbce2949fdc9c"
+    },
+    {
+      "path": "ARKBreedingStats/species/ARKColor.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "01f5c0584b274398b37580eefdff8b0ed40292ff",
+      "size": 2454,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/01f5c0584b274398b37580eefdff8b0ed40292ff"
+    },
+    {
+      "path": "ARKBreedingStats/species/ARKColors.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3414005600fabf2b225121da6f72708bdeab1c1a",
+      "size": 13092,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/3414005600fabf2b225121da6f72708bdeab1c1a"
+    },
+    {
+      "path": "ARKBreedingStats/species/BreedingData.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f373b10db05ba2dcf4d939a75559e41b297f2f83",
+      "size": 1022,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/f373b10db05ba2dcf4d939a75559e41b297f2f83"
+    },
+    {
+      "path": "ARKBreedingStats/species/BreedingPair.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b4c4e4f10df50d8baf8c59ce018d520fa4ae81b4",
+      "size": 1067,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/b4c4e4f10df50d8baf8c59ce018d520fa4ae81b4"
+    },
+    {
+      "path": "ARKBreedingStats/species/CanHaveWildLevelExceptions.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e9d8e3375db6b9c3a9dd93be3c6bc50f3fcd8a1f",
+      "size": 1978,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/e9d8e3375db6b9c3a9dd93be3c6bc50f3fcd8a1f"
+    },
+    {
+      "path": "ARKBreedingStats/species/ColorPattern.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f2da325b013290755ab51a37617c30a4077e1448",
+      "size": 481,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/f2da325b013290755ab51a37617c30a4077e1448"
+    },
+    {
+      "path": "ARKBreedingStats/species/ColorRegion.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c946d61258d42c975e1a59fa236d65012f3cc55e",
+      "size": 1302,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/c946d61258d42c975e1a59fa236d65012f3cc55e"
+    },
+    {
+      "path": "ARKBreedingStats/species/CreatureColors.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a789420ef9ab53aff1538072088f33277f4858b8",
+      "size": 955,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/a789420ef9ab53aff1538072088f33277f4858b8"
+    },
+    {
+      "path": "ARKBreedingStats/species/Kibble.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "69c9cd8886c6d4b8b8f289b1c68986dc6de3b991",
+      "size": 407,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/69c9cd8886c6d4b8b8f289b1c68986dc6de3b991"
+    },
+    {
+      "path": "ARKBreedingStats/species/Species.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "79d5c3755dc5a4f3d7d051c28d450f5d8594067c",
+      "size": 25342,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/79d5c3755dc5a4f3d7d051c28d450f5d8594067c"
+    },
+    {
+      "path": "ARKBreedingStats/species/SpeciesStat.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "62e9488cacd07a66b2a1421e3e097bd4d5a303ce",
+      "size": 808,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/62e9488cacd07a66b2a1421e3e097bd4d5a303ce"
+    },
+    {
+      "path": "ARKBreedingStats/species/TamingData.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5c4bd7d7b47998af0328abb3ca490a3715359351",
+      "size": 2525,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/5c4bd7d7b47998af0328abb3ca490a3715359351"
+    },
+    {
+      "path": "ARKBreedingStats/species/TamingFood.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "23bfaa8f29952d52a6c971ea03a3c0c587443426",
+      "size": 855,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/23bfaa8f29952d52a6c971ea03a3c0c587443426"
+    },
+    {
+      "path": "ARKBreedingStats/species/Troodonism.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d3698400ed7fca6b9741a1c21e80f0920196885b",
+      "size": 2922,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/d3698400ed7fca6b9741a1c21e80f0920196885b"
+    },
+    {
+      "path": "ARKBreedingStats/testCases",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "2cf1f266786926dc5ffcc260256825e1e13f3b90",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/2cf1f266786926dc5ffcc260256825e1e13f3b90"
+    },
+    {
+      "path": "ARKBreedingStats/testCases/ExtractionTestCase.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4a175dcd5281ab97eeb88c8f5b43134f538eb2f1",
+      "size": 1526,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/4a175dcd5281ab97eeb88c8f5b43134f538eb2f1"
+    },
+    {
+      "path": "ARKBreedingStats/testCases/ExtractionTestCases.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f4592f6ee3c1c7207b88de273856f635cb0d3fcc",
+      "size": 296,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/f4592f6ee3c1c7207b88de273856f635cb0d3fcc"
+    },
+    {
+      "path": "ARKBreedingStats/testCases/ExtractionTestControl.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3600aa6d2c2316b13f6a0ccef0891315fdf476e2",
+      "size": 8377,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/3600aa6d2c2316b13f6a0ccef0891315fdf476e2"
+    },
+    {
+      "path": "ARKBreedingStats/testCases/ExtractionTestControl.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "92fcecc2dc535d828b9cc47ad0fd1fe5fd386188",
+      "size": 6788,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/92fcecc2dc535d828b9cc47ad0fd1fe5fd386188"
+    },
+    {
+      "path": "ARKBreedingStats/testCases/ExtractionTestControl.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5f49c0bf0c0aaf73aecad12664b58aa2fc7ded80",
+      "size": 5903,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/5f49c0bf0c0aaf73aecad12664b58aa2fc7ded80"
+    },
+    {
+      "path": "ARKBreedingStats/testCases/TestCaseControl.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d8a3a71fa9e0a7d4c94e89061a11180552ef55f9",
+      "size": 8433,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/d8a3a71fa9e0a7d4c94e89061a11180552ef55f9"
+    },
+    {
+      "path": "ARKBreedingStats/testCases/TestCaseControl.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b884057819fad22b59e0efee37da25d004df67a3",
+      "size": 4629,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/b884057819fad22b59e0efee37da25d004df67a3"
+    },
+    {
+      "path": "ARKBreedingStats/testCases/TestCaseControl.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1af7de150c99c12dd67a509fe57c10d63e4eeb04",
+      "size": 5698,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1af7de150c99c12dd67a509fe57c10d63e4eeb04"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "398e1253a7183fd0913b7388acc6e044fe324b7e",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/398e1253a7183fd0913b7388acc6e044fe324b7e"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/ArkGameDialog.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "89e6250fdffc460a5e25c5a4687c19d12d7ebcbf",
+      "size": 3659,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/89e6250fdffc460a5e25c5a4687c19d12d7ebcbf"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/ArkGameDialog.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4744e8da4c35053af1014390a31ddcbbe127caab",
+      "size": 795,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/4744e8da4c35053af1014390a31ddcbbe127caab"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/ArkGameDialog.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b2ff64a11300290ddac7e7d9bc26e5e0a766508",
+      "size": 5629,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/8b2ff64a11300290ddac7e7d9bc26e5e0a766508"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/ButtonAddTime.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "47ea52d9b377c4206d4ca9ca9ebc795dbc29a503",
+      "size": 553,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/47ea52d9b377c4206d4ca9ca9ebc795dbc29a503"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/ColorPickerControl.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "691ede131498028649ec9991c01e5d7f355fc371",
+      "size": 9469,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/691ede131498028649ec9991c01e5d7f355fc371"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/ColorPickerControl.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aea82ea29ad22314dba42504061657e1e5599adb",
+      "size": 12102,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/aea82ea29ad22314dba42504061657e1e5599adb"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/ColorPickerControl.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b2ff64a11300290ddac7e7d9bc26e5e0a766508",
+      "size": 5629,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/8b2ff64a11300290ddac7e7d9bc26e5e0a766508"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/ColorPickerWindow.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "08dc22b60347bf98a417a88e6ee9139652786323",
+      "size": 2113,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/08dc22b60347bf98a417a88e6ee9139652786323"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/ColorPickerWindow.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e0dc180d67e1b3c4a1fccf6a72311ce21dfac5a7",
+      "size": 1508,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/e0dc180d67e1b3c4a1fccf6a72311ce21dfac5a7"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/ColorPickerWindow.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b2ff64a11300290ddac7e7d9bc26e5e0a766508",
+      "size": 5629,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/8b2ff64a11300290ddac7e7d9bc26e5e0a766508"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/ColoredCreatureImageWithPose.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b4600d5124b5ae19805fb7783b49589a470a0785",
+      "size": 5119,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/b4600d5124b5ae19805fb7783b49589a470a0785"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/CreatureAnalysis.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a1409e3d284fd26b0bae3c1581003c5ec86c25ae",
+      "size": 12816,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/a1409e3d284fd26b0bae3c1581003c5ec86c25ae"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/CreatureAnalysis.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7bcb9a3ec64f9a37e1e6f2d9b68464ac05fc4525",
+      "size": 8749,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/7bcb9a3ec64f9a37e1e6f2d9b68464ac05fc4525"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/CreatureAnalysis.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1af7de150c99c12dd67a509fe57c10d63e4eeb04",
+      "size": 5698,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1af7de150c99c12dd67a509fe57c10d63e4eeb04"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/CurrentBreeds.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "50668313dc76293f6bb4377b042c2e599d74006b",
+      "size": 2834,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/50668313dc76293f6bb4377b042c2e599d74006b"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/CurrentBreeds.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "82bbc4371c8518cbb94f45e430d0b3aa3a36d178",
+      "size": 6769,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/82bbc4371c8518cbb94f45e430d0b3aa3a36d178"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/CurrentBreeds.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b2ff64a11300290ddac7e7d9bc26e5e0a766508",
+      "size": 5629,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/8b2ff64a11300290ddac7e7d9bc26e5e0a766508"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/CustomMessageBox.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1d5df92b4a0836de5d17eb01f7678ec53091d122",
+      "size": 7538,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1d5df92b4a0836de5d17eb01f7678ec53091d122"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/CustomMessageBox.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "782796561f6eef0559fadb4a8f0c4d2b2a42691a",
+      "size": 2987,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/782796561f6eef0559fadb4a8f0c4d2b2a42691a"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/CustomMessageBox.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1af7de150c99c12dd67a509fe57c10d63e4eeb04",
+      "size": 5698,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1af7de150c99c12dd67a509fe57c10d63e4eeb04"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/FileSelector.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b083c29f923e293db68ca7c362ec0677a20416af",
+      "size": 3330,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/b083c29f923e293db68ca7c362ec0677a20416af"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/FileSelector.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b56037cbb8e66db94057124a54d26c0ee5d583d4",
+      "size": 3114,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/b56037cbb8e66db94057124a54d26c0ee5d583d4"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/FileSelector.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1af7de150c99c12dd67a509fe57c10d63e4eeb04",
+      "size": 5698,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1af7de150c99c12dd67a509fe57c10d63e4eeb04"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/GroupBoxC.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7ff99a7fd0bc1e270856a5bba8d6dd3fe618b1f8",
+      "size": 1102,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/7ff99a7fd0bc1e270856a5bba8d6dd3fe618b1f8"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/Hatching.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9b65d9fe52d03edca04bdce029bc3569e1789d24",
+      "size": 10883,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/9b65d9fe52d03edca04bdce029bc3569e1789d24"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/Hatching.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1b9d9e5b47fc14f1596167d04e2f803ee6b294e9",
+      "size": 3046,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1b9d9e5b47fc14f1596167d04e2f803ee6b294e9"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/Hatching.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1af7de150c99c12dd67a509fe57c10d63e4eeb04",
+      "size": 5698,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1af7de150c99c12dd67a509fe57c10d63e4eeb04"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/LibraryFilter.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "48ac52f8e0b9112e6b2e41e1482ba25394631782",
+      "size": 27215,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/48ac52f8e0b9112e6b2e41e1482ba25394631782"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/LibraryFilter.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "78891d1f01d9a3def0ac998c9a9e125d2dd221ff",
+      "size": 15824,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/78891d1f01d9a3def0ac998c9a9e125d2dd221ff"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/LibraryFilter.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b2ff64a11300290ddac7e7d9bc26e5e0a766508",
+      "size": 5629,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/8b2ff64a11300290ddac7e7d9bc26e5e0a766508"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/LibraryFilterTemplates.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e59404821a32e4eca51e362f26abf8916f2898db",
+      "size": 6178,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/e59404821a32e4eca51e362f26abf8916f2898db"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/LibraryFilterTemplates.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0c1b706b0bae29b1429ee50509e37083faf37db6",
+      "size": 3324,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/0c1b706b0bae29b1429ee50509e37083faf37db6"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/LibraryFilterTemplates.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b2ff64a11300290ddac7e7d9bc26e5e0a766508",
+      "size": 5629,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/8b2ff64a11300290ddac7e7d9bc26e5e0a766508"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/LibraryInfo.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f871ca418b82f3dc847e470371214fe98eb850ff",
+      "size": 15388,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/f871ca418b82f3dc847e470371214fe98eb850ff"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/LibraryInfoControl.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "00b8d2da82e826ad7e2da775cdfbf217341de907",
+      "size": 12767,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/00b8d2da82e826ad7e2da775cdfbf217341de907"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/MultiSetter.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "17ba0fef3df50cf5ad3b74fc31b4c776ecfce98a",
+      "size": 29652,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/17ba0fef3df50cf5ad3b74fc31b4c776ecfce98a"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/MultiSetter.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "586b671dcec583fe8a080d38265ab8daf2de8476",
+      "size": 13137,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/586b671dcec583fe8a080d38265ab8daf2de8476"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/MultiSetter.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b2ff64a11300290ddac7e7d9bc26e5e0a766508",
+      "size": 5629,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/8b2ff64a11300290ddac7e7d9bc26e5e0a766508"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/MultiSetterTag.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "834ac57b43a6eb4c5a179ac2b328aa7775f73104",
+      "size": 1939,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/834ac57b43a6eb4c5a179ac2b328aa7775f73104"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/MultiSetterTag.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "26646f65d2fd86464fef4e171f0ffa03ba4815da",
+      "size": 765,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/26646f65d2fd86464fef4e171f0ffa03ba4815da"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/MultiSetterTag.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1af7de150c99c12dd67a509fe57c10d63e4eeb04",
+      "size": 5698,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1af7de150c99c12dd67a509fe57c10d63e4eeb04"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/ParentComboBox.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ff1891bbaaf355cde94bfd2db770f1205a4f5046",
+      "size": 5496,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/ff1891bbaaf355cde94bfd2db770f1205a4f5046"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/ParentInheritance.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "763d02b044cd02e3d9a93acea0970bccf39458a6",
+      "size": 4417,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/763d02b044cd02e3d9a93acea0970bccf39458a6"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/ParentInheritance.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "26b7ebfe96de80c36dd4a979cc31f459285f6824",
+      "size": 2429,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/26b7ebfe96de80c36dd4a979cc31f459285f6824"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/ParentInheritance.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4edf53f84f4f584594eab3999a6f996fc8cf3b04",
+      "size": 5626,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/4edf53f84f4f584594eab3999a6f996fc8cf3b04"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/PopupMessage.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "486ed6bc4bdd19784e4f8f68ef0bb8201baf603a",
+      "size": 1650,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/486ed6bc4bdd19784e4f8f68ef0bb8201baf603a"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/PopupMessage.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1af7de150c99c12dd67a509fe57c10d63e4eeb04",
+      "size": 5698,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1af7de150c99c12dd67a509fe57c10d63e4eeb04"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/RegionColorChooser.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c28aa5630917860e0f0a0e3e9a87fce28e2a31c9",
+      "size": 1904,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/c28aa5630917860e0f0a0e3e9a87fce28e2a31c9"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/RegionColorChooser.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eabf1fef47fba156c9772b7485306a4f32ac597c",
+      "size": 12585,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/eabf1fef47fba156c9772b7485306a4f32ac597c"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/RegionColorChooser.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1af7de150c99c12dd67a509fe57c10d63e4eeb04",
+      "size": 5698,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1af7de150c99c12dd67a509fe57c10d63e4eeb04"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/RegionColorInfo.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ef4fc4ad8583d84f73dfa57b0f9d280591f9924e",
+      "size": 2553,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/ef4fc4ad8583d84f73dfa57b0f9d280591f9924e"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/RegionColorInfo.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9ecef0f007cacc7f9eb68d99dcc738e7ae384e36",
+      "size": 7101,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/9ecef0f007cacc7f9eb68d99dcc738e7ae384e36"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/RegionColorInfo.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b2ff64a11300290ddac7e7d9bc26e5e0a766508",
+      "size": 5629,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/8b2ff64a11300290ddac7e7d9bc26e5e0a766508"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/ScrollForm.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b622be9c3ff6ea097f1e1bf70b605d9febb854be",
+      "size": 1884,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/b622be9c3ff6ea097f1e1bf70b605d9febb854be"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/ScrollForm.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "67c2fa56c6309e61035e9898c7cb1f42d770064f",
+      "size": 1208,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/67c2fa56c6309e61035e9898c7cb1f42d770064f"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/ScrollForm.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1af7de150c99c12dd67a509fe57c10d63e4eeb04",
+      "size": 5698,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1af7de150c99c12dd67a509fe57c10d63e4eeb04"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/StatDisplay.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7af463059acb3a46d3efe011e5b4dfd8ced9802a",
+      "size": 6700,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/7af463059acb3a46d3efe011e5b4dfd8ced9802a"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/StatDisplay.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0072454b3431b17f935fdeb7c4e749d9b65edfb4",
+      "size": 2762,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/0072454b3431b17f935fdeb7c4e749d9b65edfb4"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/StatDisplay.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b2ff64a11300290ddac7e7d9bc26e5e0a766508",
+      "size": 5629,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/8b2ff64a11300290ddac7e7d9bc26e5e0a766508"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/StatGraphs.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6e0fcbf94f938d285d3f945b6d07301482ffaa8",
+      "size": 1520,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/a6e0fcbf94f938d285d3f945b6d07301482ffaa8"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/StatIO.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f349d0af50ac2dbd7a42230c7fcd4344ab6012ad",
+      "size": 14021,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/f349d0af50ac2dbd7a42230c7fcd4344ab6012ad"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/StatIO.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8c8553b1cc1098b98c20c5f49b64996efbc0d3bf",
+      "size": 16999,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/8c8553b1cc1098b98c20c5f49b64996efbc0d3bf"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/StatIO.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b2ff64a11300290ddac7e7d9bc26e5e0a766508",
+      "size": 5629,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/8b2ff64a11300290ddac7e7d9bc26e5e0a766508"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/StatPotential.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "33354b74e20a5d2aea75aa08721e28a78920e8bd",
+      "size": 4441,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/33354b74e20a5d2aea75aa08721e28a78920e8bd"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/StatPotential.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2ea3ae5c00aeef4a718ffba16c075c08eeaa2587",
+      "size": 2872,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/2ea3ae5c00aeef4a718ffba16c075c08eeaa2587"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/StatPotential.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b2ff64a11300290ddac7e7d9bc26e5e0a766508",
+      "size": 5629,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/8b2ff64a11300290ddac7e7d9bc26e5e0a766508"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/StatPotentials.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c1ace490dbbbc0700562bf1a9fc3207da4657f05",
+      "size": 7759,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/c1ace490dbbbc0700562bf1a9fc3207da4657f05"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/StatPotentials.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "82be3c17ccde658864627dc4cdeb53a95d82103d",
+      "size": 3320,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/82be3c17ccde658864627dc4cdeb53a95d82103d"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/StatPotentials.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f4c31c8e19f312b5e24b687297ece39d1045cc2d",
+      "size": 5923,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/f4c31c8e19f312b5e24b687297ece39d1045cc2d"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/StatSelector.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3bc9d6101b48adba19b157edd00f2e6522ed7007",
+      "size": 1998,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/3bc9d6101b48adba19b157edd00f2e6522ed7007"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/StatSelector.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1ecd77b4f0bb5842c57aac78ed0d3582a538bb0e",
+      "size": 2689,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1ecd77b4f0bb5842c57aac78ed0d3582a538bb0e"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/StatSelector.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1af7de150c99c12dd67a509fe57c10d63e4eeb04",
+      "size": 5698,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1af7de150c99c12dd67a509fe57c10d63e4eeb04"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/StatWeighting.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c21b9a77d93868137fb372de4b79ac14c2f29c0c",
+      "size": 10528,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/c21b9a77d93868137fb372de4b79ac14c2f29c0c"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/StatWeighting.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1e7a203a440b3d09913d81a357d05fb74d200654",
+      "size": 16039,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1e7a203a440b3d09913d81a357d05fb74d200654"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/StatWeighting.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1af7de150c99c12dd67a509fe57c10d63e4eeb04",
+      "size": 5698,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1af7de150c99c12dd67a509fe57c10d63e4eeb04"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/StatsDisplay.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6926fd8f8fcf512c9a121346cd6cdb8ddc58cd1d",
+      "size": 3921,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/6926fd8f8fcf512c9a121346cd6cdb8ddc58cd1d"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/StatsDisplay.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1af7de150c99c12dd67a509fe57c10d63e4eeb04",
+      "size": 5698,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1af7de150c99c12dd67a509fe57c10d63e4eeb04"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/TagSelector.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9aeabb076e0d2efb18a3a6efb274d69747b4716a",
+      "size": 2591,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/9aeabb076e0d2efb18a3a6efb274d69747b4716a"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/TagSelector.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e3c01170192289d017603a16a86deb3ebcef6287",
+      "size": 2470,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/e3c01170192289d017603a16a86deb3ebcef6287"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/TagSelector.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1af7de150c99c12dd67a509fe57c10d63e4eeb04",
+      "size": 5698,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1af7de150c99c12dd67a509fe57c10d63e4eeb04"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/TagSelectorList.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2edaba171fcf2f42babab0e1a90fd38ca5db6f02",
+      "size": 1308,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/2edaba171fcf2f42babab0e1a90fd38ca5db6f02"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/TagSelectorList.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e5705675d73d8327215556ee6fc921fa5d52acb4",
+      "size": 2769,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/e5705675d73d8327215556ee6fc921fa5d52acb4"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/TagSelectorList.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1af7de150c99c12dd67a509fe57c10d63e4eeb04",
+      "size": 5698,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1af7de150c99c12dd67a509fe57c10d63e4eeb04"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/TextBoxSuggest.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b79e4c4c678833864e7b51c5b02dfcaf6a21cd78",
+      "size": 372,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/b79e4c4c678833864e7b51c5b02dfcaf6a21cd78"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/TraitSelection.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2ce9d65c88e5ac8500f4e2e67e4cf53a9187728e",
+      "size": 18522,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/2ce9d65c88e5ac8500f4e2e67e4cf53a9187728e"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/TraitSelection.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3d16f0236fb411ccb21507b0f86ce9a20f8cddce",
+      "size": 7211,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/3d16f0236fb411ccb21507b0f86ce9a20f8cddce"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/TraitSelection.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b2ff64a11300290ddac7e7d9bc26e5e0a766508",
+      "size": 5629,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/8b2ff64a11300290ddac7e7d9bc26e5e0a766508"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/Trough.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d70a04b9826196320d16f4524ad67ba49e081c82",
+      "size": 2642,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/d70a04b9826196320d16f4524ad67ba49e081c82"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/TroughControl.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f359d30feb3de9ec3430726e06b5751df6ff4ffc",
+      "size": 1048,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/f359d30feb3de9ec3430726e06b5751df6ff4ffc"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/TroughControl.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f855126d60ea364affcef1347878dedf5492bac6",
+      "size": 225,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/f855126d60ea364affcef1347878dedf5492bac6"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/VariantSelector.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a0af450416a59c70ab2a49c788a32243f41b815c",
+      "size": 5938,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/a0af450416a59c70ab2a49c788a32243f41b815c"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/VariantSelector.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9283188ecffca8e5e3bc82477f148fb950b0a570",
+      "size": 3668,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/9283188ecffca8e5e3bc82477f148fb950b0a570"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/VariantSelector.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b2ff64a11300290ddac7e7d9bc26e5e0a766508",
+      "size": 5629,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/8b2ff64a11300290ddac7e7d9bc26e5e0a766508"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/dhmsInput.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "45186e3731214fd4647b35d5f20896503a54e649",
+      "size": 5780,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/45186e3731214fd4647b35d5f20896503a54e649"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/dhmsInput.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "90c098a64dc3175358d0b493120ed637154afaf4",
+      "size": 4091,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/90c098a64dc3175358d0b493120ed637154afaf4"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/dhmsInput.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b2ff64a11300290ddac7e7d9bc26e5e0a766508",
+      "size": 5629,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/8b2ff64a11300290ddac7e7d9bc26e5e0a766508"
+    },
+    {
+      "path": "ARKBreedingStats/uiControls/nud.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "be064168bcb39dca53d88161e66517950065719c",
+      "size": 3111,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/be064168bcb39dca53d88161e66517950065719c"
+    },
+    {
+      "path": "ARKBreedingStats/utils",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d60cb76c590d6926b3f925051f629f27ea16ce98",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/d60cb76c590d6926b3f925051f629f27ea16ce98"
+    },
+    {
+      "path": "ARKBreedingStats/utils/ArkInstallationPath.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e01a2b583d329250d524e3d2f64590598a261bf9",
+      "size": 13605,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/e01a2b583d329250d524e3d2f64590598a261bf9"
+    },
+    {
+      "path": "ARKBreedingStats/utils/ArkWiki.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d22179673bc31d9e47ab7dafb551178f40cc2ea0",
+      "size": 542,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/d22179673bc31d9e47ab7dafb551178f40cc2ea0"
+    },
+    {
+      "path": "ARKBreedingStats/utils/ClipboardHandler.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "54fc9570a289532760fad9df393313516d00b31e",
+      "size": 4402,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/54fc9570a289532760fad9df393313516d00b31e"
+    },
+    {
+      "path": "ARKBreedingStats/utils/ColorJsonConverter.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "242eb593915fb643a415a5ec3df606aaf0afe4ce",
+      "size": 1265,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/242eb593915fb643a415a5ec3df606aaf0afe4ce"
+    },
+    {
+      "path": "ARKBreedingStats/utils/ControlExtensions.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "368c483f9aa79c8362011e669cc6e242bed5091f",
+      "size": 2438,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/368c483f9aa79c8362011e669cc6e242bed5091f"
+    },
+    {
+      "path": "ARKBreedingStats/utils/Convert32.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "80dbc29a8e9943ce533a5300b1c95be8b394e812",
+      "size": 4192,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/80dbc29a8e9943ce533a5300b1c95be8b394e812"
+    },
+    {
+      "path": "ARKBreedingStats/utils/CreatureListSorter.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "01b1b6d1abd5b6b19780214ab3c55a2dbc7d7a43",
+      "size": 7046,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/01b1b6d1abd5b6b19780214ab3c55a2dbc7d7a43"
+    },
+    {
+      "path": "ARKBreedingStats/utils/CustomListBoxDrawing.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e132a663921054de593f0d7a44e64063e34d5ef9",
+      "size": 1956,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/e132a663921054de593f0d7a44e64063e34d5ef9"
+    },
+    {
+      "path": "ARKBreedingStats/utils/Debouncer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c70a3c1b64fc41d032d2bbc06f07516fa2517ddc",
+      "size": 3709,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/c70a3c1b64fc41d032d2bbc06f07516fa2517ddc"
+    },
+    {
+      "path": "ARKBreedingStats/utils/ExceptionMessages.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7b49a132ab0ba4f596ca965638310c4e8c06af4f",
+      "size": 811,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/7b49a132ab0ba4f596ca965638310c4e8c06af4f"
+    },
+    {
+      "path": "ARKBreedingStats/utils/ExtensionMethods.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8ed4b2896811e5b9e96b515250b3a54ab8732917",
+      "size": 2720,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/8ed4b2896811e5b9e96b515250b3a54ab8732917"
+    },
+    {
+      "path": "ARKBreedingStats/utils/Hashes.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c4a2cc7c4158c1e15e5d9b94f736c12c76d429aa",
+      "size": 645,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/c4a2cc7c4158c1e15e5d9b94f736c12c76d429aa"
+    },
+    {
+      "path": "ARKBreedingStats/utils/ImageTools.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b44d39017213747bb7a31a0f2af122bb627a128a",
+      "size": 13259,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/b44d39017213747bb7a31a0f2af122bb627a128a"
+    },
+    {
+      "path": "ARKBreedingStats/utils/JsonUtils.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e77bb245899de46ddd0ddcd02a615ef64f81d079",
+      "size": 1724,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/e77bb245899de46ddd0ddcd02a615ef64f81d079"
+    },
+    {
+      "path": "ARKBreedingStats/utils/LevelColorBar.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "22465efceaaec7046a057229edd686fcf2dfeca1",
+      "size": 1113,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/22465efceaaec7046a057229edd686fcf2dfeca1"
+    },
+    {
+      "path": "ARKBreedingStats/utils/Logging.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7b684d55e2345858a7363f20a94e3ed74e5d8c23",
+      "size": 413,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/7b684d55e2345858a7363f20a94e3ed74e5d8c23"
+    },
+    {
+      "path": "ARKBreedingStats/utils/MessageBoxes.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e34a75b1667df711f443b79367435059c3b72e78",
+      "size": 1901,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/e34a75b1667df711f443b79367435059c3b72e78"
+    },
+    {
+      "path": "ARKBreedingStats/utils/NaturalComparer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3a5a76c60ea90d62b00f31d92a07439e4727001c",
+      "size": 4716,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/3a5a76c60ea90d62b00f31d92a07439e4727001c"
+    },
+    {
+      "path": "ARKBreedingStats/utils/PlayAudioStreams.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8a5ed4296082a53f51b548897e398d45beb2f0e1",
+      "size": 1145,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/8a5ed4296082a53f51b548897e398d45beb2f0e1"
+    },
+    {
+      "path": "ARKBreedingStats/utils/RepositoryInfo.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "15c8f9dff062c9b18afe3a5ea4b605c420358d22",
+      "size": 1053,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/15c8f9dff062c9b18afe3a5ea4b605c420358d22"
+    },
+    {
+      "path": "ARKBreedingStats/utils/SoundFeedback.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d989869941701098d363932ccfbe75921b6e3161",
+      "size": 4770,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/d989869941701098d363932ccfbe75921b6e3161"
+    },
+    {
+      "path": "ARKBreedingStats/utils/UiColors.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "99241d88c35e6068776e0f63a110e3a8b909f81a",
+      "size": 20577,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/99241d88c35e6068776e0f63a110e3a8b909f81a"
+    },
+    {
+      "path": "ARKBreedingStats/utils/UiPalette.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ee87d06eedb7e1d3a437ad888a489befcb811491",
+      "size": 12804,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/ee87d06eedb7e1d3a437ad888a489befcb811491"
+    },
+    {
+      "path": "ARKBreedingStats/utils/UiUtils.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "882d728bfa15c15152e7d755157ad7ea10416c34",
+      "size": 628,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/882d728bfa15c15152e7d755157ad7ea10416c34"
+    },
+    {
+      "path": "ARKBreedingStats/utils/WebService.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9edecb581aa4a98e020e77eb71e467a216877b11",
+      "size": 4990,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/9edecb581aa4a98e020e77eb71e467a216877b11"
+    },
+    {
+      "path": "ARKBreedingStats/utils/Win32API.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c5dae30e3080274e0279b584e23b26f44b940afc",
+      "size": 9240,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/c5dae30e3080274e0279b584e23b26f44b940afc"
+    },
+    {
+      "path": "ARKBreedingStats/values",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "51abab12834faf9140a2647b3710f80f369a88b9",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/51abab12834faf9140a2647b3710f80f369a88b9"
+    },
+    {
+      "path": "ARKBreedingStats/values/ServerMultipliers.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "38091b9839e4ec7900d15cd5fd6c32cdbacd2855",
+      "size": 6775,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/38091b9839e4ec7900d15cd5fd6c32cdbacd2855"
+    },
+    {
+      "path": "ARKBreedingStats/values/ServerMultipliersPresets.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "11c76cde51941ac766504ebb49e98b812f310df4",
+      "size": 3433,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/11c76cde51941ac766504ebb49e98b812f310df4"
+    },
+    {
+      "path": "ARKBreedingStats/values/TamingFoodData.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bce6a7c4a6b9daf8267a6f52a80b7a6726f57d38",
+      "size": 2640,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/bce6a7c4a6b9daf8267a6f52a80b7a6726f57d38"
+    },
+    {
+      "path": "ARKBreedingStats/values/Values.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1c2a71f95b4b1c26368261d1f9e41f6d5c6e313d",
+      "size": 43477,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/1c2a71f95b4b1c26368261d1f9e41f6d5c6e313d"
+    },
+    {
+      "path": "ARKBreedingStats/values/ValuesFile.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "44d594bd1f4313fe540de4838bd688b8e8749c60",
+      "size": 9278,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/44d594bd1f4313fe540de4838bd688b8e8749c60"
+    },
+    {
+      "path": "ASB-Updater",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "824b8054664b0efaea9bb73efffbaddbcd8c744e",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/824b8054664b0efaea9bb73efffbaddbcd8c744e"
+    },
+    {
+      "path": "ASB-Updater/ASB Updater.csproj",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b171757b84b305b8bd6c1e00ec71f567abcc4452",
+      "size": 847,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/b171757b84b305b8bd6c1e00ec71f567abcc4452"
+    },
+    {
+      "path": "ASB-Updater/ASBUpdater.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c1327d82f8a0edcbe91742bf0fe9c7d72fb97dfc",
+      "size": 13815,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/c1327d82f8a0edcbe91742bf0fe9c7d72fb97dfc"
+    },
+    {
+      "path": "ASB-Updater/App.xaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ff5245d52edafbe982f610a279e77447c1697e00",
+      "size": 367,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/ff5245d52edafbe982f610a279e77447c1697e00"
+    },
+    {
+      "path": "ASB-Updater/App.xaml.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4f80388dc6319d60a85666b51c083a35375f22b6",
+      "size": 107,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/4f80388dc6319d60a85666b51c083a35375f22b6"
+    },
+    {
+      "path": "ASB-Updater/MainWindow.xaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2b1b857b6707e03a891b15d5ec3c388514582fe5",
+      "size": 2103,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/2b1b857b6707e03a891b15d5ec3c388514582fe5"
+    },
+    {
+      "path": "ASB-Updater/MainWindow.xaml.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9fd51193f913d08ce8d91ad3ad4c0bb6ae2d89fc",
+      "size": 11597,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/9fd51193f913d08ce8d91ad3ad4c0bb6ae2d89fc"
+    },
+    {
+      "path": "ASB-Updater/Properties",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b11a13dfac2e6266fe4c1f7274c0b46e0c016bc4",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/b11a13dfac2e6266fe4c1f7274c0b46e0c016bc4"
+    },
+    {
+      "path": "ASB-Updater/Properties/Resources.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5d1281a9068a053f3f9e5bf6bc378ffd68d0b08a",
+      "size": 2788,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/5d1281a9068a053f3f9e5bf6bc378ffd68d0b08a"
+    },
+    {
+      "path": "ASB-Updater/Properties/Resources.resx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "af7dbebbacef595e3089c01c05671016c21a8304",
+      "size": 5496,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/af7dbebbacef595e3089c01c05671016c21a8304"
+    },
+    {
+      "path": "ASB-Updater/Properties/Settings.Designer.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "35109377425a8041f055594a1399ae950fe0e681",
+      "size": 1068,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/35109377425a8041f055594a1399ae950fe0e681"
+    },
+    {
+      "path": "ASB-Updater/Properties/Settings.settings",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "033d7a5e9e2266753180f4e3a9299f575046701e",
+      "size": 195,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/033d7a5e9e2266753180f4e3a9299f575046701e"
+    },
+    {
+      "path": "ASB-Updater/asb-updater.ico",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0ea8a0aacddd2afc4cd47fb69ddaf9e264af37bb",
+      "size": 142367,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/0ea8a0aacddd2afc4cd47fb69ddaf9e264af37bb"
+    },
+    {
+      "path": "ArkSavegameToolkit",
+      "mode": "160000",
+      "type": "commit",
+      "sha": "c8bd92ae5e96959104d0beb74bef1f0669d8c608"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5fe840aff7a27104daf32b3cd6fb8f2dc17b0535",
+      "size": 3305,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/5fe840aff7a27104daf32b3cd6fb8f2dc17b0535"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2121c3efa31f21eccf24d716a8db6d99ffc465fc",
+      "size": 1073,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/2121c3efa31f21eccf24d716a8db6d99ffc465fc"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "29e084ee1b9515f3a69492c2947144b78fa417a5",
+      "size": 3148,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/29e084ee1b9515f3a69492c2947144b78fa417a5"
+    },
+    {
+      "path": "_config.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "18854876c67fdee2dbd3d0448dc69a530d5f30a7",
+      "size": 28,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/18854876c67fdee2dbd3d0448dc69a530d5f30a7"
+    },
+    {
+      "path": "build.ps1",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5e2814e86d1fd15de0f271ad6a87f9392bfbdd14",
+      "size": 7975,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/5e2814e86d1fd15de0f271ad6a87f9392bfbdd14"
+    },
+    {
+      "path": "docs",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "15967790a0241021ac4697879f0be29089979231",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/15967790a0241021ac4697879f0be29089979231"
+    },
+    {
+      "path": "docs/_config.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4f4b4eb8585cbf952d655d4b6495b5a2baca89f1",
+      "size": 198,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/4f4b4eb8585cbf952d655d4b6495b5a2baca89f1"
+    },
+    {
+      "path": "docs/img",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "eb66d51c0072de7f45218604c2351933e729e779",
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/trees/eb66d51c0072de7f45218604c2351933e729e779"
+    },
+    {
+      "path": "docs/img/H-Pedigree.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2c5a962a6e840b4b8c7425312a303898042aed69",
+      "size": 204237,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/2c5a962a6e840b4b8c7425312a303898042aed69"
+    },
+    {
+      "path": "docs/img/breedingplan.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "06b4cbed7a08598582973947550f6b3d8979f8a5",
+      "size": 98054,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/06b4cbed7a08598582973947550f6b3d8979f8a5"
+    },
+    {
+      "path": "docs/img/extractor.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3569db152fb08acee9c07d7a1286d518ce833ea0",
+      "size": 42105,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/3569db152fb08acee9c07d7a1286d518ce833ea0"
+    },
+    {
+      "path": "docs/img/labels.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9594ca997eb8dd09942d12e0cfa794d6834ee678",
+      "size": 150204,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/9594ca997eb8dd09942d12e0cfa794d6834ee678"
+    },
+    {
+      "path": "docs/img/library.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fb76d62ff70c6bb93d71441d7994c10b9824da4a",
+      "size": 104907,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/fb76d62ff70c6bb93d71441d7994c10b9824da4a"
+    },
+    {
+      "path": "docs/img/pedigree.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a8c19fe7e810faa258d55562805126832f036b7c",
+      "size": 32946,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/a8c19fe7e810faa258d55562805126832f036b7c"
+    },
+    {
+      "path": "docs/img/raising.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f3f3e32b726cb366b23ff0a6467f1a70a9237769",
+      "size": 34489,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/f3f3e32b726cb366b23ff0a6467f1a70a9237769"
+    },
+    {
+      "path": "docs/img/taming.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7e2be37321eb7112161827bcda812521d505dddf",
+      "size": 42525,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/7e2be37321eb7112161827bcda812521d505dddf"
+    },
+    {
+      "path": "docs/index.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b39005b3ce3ecf921e400514b51a54757588cbde",
+      "size": 3657,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/b39005b3ce3ecf921e400514b51a54757588cbde"
+    },
+    {
+      "path": "setup.iss",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c2aea23f9b61b872ac560c4e5414504d076054aa",
+      "size": 12866,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/c2aea23f9b61b872ac560c4e5414504d076054aa"
+    },
+    {
+      "path": "translations.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a26fd8f7bca5c18f093bf1050b3365b6ffca392a",
+      "size": 21999,
+      "url": "https://api.github.com/repos/cadon/ARKStatsExtractor/git/blobs/a26fd8f7bca5c18f093bf1050b3365b6ffca392a"
+    }
+  ],
+  "truncated": false
+}

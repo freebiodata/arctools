@@ -1,0 +1,32 @@
+---
+// Inline lucide icon (https://lucide.dev, ISC). Rendered at build time from
+// node_modules/lucide-static - no runtime JS, no image requests, inherits
+// currentColor. Usage: <Icon name="drumstick" size={18} />
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+
+interface Props {
+  /** lucide-static icon file name (without .svg). */
+  name: string;
+  size?: number;
+  class?: string;
+  strokeWidth?: number;
+  /** Accessible label. Omit for decorative icons (rendered aria-hidden). */
+  label?: string;
+}
+
+const { name, size = 18, class: className = '', strokeWidth = 2, label } = Astro.props;
+
+const iconsDir = join(process.cwd(), 'node_modules', 'lucide-static', 'icons');
+let svg = readFileSync(join(iconsDir, `${name}.svg`), 'utf8');
+
+svg = svg.replace(
+  /<svg[^>]*>/,
+  () =>
+    `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" ` +
+    `viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${strokeWidth}" ` +
+    `stroke-linecap="round" stroke-linejoin="round" class="icon icon--${name} ${className}" ` +
+    (label ? `role="img" aria-label="${label}">` : 'aria-hidden="true">'),
+);
+---
+<Fragment set:html={svg} />

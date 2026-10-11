@@ -1,0 +1,427 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { creatures, CREATURE_COUNT } from '../data/creatures';
+import { usableFoods } from '../lib/taming';
+
+const tameable = creatures.filter((c) => c.tameMethod !== 'special');
+const special = creatures.filter((c) => c.tameMethod === 'special');
+const groups = [...new Set(tameable.map((c) => c.group))];
+
+const faq = [
+  {
+    q: 'What is taming effectiveness?',
+    a: 'Taming effectiveness (TE) starts at 100% when the creature is knocked out and decays every time it eats (damage taken lowers it further). It decides how many bonus levels you get: bonus levels = floor(wild level × TE / 2). A level 150 tamed at 98.7% TE gains +74 levels (224); the same tame at 55% TE only gains +41 (191). Better food = fewer feedings = less TE decay, which is why kibble beats raw meat.',
+  },
+  {
+    q: 'How many narcotics will I need?',
+    a: 'Narcotics cover the torpor the creature loses during the tame. Each narcotic adds 40 torpor, a narcoberry 7.5, biotoxin 80. Big-food creatures (Rex, Giga, Doedicurus) usually stay under for the whole tame at 1x; slow tames (raw meat, high levels, low rates) burn hundreds. The calculator shows the exact number for your setup, assuming it takes no extra damage.',
+  },
+  {
+    q: 'What level should I tame?',
+    a: 'On official ASE servers wild creatures max at level 150 (using the 1x column). Post-tame you add bonus levels from taming effectiveness - a perfect 150 tops out at 225. Levels above 150 in the calculator are for unofficial servers with raised wild dino levels.',
+  },
+  {
+    q: 'Why does kibble tame 5x faster than meat?',
+    a: 'Preferred kibble gives 400 taming affinity per piece versus 150 for raw prime and 50 for raw meat, and its high food value means the creature eats sooner. Fewer, faster feedings also preserve taming effectiveness. Non-preferred kibble (wrong tier) is worse than raw prime - only 16 affinity - so always match the tier the creature prefers.',
+  },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'ARK Taming Calculator',
+    applicationCategory: 'GameApplication',
+    operatingSystem: 'Web',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    description:
+      'ARK: Survival Evolved taming calculator with exact food counts, taming time, narcotics and tranq counts for server rates 1x-50x.',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+];
+---
+<BaseLayout
+  title="ARK Taming Calculator - Food, Time, Narcotics (1x–50x)"
+  description="ARK taming calculator for 60+ popular creatures: exact kibble/meat counts, taming time, effectiveness, bonus levels and narcotics for any server rate from 1x to 50x. Based on game-file data, not guesses."
+  path="/taming-calculator"
+  schema={schema}
+>
+  <section class="page-head">
+    <span class="eyebrow"><Icon name="drumstick" size={15} /> Tool 01 - knockout &amp; passive</span>
+    <h1>ARK Taming Calculator</h1>
+    <p class="lead">
+      Choose a creature, its wild level and the food you plan to use. The
+      calculator runs the game&rsquo;s own taming formulas on game-file constants - 
+      food count, tame time, taming effectiveness, post-tame level, narcotics
+      and tranq counts - for any server rate from 1x to 50x.
+    </p>
+    <div class="tag-row">
+      <span class="badge">{CREATURE_COUNT}-creature verified subset</span>
+      <span class="badge">Rates 1x–50x</span>
+      <span class="badge">Post-tame level preview</span>
+    </div>
+  </section>
+
+  <div class="grid-2">
+    <form class="panel" id="taming-form" aria-label="Taming calculator inputs">
+      <h2 class="with-icon" style="font-size:1.35rem"><Icon name="clipboard-list" size={20} /> Your tame</h2>
+
+      <div class="field">
+        <label for="tc-creature">Creature</label>
+        <select id="tc-creature">
+          {groups.map((g) => (
+            <optgroup label={g}>
+              {tameable.filter((c) => c.group === g).map((c) => (
+                <option value={c.slug} data-slug={c.slug}>
+                  {c.name}{c.tameMethod === 'passive' ? ' (passive)' : ''}
+                </option>
+              ))}
+            </optgroup>
+          ))}
+        </select>
+        <p class="muted" id="tc-creature-note" style="font-size:.85rem;margin:.4rem 0 0"></p>
+      </div>
+
+      <div class="field">
+        <label for="tc-level">
+          Wild level <span class="hint">(official max 150)</span>
+        </label>
+        <input type="range" id="tc-level-range" min="1" max="300" value="150" step="1" />
+        <div style="display:flex;gap:.6rem;align-items:center">
+          <input type="number" id="tc-level" min="1" max="300" value="150" style="width:110px" />
+          <span class="muted" id="tc-level-hint" style="font-size:.85rem">150 = official wild max</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="tc-food">Food</label>
+        <select id="tc-food"></select>
+        <p class="muted" id="tc-food-note" style="font-size:.85rem;margin:.4rem 0 0"></p>
+      </div>
+
+      <div class="field">
+        <label>Server taming rate</label>
+        <div class="seg" id="tc-rate" role="group" aria-label="Server taming rate">
+          {[1, 1.5, 2, 5, 10, 20, 50].map((r) => (
+            <button type="button" data-rate={r} aria-pressed={r === 1 ? 'true' : 'false'}>{r}x</button>
+          ))}
+        </div>
+        <label for="tc-rate-custom" style="margin-top:.6rem">
+          Custom multiplier <span class="hint">(any value 0.1–100)</span>
+        </label>
+        <input type="number" id="tc-rate-custom" min="0.1" max="100" step="0.1" placeholder="e.g. 3" style="width:130px" />
+      </div>
+
+      <div class="callout" id="tc-passive-note" hidden>
+        Passive tame: feed from your last hotbar slot without knocking it out.
+        No narcotics or tranqs needed - timing estimates use wake-taming multipliers.
+      </div>
+      <div class="callout callout--warn" id="tc-level-warn" hidden>
+        Levels above 150 only spawn on unofficial servers with boosted wild levels.
+      </div>
+    </form>
+
+    <div>
+      <section class="panel" aria-label="Results">
+        <h2 style="font-size:1.35rem" id="tc-result-title">Results</h2>
+        <div class="stat-grid" id="tc-stats">
+          <div class="stat"><span class="stat__label" id="tc-l-food"><Icon name="drumstick" size={13} /> Food needed</span><span class="stat__value" id="tc-food-count">–</span><span class="stat__sub" id="tc-food-sub"></span></div>
+          <div class="stat"><span class="stat__label"><Icon name="timer" size={13} /> Tame time</span><span class="stat__value" id="tc-time">–</span><span class="stat__sub" id="tc-time-sub"></span></div>
+          <div class="stat"><span class="stat__label"><Icon name="percent" size={13} /> Effectiveness</span><span class="stat__value" id="tc-te">–</span><span class="stat__sub" id="tc-te-sub"></span></div>
+          <div class="stat"><span class="stat__label"><Icon name="trending-up" size={13} /> Level after tame</span><span class="stat__value" id="tc-level-after">–</span><span class="stat__sub" id="tc-level-max"></span></div>
+        </div>
+      </section>
+
+      <section class="panel" id="tc-torpor-panel" aria-label="Torpor and knockout">
+        <h2 class="with-icon" style="font-size:1.2rem"><Icon name="moon-star" size={19} /> Torpor &amp; knockout</h2>
+        <div class="stat-grid">
+          <div class="stat"><span class="stat__label"><Icon name="moon-star" size={13} /> Total torpor</span><span class="stat__value" id="tc-torpor">–</span><span class="stat__sub">to knock out</span></div>
+          <div class="stat"><span class="stat__label"><Icon name="gauge" size={13} /> Torpor drain</span><span class="stat__value" id="tc-drain">–</span><span class="stat__sub">per second while KO'd</span></div>
+          <div class="stat"><span class="stat__label"><Icon name="pill" size={13} /> Narcotics</span><span class="stat__value" id="tc-narc">–</span><span class="stat__sub" id="tc-narc-sub">+40 torpor each</span></div>
+          <div class="stat"><span class="stat__label"><Icon name="leaf" size={13} /> Biotoxin / berries</span><span class="stat__value" id="tc-biotoxin">–</span><span class="stat__sub" id="tc-berries"></span></div>
+        </div>
+        <div class="table-wrap" style="margin-top: .9rem">
+          <table class="data" id="tc-tranq-table">
+            <thead>
+              <tr><th><Icon name="crosshair" size={13} /> Knockout weapon</th><th class="num">Torpor / hit</th><th class="num">Hits (body)</th><th class="num">Hits (head)</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <p class="muted" style="font-size:.82rem;margin:.6rem 0 0">
+          Headshots multiply tranq weapon torpor ×2.5 on most creatures. Bring ~15% extra
+          ammunition for misses and torpor decay during the knockout.
+        </p>
+      </section>
+
+      <section class="panel" aria-label="Food comparison">
+        <h2 class="with-icon" style="font-size:1.2rem"><Icon name="utensils" size={19} /> All foods compared <span class="muted" style="text-transform:none;font-family:var(--font-body);font-size:.85rem">(same level &amp; rate)</span></h2>
+        <div class="table-wrap">
+          <table class="data" id="tc-compare-table">
+            <thead>
+              <tr><th>Food</th><th class="num">Amount</th><th class="num">Time</th><th class="num">TE</th><th class="num">Post-tame lvl</th><th class="num">Narcotics</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <section class="panel" style="margin-top:1.5rem">
+    <h2 class="with-icon"><Icon name="triangle-alert" size={20} /> Special-mechanic tames (not in the calculator)</h2>
+    <div class="table-wrap">
+      <table class="data">
+        <thead><tr><th>Creature</th><th>Mechanic</th></tr></thead>
+        <tbody>
+          {special.map((c) => (
+            <tr><td><strong>{c.name}</strong></td><td style="white-space:normal">{c.note}</td></tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="prose" style="margin-top:2.5rem">
+    <h2>How ARK taming math actually works</h2>
+    <p>
+      Every creature needs a fixed amount of <strong>taming affinity</strong> that grows
+      linearly with its level: <code>affinity = base + per-level × wild level</code>.
+      Each piece of food adds affinity at a per-creature rate (preferred kibble is
+      400 per piece, raw prime 150, raw meat 50), multiplied by your server's
+      taming rate and the hardcoded 4x bonus the live game applies since patch 313.5.
+      The count you need is simply <code>affinity ÷ affinity-per-food</code>, rounded up.
+    </p>
+    <p>
+      Taming time comes from hunger: a KO'd creature only eats once its food stat
+      drops far enough, and each species drains food at its own rate. Better foods
+      restore more hunger per feeding, so the creature eats sooner and the tame
+      finishes faster - kibble tames are roughly 5x faster than raw meat for the
+      same creature.
+    </p>
+    <p>
+      Taming effectiveness decays per feeding as
+      <code>TE = 1 / (1 + ineffectiveness × feedings ÷ affinity-per-feeding)</code>,
+      which is why fewer feedings of better food preserve TE. Bonus levels are
+      <code>floor(level × TE / 2)</code> - displayed above as the level you'll see
+      the moment the tame finishes, with the perfect-tame ceiling alongside.
+    </p>
+  </section>
+
+  <section style="margin-top:2.5rem" aria-label="FAQ">
+    <h2>Taming FAQ</h2>
+    {faq.map((f) => (
+      <details class="faq">
+        <summary>{f.q}</summary>
+        <div class="faq-body"><p>{f.a}</p></div>
+      </details>
+    ))}
+  </section>
+
+  <script>
+    import { creatures } from '../data/creatures';
+    import {
+      computeTaming,
+      usableFoods,
+      getFoodValues,
+      formatDuration,
+      torporAtLevel,
+      DEFAULT_SERVER,
+      type ServerSettings,
+    } from '../lib/taming';
+    import type { Creature } from '../data/types';
+
+    const tameable = creatures.filter((c) => c.tameMethod !== 'special');
+    const bySlug = new Map(tameable.map((c) => [c.slug, c]));
+
+    const el = <T extends HTMLElement>(id: string): T => document.getElementById(id) as T;
+    const selCreature = el<HTMLSelectElement>('tc-creature');
+    const inpLevel = el<HTMLInputElement>('tc-level');
+    const rangeLevel = el<HTMLInputElement>('tc-level-range');
+    const selFood = el<HTMLSelectElement>('tc-food');
+    const rateWrap = el('tc-rate');
+    const customRate = el<HTMLInputElement>('tc-rate-custom');
+    const creatureNote = el('tc-creature-note');
+    const foodNote = el('tc-food-note');
+
+    let state = {
+      slug: 'rex',
+      level: 150,
+      rate: 1 as number,
+      food: '' as string,
+    };
+
+    function creature(): Creature {
+      return bySlug.get(state.slug)!;
+    }
+
+    function foodOptions(c: Creature): { name: string; label: string }[] {
+      const foods = usableFoods(c)
+        .map((name) => {
+          const fv = getFoodValues(c, name)!;
+          const isKibble = name.endsWith('Kibble') && name !== 'Augmented Kibble';
+          const preferred = c.preferredKibble && name === `${c.preferredKibble} Kibble`;
+          return { name, fv, isKibble, preferred };
+        })
+        .sort((a, b) => b.fv.a - a.fv.a || Number(b.preferred) - Number(a.preferred));
+      return foods.map((f) => ({
+        name: f.name,
+        label: f.preferred ? `★ ${f.name} (preferred)` : f.name,
+      }));
+    }
+
+    function rebuildFoods() {
+      const c = creature();
+      const opts = foodOptions(c);
+      selFood.innerHTML = '';
+      for (const o of opts) {
+        const opt = document.createElement('option');
+        opt.value = o.name;
+        opt.textContent = o.label;
+        selFood.appendChild(opt);
+      }
+      state.food = opts[0]?.name ?? '';
+      const fv = state.food ? getFoodValues(c, state.food) : null;
+      const q = fv && (fv.q ?? 1) > 1 ? ` - eats ${fv!.q} at a time` : '';
+      foodNote.textContent = c.preferredKibble
+        ? `Preferred kibble tier: ${c.preferredKibble}${q}`
+        : `Best food by affinity${q}`;
+    }
+
+    function fmtInt(n: number): string {
+      return Math.round(n).toLocaleString('en-US');
+    }
+
+    function render() {
+      const c = creature();
+      const server: ServerSettings = { ...DEFAULT_SERVER, tamingSpeed: state.rate };
+      const isPassive = c.tameMethod === 'passive';
+
+      creatureNote.innerHTML = `${c.role} &middot; diet: ${c.diet}` +
+        (isPassive ? ' &middot; <span class="badge badge--passive">passive</span>' : ' &middot; <span class="badge badge--ko">knockout</span>');
+
+      const r = computeTaming(c, state.level, state.food, server);
+      if (!r) return;
+
+      el('tc-l-food').textContent = state.food.endsWith('Kibble') ? 'Kibble needed' : 'Food needed';
+      const qty = r.itemsEach > 1 ? `${fmtInt(r.itemsTotal)} (${r.feedings} × ${r.itemsEach})` : fmtInt(r.itemsTotal);
+      el('tc-food-count').textContent = qty;
+      el('tc-food-sub').textContent = `${state.food}${r.itemsEach > 1 ? ' - per feeding of ' + r.itemsEach : ''}`;
+      el('tc-time').textContent = formatDuration(r.seconds);
+      el('tc-time-sub').textContent = `at ${state.rate}x taming rate`;
+      el('tc-te').textContent = (r.tamingEffectiveness * 100).toFixed(1) + '%';
+      el('tc-te-sub').textContent = `+${r.bonusLevels} bonus levels`;
+      el('tc-level-after').textContent = String(r.levelAfterTame);
+      el('tc-level-max').textContent = `max possible: ${r.maxLevelAfterTame} (100% TE)`;
+      el('tc-result-title').textContent = `${c.name} - level ${state.level}`;
+
+      // torpor panel
+      const torporPanel = el('tc-torpor-panel');
+      if (isPassive) {
+        torporPanel.hidden = true;
+      } else {
+        torporPanel.hidden = false;
+        el('tc-torpor').textContent = fmtInt(r.torporTotal);
+        el('tc-drain').textContent = r.torporDepletionPS.toFixed(1) + '/s';
+        el('tc-narc').textContent = fmtInt(r.narcotics);
+        el('tc-narc-sub').textContent = r.narcotics > 0
+          ? `to hold ${formatDuration(r.seconds)} tame`
+          : 'stays KO\u2019d naturally for this tame';
+        el('tc-biotoxin').textContent = fmtInt(r.bioToxin);
+        el('tc-berries').textContent = `${fmtInt(r.narcoberries)} narcoberries (7.5 each)`;
+
+        const tbody = el('tc-tranq-table').querySelector('tbody')!;
+        const tools = [
+          ['Shocking Tranq Dart', 442], ['Tranq Dart', 221], ['Tranq Spear Bolt', 306],
+          ['Tranq Arrow (crossbow)', 157.5], ['Tranq Arrow (bow)', 90],
+          ['Slingshot (stone)', 24.5], ['Wooden Club', 10],
+        ] as [string, number][];
+        tbody.innerHTML = tools.map(([name, torpor]) => {
+          const body = Math.ceil(r.torporTotal / torpor);
+          const head = Math.ceil(r.torporTotal / (torpor * 2.5));
+          return `<tr><td>${name}</td><td class="num">${fmtInt(torpor)}</td><td class="num">${fmtInt(body)}</td><td class="num">${fmtInt(head)}</td></tr>`;
+        }).join('');
+      }
+
+      // compare table
+      const cmp = el('tc-compare-table').querySelector('tbody')!;
+      const starSvg = `<svg class="icon" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none" style="color:var(--amber-400)" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`;
+      const rows = usableFoods(c)
+        .map((name) => ({ name, r: computeTaming(c, state.level, name, server) }))
+        .filter((x) => x.r)
+        .sort((a, b) => a.r!.seconds - b.r!.seconds)
+        .slice(0, 12);
+      cmp.innerHTML = rows.map(({ name, r: v }) => {
+        const amt = v!.itemsEach > 1 ? `${fmtInt(v!.itemsTotal)} (${v!.feedings}×${v!.itemsEach})` : fmtInt(v!.itemsTotal);
+        const star = name === `${c.preferredKibble} Kibble` ? `${starSvg} ` : '';
+        return `<tr><td>${star}${name}</td><td class="num">${amt}</td><td class="num">${formatDuration(v!.seconds)}</td><td class="num">${(v!.tamingEffectiveness * 100).toFixed(1)}%</td><td class="num">${v!.levelAfterTame}</td><td class="num">${fmtInt(v!.narcotics)}</td></tr>`;
+      }).join('');
+
+      el('tc-passive-note').hidden = !isPassive;
+      el('tc-level-warn').hidden = state.level <= 150;
+    }
+
+    // wire events
+    selCreature.addEventListener('change', () => {
+      state.slug = selCreature.value;
+      rebuildFoods();
+      render();
+    });
+    function setLevel(v: number) {
+      state.level = Math.min(300, Math.max(1, Math.round(v) || 1));
+      inpLevel.value = String(state.level);
+      rangeLevel.value = String(state.level);
+      render();
+    }
+    inpLevel.addEventListener('input', () => setLevel(Number(inpLevel.value)));
+    rangeLevel.addEventListener('input', () => setLevel(Number(rangeLevel.value)));
+    selFood.addEventListener('change', () => {
+      state.food = selFood.value;
+      const fv = getFoodValues(creature(), state.food);
+      foodNote.textContent = fv && (fv.q ?? 1) > 1
+        ? `Eats ${fv.q} at a time - plan ${fv.q}× the stack size`
+        : creature().preferredKibble
+          ? `Preferred kibble tier: ${creature().preferredKibble}`
+          : '';
+      render();
+    });
+    rateWrap.addEventListener('click', (e) => {
+      const btn = (e.target as HTMLElement).closest('button');
+      if (!btn) return;
+      state.rate = Number(btn.dataset.rate);
+      customRate.value = '';
+      rateWrap.querySelectorAll('button').forEach((b) =>
+        b.setAttribute('aria-pressed', String(Number((b as HTMLButtonElement).dataset.rate) === state.rate)),
+      );
+      render();
+    });
+    customRate.addEventListener('input', () => {
+      const v = Number(customRate.value);
+      if (v > 0) {
+        state.rate = v;
+        rateWrap.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', 'false'));
+        render();
+      }
+    });
+
+    // init: default Rex from URL params if present
+    const params = new URLSearchParams(location.search);
+    const slugParam = params.get('creature');
+    if (slugParam && bySlug.has(slugParam)) {
+      state.slug = slugParam;
+    }
+    selCreature.value = state.slug;
+    const lvlParam = Number(params.get('level'));
+    rebuildFoods();
+    setLevel(Number.isFinite(lvlParam) && lvlParam > 0 ? Math.min(300, lvlParam) : 150);
+  </script>
+</BaseLayout>
