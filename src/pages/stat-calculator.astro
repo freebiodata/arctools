@@ -12,16 +12,24 @@ const nice: Record<number, string> = {
 
 const faq = [
   {
-    q: 'How do bonus levels from taming work?',
-    a: 'When the tame finishes you gain bonus levels = floor(wild level × taming effectiveness / 2), distributed randomly across the stats. A 150 at 98.7% TE gets +74 levels; a perfect 100% TE tame would get +75 (level 225). Those bonus levels are random per stat - that\u2019s why two identical tames can end up with different stats.',
+    q: 'How do bonus levels from taming effectiveness work?',
+    a: 'When a wild creature finishes taming, you receive bonus levels according to floor(Wild Level * (TE / 2)). A Level 150 tamed at 98.7% TE gains +74 bonus levels (finishing at Level 224). These bonus levels are distributed randomly across the creature\'s 7 stats (including movement speed, which acts as a "wasted" stat in wild tames). That randomness is why two identical level 150 wild knockouts can emerge with drastically different health and melee stats.',
   },
   {
-    q: 'What does imprinting actually change?',
-    a: 'At 100% imprint the creature gets +20% on Health, Food, Weight, Melee (and Torpor/Water - invisible in practice) but NOT Stamina, Oxygen or Crafting, and flyers get no speed bonus. On top, the imprinter riding it gets ×1.3 damage dealt and takes only 70% damage while ridden. Partial imprints scale linearly (50% imprint = +10% stats).',
+    q: 'What stats benefit from 100% imprinting?',
+    a: 'At 100% imprint, a creature receives a flat +20% boost to Health, Food, Weight, and Melee Damage (and Torpor). Stamina, Oxygen, and Crafting Skill NEVER receive an imprinting boost. Flyers also do not receive movement speed boosts from imprinting in modern official ASE and ASA. Partial imprints scale linearly (a 50% imprint awards a +10% stat increase).',
   },
   {
-    q: 'Why did my tamed creature lose melee after imprint?',
-    a: 'It didn\u2019t - the taming effectiveness multiplier already applies at tame time: melee shows (base + 50% tame bonus) × (1 + 0.4 × TE). A low-TE tame visibly "loses" melee versus the wild value, and imprinting adds its 20% on top of the tamed number, never the wild one.',
+    q: 'How does the Imprinter Rider Buff work?',
+    a: 'When the player who claimed the baby is actively riding that creature, the Rider Buff activates: the creature deals +30% damage and takes 30% less damage from all incoming attacks (taking only 70% damage). This buff applies ONLY to the designated imprinter and does not apply to other tribe members or unridden dinos.',
+  },
+  {
+    q: 'What is the 254/255 stat point hard cap rule?',
+    a: 'ARK stores stat points as 8-bit unsigned integers (0 to 255). If a stat reaches exactly 255 wild points through breeding mutations, the game engine prevents you from adding any domestic leveling points to that stat! Therefore, master breeders stop mutating a stat at 253 or 254 wild points, preserving the ability to invest the 88 domestic training points after hatching.',
+  },
+  {
+    q: 'Why do domestic level-up points scale off post-tame stats?',
+    a: 'In ARK\'s formula, each domestic point invested adds a percentage of the post-tame base value (after taming bonuses and imprint). For example, a Rex with 10,000 post-tame HP gains 2,700 HP per domestic point (+27%), whereas a Rex with 5,000 HP only gains 1,350 HP per point. Always maximize wild taming effectiveness and imprinting before investing domestic points.',
   },
 ];
 
@@ -49,72 +57,79 @@ const schema = [
 <BaseLayout
   title="ARK Stat Calculator - Wild vs Tamed vs Imprinted"
   description="ARK stat point calculator: see exactly how wild points, taming effectiveness, imprinting (+20%) and domestic levels combine into final stats for 60+ creatures before you tame or level anything."
-  path="/stat-calculator"
+  path="/stat-calculator/"
   schema={schema}
 >
   <section class="page-head">
-    <span class="eyebrow"><Icon name="chart-column" size={15} /> Tool 04 - point accounting</span>
+    <span class="eyebrow"><Icon name="chart-column" size={15} /> Tool 04 - Point Accounting &amp; Scaling</span>
     <h1>ARK Stat Calculator</h1>
     <p class="lead">
-      ARK computes stats in three layers - wild points, taming bonuses, then
-      imprinting and domestic levels. Set your scenario below and see the exact
-      final numbers the game will show, stat by stat.
+      ARK computes creature stats in three cumulative layers: wild base points, taming bonus multipliers,
+      and imprinting plus domestic levels. Configure your creature parameters below to view exact final stats
+      before investing resources or spending level-up points.
     </p>
     <div class="tag-row">
-      <span class="badge">Game formula, exact constants</span>
-      <span class="badge">Imprint +20% where it applies</span>
-      <span class="badge">Rider bonus included</span>
+      <span class="badge">Official Engine Formula</span>
+      <span class="badge">Imprint +20% Multipliers</span>
+      <span class="badge">Rider Damage Buff Included</span>
+      <span class="badge">254 Point Cap Aware</span>
     </div>
   </section>
 
   <div class="grid-2">
-    <form class="panel" id="stat-form" aria-label="Stat calculator inputs">
-      <h2 class="with-icon" style="font-size:1.35rem"><Icon name="sliders-horizontal" size={20} /> Scenario</h2>
+    <form class="panel" id="sc-form" aria-label="Stat calculator inputs">
+      <h2 class="with-icon" style="font-size:1.35rem"><Icon name="paw-print" size={20} /> Creature Scenario</h2>
 
       <div class="field">
-        <label for="sc-creature">Creature</label>
+        <label for="sc-creature">Creature Species</label>
         <select id="sc-creature">
-          {creatures.filter((c) => c.stats[0]).map((c) => (
-            <option value={c.slug} selected={c.slug === 'rex'}>{c.name}</option>
+          {creatures.map((c) => (
+            <option value={c.slug}>{c.name}</option>
           ))}
         </select>
+        <p class="muted" id="sc-creature-meta" style="font-size:.85rem;margin:.3rem 0 0"></p>
       </div>
 
-      <div class="field">
-        <label for="sc-te">Taming effectiveness <span class="hint">(kibble ≈ 99%, meat ≈ 30–60%)</span></label>
-        <input type="range" id="sc-te" min="0" max="100" value="99" step="1" />
-        <div style="display:flex;justify-content:space-between"><span class="muted" style="font-size:.85rem" id="sc-te-label">99%</span><span class="muted" style="font-size:.85rem" id="sc-bonus-label">+74 bonus levels</span></div>
+      <div class="stat-grid" style="grid-template-columns:1fr 1fr">
+        <div class="field">
+          <label for="sc-te">Taming Effectiveness %</label>
+          <input type="number" id="sc-te" min="0" max="100" value="98.7" step="0.1" />
+        </div>
+        <div class="field">
+          <label for="sc-imprint">Imprint %</label>
+          <input type="number" id="sc-imprint" min="0" max="100" value="100" step="1" />
+        </div>
       </div>
 
-      <div class="field">
-        <label for="sc-imprint">Imprinting <span class="hint">(0–100%)</span></label>
-        <input type="range" id="sc-imprint" min="0" max="100" value="100" step="1" />
-        <div style="display:flex;justify-content:space-between"><span class="muted" style="font-size:.85rem" id="sc-imprint-label">100%</span><span class="muted" style="font-size:.85rem">rider bonus ×1.3 dmg / ×0.7 taken</span></div>
-      </div>
-
-      <h2 style="font-size:1.2rem;margin-top:1.3rem">Wild points <span class="muted" style="text-transform:none;font-family:var(--font-body);font-size:.8rem;font-weight:400">(as tamed / after tame roll)</span></h2>
+      <h2 class="with-icon" style="font-size:1.15rem;margin-top:1.25rem"><Icon name="list-plus" size={18} /> Point Allocations</h2>
       <div class="table-wrap">
-        <table class="data">
-          <thead><tr><th>Stat</th><th class="num">Wild pts</th><th class="num">Domestic pts</th></tr></thead>
+        <table class="data" id="sc-point-table">
+          <thead>
+            <tr><th>Stat</th><th class="num">Wild points</th><th class="num">Mutations</th><th class="num">Domestic points</th></tr>
+          </thead>
           <tbody>
-            {STAT_COLS.map((si) => (
+            {STAT_COLS.map((idx) => (
               <tr>
-                <td>{nice[si]}</td>
-                <td class="num"><input type="number" min="0" max="255" value={si === 0 ? '30' : '0'} data-stat={si} data-kind="wild" style="width:90px" aria-label={`${nice[si]} wild points`} /></td>
-                <td class="num"><input type="number" min="0" max="255" value="0" data-stat={si} data-kind="dom" style="width:90px" aria-label={`${nice[si]} domestic points`} /></td>
+                <td>{nice[idx]}</td>
+                <td class="num"><input type="number" min="0" max="255" value={idx === 0 ? '40' : idx === 8 ? '40' : '20'} data-stat={idx} data-col="wild" style="width:80px" aria-label={`${nice[idx]} wild points`} /></td>
+                <td class="num"><input type="number" min="0" max="100" value="0" data-stat={idx} data-col="mut" style="width:80px" aria-label={`${nice[idx]} mutation points`} /></td>
+                <td class="num"><input type="number" min="0" max="88" value="0" data-stat={idx} data-col="dom" style="width:80px" aria-label={`${nice[idx]} domestic points`} /></td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      <p class="muted" style="font-size:.85rem" id="sc-level-note"></p>
+      <p class="muted" style="font-size:.85rem">
+        On official servers creatures can receive up to <strong>88 domestic levels</strong> after taming/imprinting.
+        Total levels (wild + domestic) cannot exceed the server level cap (450 on official ASE).
+      </p>
     </form>
 
-    <div>
+    <div class="results" aria-live="polite">
       <section class="panel" aria-label="Stat projection">
-        <h2 class="with-icon" style="font-size:1.35rem"><Icon name="table-2" size={20} /> Projection</h2>
+        <h2 class="with-icon" style="font-size:1.35rem"><Icon name="activity" size={20} /> Projected Final Stats</h2>
         <div class="table-wrap">
-          <table class="data" id="sc-table">
+          <table class="data" id="sc-results-table">
             <thead>
               <tr>
                 <th>Stat</th><th class="num">Wild value</th><th class="num">After tame</th>
@@ -131,44 +146,73 @@ const schema = [
         </div>
       </section>
 
-      <section class="panel" aria-label="Formula">
-        <h2 class="with-icon" style="font-size:1.2rem"><Icon name="sigma" size={18} /> The formula it runs</h2>
-        <p style="font-size:.95rem;color:var(--bone-200)">
-          <code>(Base × (1 + wild×IncWild + mut×IncWild) × TBHPM × imprintM + AddWhenTamed) × (1 + MultAffinity × TE) × (1 + dom×IncDom)</code>
+      <section class="panel" aria-label="Formula" style="margin-top:1.25rem">
+        <h2 class="with-icon" style="font-size:1.2rem"><Icon name="sigma" size={18} /> The Three-Layer Stat Formula</h2>
+        <p style="font-size:.92rem;color:var(--bone-200);word-break:break-all">
+          <code>(Base &times; (1 + wild&times;IncWild + mut&times;IncWild) &times; TBHPM &times; imprintM + AddWhenTamed) &times; (1 + MultAffinity &times; TE) &times; (1 + dom&times;IncDom)</code>
         </p>
-        <p class="muted" style="font-size:.9rem">
-          <strong>imprintM</strong> is 1.2 × imprint% on Health/Food/Weight/Melee
-          (and Torpor/Water), 1.0 on Stamina/Oxygen/Crafting; flyers also skip it
-          for Speed. <strong>TE</strong> only scales stats with a MultAffinity bonus
-          (melee and a few others - for Rex that's ×(1+0.4·TE)). Bonus levels from
-          taming are excluded from the projection because the game rolls them
-          randomly - the "level after tame" figure shows how many you gained.
+        <p class="muted" style="font-size:.88rem">
+          <strong>imprintM:</strong> 1.2 &times; Imprint% on Health, Food, Weight, and Melee (and Torpor/Water); 1.0 on Stamina, Oxygen, and Crafting.
+          <strong>TE:</strong> Scales stats with a species <code>MultAffinity</code> bonus (e.g., Rex melee &times;(1 + 0.4 &times; TE)).
         </p>
       </section>
     </div>
   </div>
 
-  <section class="prose" style="margin-top:2.5rem">
-    <h2>Wild vs tamed vs imprinted - the three layers</h2>
-    <p>
-      <strong>Wild:</strong> a wild creature's stat is simply
-      <code>Base × (1 + points × IncWild)</code>. Its level is 1 plus all points
-      across the six mutable stats (Torpor scales with level but is not a point stat).
-    </p>
-    <p>
-      <strong>Tamed:</strong> the moment the tame finishes, two things happen: bonus
-      levels (from taming effectiveness) are rolled randomly into the stats, and
-      species bonuses apply - an additive bonus (e.g. +50% melee for most carnivores)
-      and a TE-scaled multiplicative bonus. This is why a freshly tamed Rex shows
-      ~209% melee even with zero points in it.
-    </p>
-    <p>
-      <strong>Imprinted &amp; leveled:</strong> imprinting multiplies the tamed value
-      by up to ×1.2 on the affected stats, and each domestic point adds
-      <code>IncDom × current base</code> - for HP that's +27% of the tamed base per
-      point on a Rex. Because domestic points scale off the already-bonused value,
-      imprint first, level second: same points, bigger gains.
-    </p>
+  <!-- Deep Architecture Breakdown -->
+  <section class="panel" style="margin-top: 2rem" aria-label="Stat Layers Explained">
+    <h2 class="with-icon"><Icon name="layers" size={22} /> Understanding ARK's Three Stat Layers</h2>
+    <div class="prose">
+      <h3>Layer 1: The Wild Point Foundation</h3>
+      <p>
+        When a wild dinosaur spawns, its level is divided across its available stats according to:
+        <code>Wild Stat = BaseStat &times; (1 + WildPoints &times; IncWild)</code>.
+        Torpor also increases with wild level, but torpor cannot receive direct domestic point investments.
+      </p>
+
+      <h3>Layer 2: Taming Bonuses &amp; Multipliers</h3>
+      <p>
+        The moment the tame concludes, the game engine rolls bonus levels (governed by Taming Effectiveness) into random stats.
+        Simultaneously, species-specific modifiers trigger:
+      </p>
+      <ul>
+        <li><strong>Additive Taming Bonus (AddWhenTamed):</strong> Flat percentage increases (e.g. +50% melee for Rex).</li>
+        <li><strong>Multiplicative Taming Affinity (MultAffinity):</strong> Scales directly with final TE (e.g. &times;(1 + 0.4 &times; TE)). A tame with low TE permanently forfeits a large chunk of its potential melee output.</li>
+      </ul>
+
+      <h3>Layer 3: Imprinting &amp; Domestic Scaling</h3>
+      <p>
+        Raising a baby to 100% imprint applies an overarching &times;1.2 multiplier to Health, Food, Weight, and Melee.
+        Each domestic level point added subsequently multiplies this post-imprint baseline:
+        <code>Domestic Boost = PostImprintStat &times; (DomesticPoints &times; IncDom)</code>.
+        Because domestic gains scale from the post-tame foundation, an imprinted high-TE dinosaur gains several times more health per level than a low-level wild tame.
+      </p>
+    </div>
+  </section>
+
+  <!-- Cap and Rider Buff Rules -->
+  <section class="panel" style="margin-top: 2rem">
+    <h2 class="with-icon"><Icon name="shield-check" size={22} /> Stat Limits &amp; The Rider Damage Resistance Rule</h2>
+    <div class="prose">
+      <h3>The 254 Point Soft Cap for Master Breeders</h3>
+      <p>
+        ARK stores wild stat points as an 8-bit unsigned integer (byte value 0 to 255).
+        If breeding mutations push a creature to exactly <strong>255 wild points</strong> in a stat, the game engine considers that stat "maxed" and locks out all domestic leveling for that stat!
+        Survivors who plan to add 88 domestic levels into Health or Melee must stop breeding at <strong>254 points</strong> (or lower) to allow domestic level training.
+      </p>
+
+      <h3>The Imprinted Rider Buff in Combat</h3>
+      <p>
+        When the player who imprinted a dino rides it in battle, two massive modifiers take effect:
+      </p>
+      <ul>
+        <li><strong>+30% Outgoing Damage:</strong> Melee attacks deal 1.3&times; calculated damage.</li>
+        <li><strong>-30% Incoming Damage Resistance:</strong> The creature takes only 70% of standard damage from enemy attacks, stacks multiplicatively with saddle armor.</li>
+      </ul>
+      <p>
+        In Alpha Boss encounters, having the designated imprinter ride the creature often means the difference between a clean victory and a tribe wipe.
+      </p>
+    </div>
   </section>
 
   <section style="margin-top:2.5rem" aria-label="FAQ">
@@ -187,77 +231,107 @@ const schema = [
       projectStat,
       wildStatValue,
       bonusLevels,
-      riderDamageMultiplier,
       wildLevelFromPoints,
+      riderDamageMultiplier,
     } from '../lib/stats';
-    import type { Creature, StatIndex } from '../data/types';
+    import type { StatIndex, Creature } from '../data/types';
 
-    const el = <T extends HTMLElement>(id: string): T => document.getElementById(id) as T;
-    const pool = creatures.filter((c) => c.stats[0]);
-    const bySlug = new Map(pool.map((c) => [c.slug, c]));
     const STAT_COLS: StatIndex[] = [0, 1, 3, 4, 7, 8];
     const NICE: Record<number, string> = {
-      0: 'Health', 1: 'Stamina', 3: 'Oxygen', 4: 'Food', 7: 'Weight', 8: 'Melee %',
+      0: 'Health', 1: 'Stamina', 3: 'Oxygen', 4: 'Food', 7: 'Weight', 8: 'Melee',
     };
+    const el = <T extends HTMLElement>(id: string): T => document.getElementById(id) as T;
+    const selCreature = el<HTMLSelectElement>('sc-creature');
+    const inpTE = el<HTMLInputElement>('sc-te');
+    const inpImprint = el<HTMLInputElement>('sc-imprint');
+    const metaNote = el<HTMLParagraphElement>('sc-creature-meta');
 
-    const fmt = (v: number, si: StatIndex): string => {
-      if (si === 8) return (v * 100).toFixed(1) + '%';
-      return Math.round(v).toLocaleString('en-US');
-    };
+    const bySlug = new Map(creatures.map((c) => [c.slug, c]));
 
-    function read(): { c: Creature; te: number; imprint: number; wild: Map<StatIndex, number>; dom: Map<StatIndex, number> } {
-      const wild = new Map(), dom = new Map();
-      for (const si of STAT_COLS) {
-        wild.set(si, Number((document.querySelector(`[data-stat="${si}"][data-kind="wild"]`) as HTMLInputElement).value) || 0);
-        dom.set(si, Number((document.querySelector(`[data-stat="${si}"][data-kind="dom"]`) as HTMLInputElement).value) || 0);
+    function creature(): Creature {
+      return bySlug.get(selCreature.value) ?? creatures[0];
+    }
+
+    function read() {
+      const c = creature();
+      const te = Math.min(100, Math.max(0, Number(inpTE.value) || 0)) / 100;
+      const imprint = Math.min(100, Math.max(0, Number(inpImprint.value) || 0)) / 100;
+
+      const wild = new Map<StatIndex, number>();
+      const mut = new Map<StatIndex, number>();
+      const dom = new Map<StatIndex, number>();
+
+      document.querySelectorAll<HTMLInputElement>('#sc-point-table input').forEach((inp) => {
+        const stat = Number(inp.dataset.stat) as StatIndex;
+        const col = inp.dataset.col as 'wild' | 'mut' | 'dom';
+        const val = Number(inp.value) || 0;
+        if (col === 'wild') wild.set(stat, val);
+        else if (col === 'mut') mut.set(stat, val);
+        else if (col === 'dom') dom.set(stat, val);
+      });
+
+      return { c, te, imprint, wild, mut, dom };
+    }
+
+    function fmt(val: number, stat: StatIndex): string {
+      if (stat === 8) {
+        return (val * 100).toFixed(1) + '%';
       }
-      return {
-        c: bySlug.get(el<HTMLSelectElement>('sc-creature').value)!,
-        te: Number(el<HTMLInputElement>('sc-te').value) / 100,
-        imprint: Number(el<HTMLInputElement>('sc-imprint').value) / 100,
-        wild, dom,
-      };
+      return val >= 1000 ? val.toLocaleString('en-US', { maximumFractionDigits: 1 }) : val.toFixed(1);
     }
 
     function render() {
-      const { c, te, imprint, wild, dom } = read();
-      el('sc-te-label').textContent = (te * 100).toFixed(0) + '%';
-      const bonus = bonusLevels(150, te);
-      el('sc-bonus-label').textContent = `+${bonus} bonus levels (on a 150)`;
-      el('sc-imprint-label').textContent = (imprint * 100).toFixed(0) + '%';
+      const { c, te, imprint, wild, mut, dom } = read();
+      metaNote.textContent = `${c.name} · Base health ${c.stats[0]?.base ?? '–'} · Base melee ${
+        c.stats[8]?.base ? (c.stats[8]!.base * 100).toFixed(0) + '%' : '–'
+      }`;
 
-      const tbody = el('sc-table').querySelector('tbody')!;
+      const tbody = el('sc-results-table').querySelector('tbody')!;
       tbody.innerHTML = STAT_COLS.filter((si) => c.stats[si]).map((si) => {
-        const w = wild.get(si)!, d = dom.get(si)!;
+        const w = (wild.get(si) || 0) + (mut.get(si) || 0);
+        const d = dom.get(si) || 0;
         const raw = c.stats[si]!;
         const wildV = wildStatValue(raw, w);
         const tamedV = projectStat(c, si, { wildPoints: w, tamingEffectiveness: te });
         const impV = projectStat(c, si, { wildPoints: w, tamingEffectiveness: te, imprintFraction: imprint });
         const fullV = projectStat(c, si, { wildPoints: w, tamingEffectiveness: te, imprintFraction: imprint, domPoints: d });
-        return `<tr><td>${NICE[si]}</td><td class="num">${fmt(wildV, si)}</td><td class="num">${fmt(tamedV, si)}</td><td class="num">${fmt(impV, si)}</td><td class="num"><strong style="color:var(--amber-300)">${fmt(fullV, si)}</strong></td></tr>`;
+        return `<tr>
+          <td><strong>${NICE[si]}</strong></td>
+          <td class="num">${fmt(wildV, si)}</td>
+          <td class="num">${fmt(tamedV, si)}</td>
+          <td class="num">${fmt(impV, si)}</td>
+          <td class="num"><strong>${fmt(fullV, si)}</strong></td>
+        </tr>`;
       }).join('');
 
       const pts: Record<string, number> = {};
-      STAT_COLS.forEach((si) => (pts[String(si)] = wild.get(si)!));
+      STAT_COLS.forEach((si) => (pts[String(si)] = (wild.get(si) || 0) + (mut.get(si) || 0)));
       const wl = wildLevelFromPoints(pts);
       el('sc-wild-level').textContent = String(wl);
       const bl = bonusLevels(wl, te);
       el('sc-tame-level').textContent = String(wl + bl);
-      el('sc-tame-level-sub').textContent = `+${bl} bonus at ${(te * 100).toFixed(0)}% TE · max ${wl + Math.floor(wl / 2)} at 100%`;
-      el('sc-rider').textContent = '×' + riderDamageMultiplier(imprint).toFixed(2);
+      el('sc-tame-level-sub').textContent = `+${bl} bonus levels at ${(te * 100).toFixed(1)}% TE`;
 
-      const melee = wild.get(8)!;
-      el('sc-level-note').textContent =
-        `Wild points are what the creature spawns/tames with. Bonus levels from taming (+${bl} here) land randomly - reroll luck applies per stat.` +
-        (melee > 0 ? '' : '');
+      const riderM = riderDamageMultiplier(imprint);
+      const meleeRaw = c.stats[8];
+      if (meleeRaw) {
+        const w = (wild.get(8) || 0) + (mut.get(8) || 0);
+        const d = dom.get(8) || 0;
+        const fullMelee = projectStat(c, 8, { wildPoints: w, tamingEffectiveness: te, imprintFraction: imprint, domPoints: d });
+        el('sc-rider').textContent = (fullMelee * riderM * 100).toFixed(1) + '%';
+      } else {
+        el('sc-rider').textContent = '–';
+      }
     }
 
-    el('sc-creature').addEventListener('change', render);
-    el('sc-te').addEventListener('input', render);
-    el('sc-imprint').addEventListener('input', render);
-    document.querySelectorAll('#stat-form input[type="number"]').forEach((i) =>
-      i.addEventListener('input', render),
-    );
+    selCreature.addEventListener('change', render);
+    inpTE.addEventListener('input', render);
+    inpImprint.addEventListener('input', render);
+    document.querySelectorAll('#sc-point-table input').forEach((i) => i.addEventListener('input', render));
+
+    // init with Rex if present in URL
+    const p = new URLSearchParams(location.search).get('creature');
+    if (p && bySlug.has(p)) selCreature.value = p;
     render();
   </script>
 </BaseLayout>

@@ -20,17 +20,33 @@ const byTier = (tier: string) => preferers.filter((p) => p.tier === tier);
 
 const faq = [
   {
-    q: 'Which kibble should I use?',
-    a: 'Always the tier the creature prefers - it gives full taming affinity (400 per piece). The tier above also works at full value, anything below or unrelated drops to 16 affinity per piece (worse than raw prime meat). Pick the creature in the reverse lookup below to see its tier.',
+    q: 'Which kibble tier should I use for my target creature?',
+    a: 'Always use the exact tier preferred by the creature (or any higher tier). Preferred kibble provides 400 taming affinity per bite. Using a higher tier works identically at full 400 affinity. However, using any lower tier drops affinity to a punitive 16 affinity per piece—worse than raw standard meat! Check the reverse lookup table below to find your creature\'s tier.',
   },
   {
-    q: 'How do I cook kibble?',
-    a: 'Put the egg and ingredients into a Cooking Pot or Industrial Cooker with water (a waterskin/jar/cante at least 25% full, or irrigation on the Industrial Cooker) and fuel. One batch cooks in 30 seconds and yields one kibble. Fertilized eggs work too.',
+    q: 'Why did my Cooking Pot produce Dye instead of Kibble?',
+    a: 'Wood burns into Charcoal in a Cooking Pot. When berries, water, and charcoal combine in the pot, the recipe engine crafts Dye instead of Kibble! To prevent accidental dye production, always fuel your Cooking Pot with Thatch or Sparkpowder (neither produces charcoal), or cook kibble in an Industrial Cooker.',
   },
   {
-    q: 'Do fertilized or larger eggs make better kibble?',
-    a: 'No - any egg of the right size tier gives the same kibble. A dodo egg and a vulture egg both make Basic Kibble with identical taming power. Only the SIZE class matters (Extra Small → Basic, Small → Simple, Medium → Regular, Large → Superior, Extra Large → Exceptional, Special → Extraordinary).',
+    q: 'Can I use fertilized eggs or Wyvern/Deinonychus eggs for kibble?',
+    a: 'Yes! The recipe system treats fertilized and unfertilized eggs identically; only the egg size category matters. High-spoilage fertilized eggs or unhatched rejects from breeding lines can be cooked into kibble without penalty. For Extraordinary Kibble, wild Yutyrannus, Wyvern, Magmasaur, Rock Drake, or Deinonychus eggs all satisfy the Special Egg requirement.',
   },
+  {
+    q: 'How does an Oviraptor boost egg production in a base?',
+    a: 'Setting an Oviraptor on "Wander" grants an egg-laying buff (indicated by a small egg icon above nearby dinos) to all tamed female creatures in its radius. This reduces the egg-laying interval from ~17 minutes to ~11 minutes. To keep the Oviraptor in place without building cages, fill its inventory with heavy stone so it cannot physically move while wandering.',
+  },
+  {
+    q: 'How do I supply water to an Industrial Cooker vs Cooking Pot?',
+    a: 'A Cooking Pot requires a Waterskin, Water Jar, or Canteen that is at least 25% full placed manually into its inventory (consumed during craft). An Industrial Cooker must be snapped directly to an irrigated water pipe; as long as the pipe network has water access (via intake or water reservoir), the cooker automatically supplies infinite water for continuous batch crafting.',
+  },
+];
+
+const cookerComparison = [
+  { feature: 'Crafting Speed', pot: '30.0 seconds / kibble', cooker: '3.0 seconds / kibble (10x faster)' },
+  { feature: 'Water Supply', pot: 'Manual Waterskins / Canteens (Refill needed)', cooker: 'Direct pipe irrigation (Infinite auto-supply)' },
+  { feature: 'Fuel Type', pot: 'Thatch or Sparkpowder (Avoid Wood)', cooker: 'Gasoline or Electricity' },
+  { feature: 'Inventory Slots', pot: '12 Slots', cooker: '100 Slots (Mass batch crafting)' },
+  { feature: 'Dye Conflict Risk', pot: 'High (Charcoal from wood triggers dye)', cooker: 'Zero (Gasoline creates no charcoal)' },
 ];
 
 const schema = [
@@ -41,7 +57,7 @@ const schema = [
     applicationCategory: 'GameApplication',
     operatingSystem: 'Web',
     description:
-      'ARK kibble chart: all six kibble recipes (Basic to Extraordinary), egg size tiers, which creatures lay which eggs, and which kibble every creature prefers.',
+      'ARK kibble chart: all six kibble recipes (Basic to Extraordinary), egg size tiers, egg farm setups, and creature preferences.',
   },
   {
     '@context': 'https://schema.org',
@@ -57,21 +73,21 @@ const schema = [
 <BaseLayout
   title="ARK Kibble Chart - All Recipes, Egg Sizes & Preferences"
   description="Complete ARK kibble chart: exact recipes for Basic, Simple, Regular, Superior, Exceptional and Extraordinary kibble, which egg sizes and creatures produce each tier, and which kibble every popular creature prefers."
-  path="/kibble-chart"
+  path="/kibble-chart/"
   schema={schema}
 >
   <section class="page-head">
-    <span class="eyebrow"><Icon name="egg" size={15} /> Tool 03 - the kitchen wall chart</span>
+    <span class="eyebrow"><Icon name="egg" size={15} /> Tool 03 - The Kitchen Wall Chart</span>
     <h1>ARK Kibble Chart &amp; Recipes</h1>
     <p class="lead">
-      Six tiers, six recipes, zero guesswork. Each tier maps to an egg size, and
-      every creature prefers exactly one tier (the tier above also works at full
-      value - anything else is worse than raw prime).
+      Six quality tiers, six recipes, zero guesswork. Under ARK's Homestead system, every egg maps to a size class,
+      and every creature prefers a specific kibble tier (higher tiers also work at full value; lower tiers yield only 16 affinity).
     </p>
     <div class="tag-row">
-      <span class="badge">Homestead system</span>
-      <span class="badge">Cooking pot · 30s per kibble</span>
-      <span class="badge">Water required</span>
+      <span class="badge">Homestead 6-Tier System</span>
+      <span class="badge">Cooking Pot &middot; 30s per Kibble</span>
+      <span class="badge">Industrial Cooker &middot; 3s per Kibble</span>
+      <span class="badge">Automated Farm Blueprints</span>
     </div>
   </section>
 
@@ -96,27 +112,27 @@ const schema = [
   </div>
 
   <section class="panel" style="margin-top:1.5rem">
-    <h2 class="with-icon"><Icon name="boxes" size={20} /> Which creatures lay which eggs <span class="muted" style="text-transform:none;font-family:var(--font-body);font-size:.85rem;font-weight:400">(kibble ingredients)</span></h2>
+    <h2 class="with-icon"><Icon name="boxes" size={20} /> Which Creatures Lay Which Eggs <span class="muted" style="text-transform:none;font-family:var(--font-body);font-size:.85rem;font-weight:400">(Kibble Ingredients)</span></h2>
     {Object.entries(EGG_LAYERS).map(([tier, layers]) => (
       <div style="margin-bottom:.8rem">
-        <strong class="amber">{tier}:</strong>
+        <strong style="color:var(--amber-400)">{tier}:</strong>{' '}
         <span style="color:var(--bone-200)">{layers.join(', ')}</span>
       </div>
     ))}
     <p class="muted" style="font-size:.85rem">
       Mammals (Mammoth, Anky-adjacent glyptodonts like Doedicurus, Equus, Rhinos,
       Bears, Paracers…) give live birth and never lay eggs. Insects and some
-      others lay eggs that can't be used for kibble.
+      others lay eggs that cannot be used for kibble.
     </p>
   </section>
 
-  <section class="panel" style="margin-top:1.5rem">
-    <h2 class="with-icon"><Icon name="search" size={20} /> Reverse lookup: what does my creature prefer?</h2>
-    <div class="field" style="max-width:380px">
-      <label for="kb-search">Search creature <span class="hint">(e.g. rex, argy, doed)</span></label>
-      <input type="text" id="kb-search" placeholder="Type a creature name…" autocomplete="off" />
+  <!-- Reverse Lookup Search -->
+  <section class="panel" style="margin-top:1.5rem" aria-label="Creature preference lookup">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem">
+      <h2 class="with-icon" style="font-size:1.35rem;margin:0"><Icon name="search" size={20} /> Creature Kibble Preferences</h2>
+      <input type="text" id="kb-search" placeholder="Filter by creature name..." style="max-width:260px" aria-label="Filter creatures" />
     </div>
-    <div class="table-wrap">
+    <div class="table-wrap" style="margin-top:1rem">
       <table class="data" id="kb-table">
         <thead>
           <tr><th>Creature</th><th>Preferred kibble</th><th>Method</th><th>Role</th></tr>
@@ -136,23 +152,77 @@ const schema = [
     <p class="muted" style="font-size:.85rem;margin-top:.6rem">
       Preferers by tier:
       {kibbleRecipes.map((k) => ` ${k.tier}: ${byTier(k.tier).length} ·`)}
- - full coverage of our verified subset. Special-mechanic tames (Wyvern, Rock
-      Drake, Reaper, Titanosaur, Carcharodontosaurus) don't use kibble.
+      Full coverage of verified subset. Special tames (Wyvern, Rock Drake, Reaper, Titanosaur, Carcharodontosaurus) do not use standard kibble.
     </p>
   </section>
 
+  <!-- Automated Egg Farm Blueprint -->
+  <section class="panel" style="margin-top:2.5rem">
+    <h2 class="with-icon"><Icon name="cpu" size={22} /> Automated Egg Farm &amp; Greenhouse Setup</h2>
+    <div class="prose">
+      <p>
+        Building a reliable kibble kitchen requires two automated production pipelines: an egg-laying dino barn and an irrigated greenhouse crop farm.
+      </p>
+      <h3>1. The Oviraptor-Boosted Egg Barn</h3>
+      <ul>
+        <li><strong>Breeding Ratio:</strong> Keep 1 male dino for every 4 to 6 female dinos. Female dinos gain a <strong>Mate-Boosted</strong> buff that doubles egg drop frequency.</li>
+        <li><strong>The Oviraptor Totem:</strong> Tame an Oviraptor and place it in the center of your female dinos. Enable <strong>Wander</strong>. Overload its inventory with heavy stone so it remains anchored in place while permanently providing the egg icon buff. This lowers laying cooldowns to ~11 minutes.</li>
+        <li><strong>Recommended Egg Producers:</strong>
+          <ul>
+            <li><strong>Basic:</strong> Dodo (instant tames, lay eggs constantly).</li>
+            <li><strong>Simple:</strong> Raptor or Microraptor.</li>
+            <li><strong>Regular:</strong> Ankylosaurus or Stegosaurus.</li>
+            <li><strong>Superior:</strong> Argentavis or Carno.</li>
+            <li><strong>Exceptional:</strong> Tyrannosaurus Rex, Brontosaurus, or Therizinosaurus.</li>
+            <li><strong>Extraordinary:</strong> Yutyrannus, Deinonychus, or Wyvern.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>2. The Irrigated Greenhouse Farm</h3>
+      <p>
+        Four advanced crops are required across kibble recipes: <strong>Rockarrot (Carrots)</strong>, <strong>Savoroot (Potatoes)</strong>, <strong>Longrass (Corn)</strong>, and <strong>Citronal (Lemons)</strong>.
+      </p>
+      <ul>
+        <li>Construct a 3&times;3 greenhouse room using Greenhouse Walls and Ceilings to achieve the maximum <strong>+300% Greenhouse Effect</strong>.</li>
+        <li>Use <strong>Large Crop Plots</strong> irrigated by metal or stone intake pipes connected to an infinite ocean or river source.</li>
+        <li>Tame 2 to 3 <strong>Dung Beetles</strong> from caves. Fill their inventories with Large/Medium animal feces; every 15 minutes they produce Fertilizer and Oil automatically.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Industrial Cooker vs Cooking Pot -->
+  <section class="panel" style="margin-top:2rem">
+    <h2 class="with-icon"><Icon name="flame" size={22} /> Industrial Cooker vs. Cooking Pot Benchmark</h2>
+    <div class="table-wrap">
+      <table class="data">
+        <thead>
+          <tr>
+            <th>Feature / Parameter</th>
+            <th>Primitive Cooking Pot</th>
+            <th>Tek / Industrial Cooker</th>
+          </tr>
+        </thead>
+        <tbody>
+          {cookerComparison.map((c) => (
+            <tr>
+              <td><strong>{c.feature}</strong></td>
+              <td>{c.pot}</td>
+              <td style="color:var(--amber-300)"><strong>{c.cooker}</strong></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
   <section class="prose" style="margin-top:2.5rem">
-    <h2>The Homestead kibble system in one paragraph</h2>
+    <h2>The Homestead Kibble Hierarchy</h2>
     <p>
-      Since the Homestead update (v285.106) kibble no longer means 50+ species-specific
-      recipes: there are six quality tiers tied to egg sizes. A creature eats its
-      preferred tier at full affinity, the tier above at full affinity too, and every
-      other tier at a miserable 16 affinity per piece - so a mismatched kibble is worse
-      than raw prime meat. The fastest farm loop is usually: keep a cheap egg layer of
-      the size you need (dodos for Basic, raptors for Small, stegos/ankys for Medium,
-      argies/carnos for Large, rexes for Extra Large), cook in a grid of cooking pots or
-      one Industrial Cooker, and always cook with the exact quantities above - one batch
-      yields exactly one kibble.
+      Prior to the Homestead update (v285.106), ARK required dozens of hyper-specific kibble combinations (e.g., Quetzal eggs only for Dimetrodon).
+      The modern system groups eggs into 6 strict size classes. A creature accepts its preferred tier at full 400 affinity,
+      the tier above at full 400 affinity, and any inferior tier at 16 affinity per piece.
+      Always store cooked kibbles in a Refrigerator where their spoil timer extends to 100 days.
     </p>
   </section>
 

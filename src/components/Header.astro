@@ -1,16 +1,17 @@
 ---
 import Icon from './Icon.astro';
-const path = Astro.url.pathname.replace(/\/$/, '');
+const rawPath = Astro.url.pathname;
+const path = rawPath.endsWith('/') ? rawPath : `${rawPath}/`;
 const nav = [
   { href: '/', label: 'Home', icon: 'house' },
-  { href: '/taming-calculator', label: 'Taming', icon: 'drumstick' },
-  { href: '/breeding-calculator', label: 'Breeding', icon: 'dna' },
-  { href: '/kibble-chart', label: 'Kibble', icon: 'egg' },
-  { href: '/stat-calculator', label: 'Stats', icon: 'chart-column' },
-  { href: '/faq', label: 'FAQ', icon: 'circle-help' },
+  { href: '/taming-calculator/', label: 'Taming', icon: 'drumstick' },
+  { href: '/breeding-calculator/', label: 'Breeding', icon: 'dna' },
+  { href: '/kibble-chart/', label: 'Kibble', icon: 'egg' },
+  { href: '/stat-calculator/', label: 'Stats', icon: 'chart-column' },
+  { href: '/faq/', label: 'FAQ', icon: 'circle-help' },
 ];
 const current = (href: string) =>
-  href === '/' ? path === '' : path.startsWith(href);
+  href === '/' ? path === '/' : path.startsWith(href);
 ---
 <header class="site-header">
   <div class="site-header__inner">

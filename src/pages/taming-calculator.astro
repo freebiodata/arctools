@@ -10,20 +10,36 @@ const groups = [...new Set(tameable.map((c) => c.group))];
 
 const faq = [
   {
-    q: 'What is taming effectiveness?',
-    a: 'Taming effectiveness (TE) starts at 100% when the creature is knocked out and decays every time it eats (damage taken lowers it further). It decides how many bonus levels you get: bonus levels = floor(wild level × TE / 2). A level 150 tamed at 98.7% TE gains +74 levels (224); the same tame at 55% TE only gains +41 (191). Better food = fewer feedings = less TE decay, which is why kibble beats raw meat.',
+    q: 'What is taming effectiveness and why does it drop?',
+    a: 'Taming effectiveness (TE) starts at 100% when a wild dino is knocked out and degrades each time it feeds. Taking damage while unconscious also permanently slashes TE for that tame. TE decides how many bonus levels you get: Bonus Levels = floor(Wild Level * (TE / 2)). A Level 150 Rex tamed at 98.7% TE gains +74 levels (Level 224); the same Rex tamed on raw meat at 55% TE only gains +41 levels (Level 191). Superior food requires fewer total feedings, resulting in minimal TE degradation.',
   },
   {
-    q: 'How many narcotics will I need?',
-    a: 'Narcotics cover the torpor the creature loses during the tame. Each narcotic adds 40 torpor, a narcoberry 7.5, biotoxin 80. Big-food creatures (Rex, Giga, Doedicurus) usually stay under for the whole tame at 1x; slow tames (raw meat, high levels, low rates) burn hundreds. The calculator shows the exact number for your setup, assuming it takes no extra damage.',
+    q: 'Does starve taming save food or speed up the tame?',
+    a: 'No. Starve taming does not save a single piece of food, does not increase overall taming speed, and does not alter final taming effectiveness. The creature requires the exact same total affinity and must burn the exact same total food points. However, starve taming protects your valuable kibble or raw mutton: by withholding food until the creature\'s hunger has dropped by the required total, you avoid losing food if a wild predator hits the tame or an enemy player disrupts it.',
   },
   {
-    q: 'What level should I tame?',
-    a: 'On official ASE servers wild creatures max at level 150 (using the 1x column). Post-tame you add bonus levels from taming effectiveness - a perfect 150 tops out at 225. Levels above 150 in the calculator are for unofficial servers with raised wild dino levels.',
+    q: 'How many narcotics will I need and how should I dose them?',
+    a: 'Narcotics replenish torpor lost to natural decay during the tame. Each narcotic adds 40 torpor over 8 seconds, Biotoxin adds 80 over 16 seconds, and narcoberries add 7.5 over 5 seconds. Stacking narcotics queues their duration continuously, freezing natural torpor decay. Apex predators like Giganotosaurus drain hundreds of torpor per second, requiring hundreds of narcotics, whereas slow-drain herbivores like Stegosaurus often require zero narcotics at 1x rates.',
   },
   {
-    q: 'Why does kibble tame 5x faster than meat?',
-    a: 'Preferred kibble gives 400 taming affinity per piece versus 150 for raw prime and 50 for raw meat, and its high food value means the creature eats sooner. Fewer, faster feedings also preserve taming effectiveness. Non-preferred kibble (wrong tier) is worse than raw prime - only 16 affinity - so always match the tier the creature prefers.',
+    q: 'What knockout weapon should I use to avoid killing the creature?',
+    a: 'Weapons deliver different ratios of torpor to direct damage. The Crossbow deals 35 damage and 157.5 torpor with tranq arrows (Torpor/Damage ratio ~4.5:1), making it cheap but dangerous for fragile tames like Dire Bears, Sabertooths, and Gallimimus. The Longneck Rifle with Standard Tranq Darts deals 26 damage and 221 torpor (Ratio ~8.5:1), making it drastically safer. Shocking Tranq Darts deliver 442 torpor with the same 26 damage (Ratio ~17:1), representing the safest knockout method in ARK.',
+  },
+  {
+    q: 'Why does preferred kibble tame 5x faster than raw meat?',
+    a: 'Preferred kibble provides 400 taming affinity per bite compared to 150 for raw prime meat and 50 for raw meat. Furthermore, each kibble satisfies 80 food points, allowing the creature to absorb large affinity increments quickly. Non-preferred kibble (mismatched tier) only yields 16 affinity per piece—significantly worse than raw meat—so always use the exact tier or higher.',
+  },
+  {
+    q: 'What is the 5-second tranq arrow delay rule?',
+    a: 'Tranq arrows deliver instant torpor on hit followed by an additional torpor-over-time effect over 4 to 5 seconds. If you fire tranq arrows as fast as possible without spacing shots, the instant torpor applies, but overlapping torpor-over-time ticks do not multiply. Spacing shots roughly 4 to 5 seconds apart maximizes torpor efficiency and minimizes physical damage dealt to the target.',
+  },
+  {
+    q: 'Can I reset a tame if a predator damaged it?',
+    a: 'Yes. If a wild raptor, sabertooth, or dilo attacks your unconscious tame, its Taming Effectiveness permanently plummets. To fix this, allow the creature to wake up completely (let torpor drop to 0) without feeding it. Once awake, its health and effectiveness reset; you can immediately knock it out again with pristine 100% taming effectiveness.',
+  },
+  {
+    q: 'What is the official maximum wild dinosaur level?',
+    a: 'On official ASE and ASA servers with Difficulty 5.0 (DifficultyOffset=1.0), wild creatures spawn in level increments of 5 up to Level 150 (Tek creatures spawn up to Level 180; Wyverns/Drakes spawn up to Level 190). Our calculator supports custom levels up to 300 for players on unofficial and private servers.',
   },
 ];
 
@@ -36,7 +52,7 @@ const schema = [
     operatingSystem: 'Web',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
     description:
-      'ARK: Survival Evolved taming calculator with exact food counts, taming time, narcotics and tranq counts for server rates 1x-50x.',
+      'ARK: Survival Evolved & Ascended taming calculator with exact food counts, taming duration, narcotics, torpor decay, and knockout weapon shots for server rates 1x-50x.',
   },
   {
     '@context': 'https://schema.org',
@@ -48,35 +64,45 @@ const schema = [
     })),
   },
 ];
+
+const weaponsData = [
+  { name: 'Shocking Tranq Dart (Longneck)', instantTorpor: '156.0', overTimeTorpor: '286.0', totalTorpor: '442.0', damage: '26.0', ratio: '17.0x', lethalityRisk: 'Ultra Low' },
+  { name: 'Tranq Dart (Longneck Rifle)', instantTorpor: '78.0', overTimeTorpor: '143.0', totalTorpor: '221.0', damage: '26.0', ratio: '8.5x', lethalityRisk: 'Low' },
+  { name: 'Tranq Spear Bolt (Harpoon)', instantTorpor: '180.0', overTimeTorpor: '120.0', totalTorpor: '300.0', damage: '36.0', ratio: '8.3x', lethalityRisk: 'Low (Underwater)' },
+  { name: 'Tranq Arrow (Crossbow)', instantTorpor: '70.0', overTimeTorpor: '87.5', totalTorpor: '157.5', damage: '35.0', ratio: '4.5x', lethalityRisk: 'Moderate' },
+  { name: 'Tranq Arrow (Bow - Max Pull)', instantTorpor: '50.0', overTimeTorpor: '62.5', totalTorpor: '112.5', damage: '25.0', ratio: '4.5x', lethalityRisk: 'Moderate' },
+  { name: 'Stone Slingshot', instantTorpor: '14.0', overTimeTorpor: '0.0', totalTorpor: '14.0', damage: '14.0', ratio: '1.0x', lethalityRisk: 'High' },
+  { name: 'Club (Wooden)', instantTorpor: '10.0', overTimeTorpor: '0.0', totalTorpor: '10.0', damage: '5.0', ratio: '2.0x', lethalityRisk: 'High (Melee)' },
+];
 ---
 <BaseLayout
-  title="ARK Taming Calculator - Food, Time, Narcotics (1x–50x)"
-  description="ARK taming calculator for 60+ popular creatures: exact kibble/meat counts, taming time, effectiveness, bonus levels and narcotics for any server rate from 1x to 50x. Based on game-file data, not guesses."
-  path="/taming-calculator"
+  title="ARK Taming Calculator - Food, Time, Narcotics & Tranqs (1x–50x)"
+  description="ARK taming calculator for 60+ popular creatures: exact kibble/meat counts, taming time, effectiveness, bonus levels, narcotics, and knockout weapon shots for any server rate from 1x to 50x."
+  path="/taming-calculator/"
   schema={schema}
 >
   <section class="page-head">
-    <span class="eyebrow"><Icon name="drumstick" size={15} /> Tool 01 - knockout &amp; passive</span>
+    <span class="eyebrow"><Icon name="drumstick" size={15} /> Tool 01 - Knockout &amp; Passive Expeditions</span>
     <h1>ARK Taming Calculator</h1>
     <p class="lead">
-      Choose a creature, its wild level and the food you plan to use. The
-      calculator runs the game&rsquo;s own taming formulas on game-file constants - 
-      food count, tame time, taming effectiveness, post-tame level, narcotics
-      and tranq counts - for any server rate from 1x to 50x.
+      Configure your target creature, wild level, server rate, and food choice.
+      The engine calculates exact affinity requirements, food stacks, taming duration, taming effectiveness decay,
+      post-tame bonus levels, narcotic requirements, and knockout weapon ammunition.
     </p>
     <div class="tag-row">
-      <span class="badge">{CREATURE_COUNT}-creature verified subset</span>
+      <span class="badge">{CREATURE_COUNT} Verified Creatures</span>
       <span class="badge">Rates 1x–50x</span>
-      <span class="badge">Post-tame level preview</span>
+      <span class="badge">Knockout Shot Estimates</span>
+      <span class="badge">Starve Taming Thresholds</span>
     </div>
   </section>
 
   <div class="grid-2">
     <form class="panel" id="taming-form" aria-label="Taming calculator inputs">
-      <h2 class="with-icon" style="font-size:1.35rem"><Icon name="clipboard-list" size={20} /> Your tame</h2>
+      <h2 class="with-icon" style="font-size:1.35rem"><Icon name="clipboard-list" size={20} /> Expedition Parameters</h2>
 
       <div class="field">
-        <label for="tc-creature">Creature</label>
+        <label for="tc-creature">Creature Species</label>
         <select id="tc-creature">
           {groups.map((g) => (
             <optgroup label={g}>
@@ -93,60 +119,53 @@ const schema = [
 
       <div class="field">
         <label for="tc-level">
-          Wild level <span class="hint">(official max 150)</span>
+          Wild Level <span class="hint">(Official Difficulty 5 Max: 150)</span>
         </label>
         <input type="range" id="tc-level-range" min="1" max="300" value="150" step="1" />
-        <div style="display:flex;gap:.6rem;align-items:center">
+        <div style="display:flex;gap:.6rem;align-items:center;margin-top:.4rem">
           <input type="number" id="tc-level" min="1" max="300" value="150" style="width:110px" />
-          <span class="muted" id="tc-level-hint" style="font-size:.85rem">150 = official wild max</span>
+          <span class="muted" id="tc-level-warn" style="font-size:.85rem;color:var(--amber-400)" hidden>
+            &gt; 150 is unofficial / custom server difficulty
+          </span>
         </div>
       </div>
 
       <div class="field">
-        <label for="tc-food">Food</label>
+        <label for="tc-food">Food Selection</label>
         <select id="tc-food"></select>
         <p class="muted" id="tc-food-note" style="font-size:.85rem;margin:.4rem 0 0"></p>
       </div>
 
       <div class="field">
-        <label>Server taming rate</label>
-        <div class="seg" id="tc-rate" role="group" aria-label="Server taming rate">
-          {[1, 1.5, 2, 5, 10, 20, 50].map((r) => (
-            <button type="button" data-rate={r} aria-pressed={r === 1 ? 'true' : 'false'}>{r}x</button>
-          ))}
+        <label>Server Taming Rate Multiplier</label>
+        <div class="seg" id="tc-rates" role="group" aria-label="Quick server rate presets">
+          <button type="button" data-rate="1" aria-pressed="true">1x (Official)</button>
+          <button type="button" data-rate="2">2x</button>
+          <button type="button" data-rate="3">3x (Weekend)</button>
+          <button type="button" data-rate="5">5x</button>
+          <button type="button" data-rate="10">10x</button>
         </div>
-        <label for="tc-rate-custom" style="margin-top:.6rem">
-          Custom multiplier <span class="hint">(any value 0.1–100)</span>
-        </label>
-        <input type="number" id="tc-rate-custom" min="0.1" max="100" step="0.1" placeholder="e.g. 3" style="width:130px" />
+        <div style="margin-top:.6rem;display:flex;gap:.6rem;align-items:center">
+          <input type="number" id="tc-custom-rate" min="0.1" max="50" step="0.1" placeholder="Custom (e.g. 2.5)" style="max-width:160px" />
+          <span class="muted" style="font-size:.85rem">or type custom rate</span>
+        </div>
       </div>
 
       <div class="callout" id="tc-passive-note" hidden>
-        Passive tame: feed from your last hotbar slot without knocking it out.
-        No narcotics or tranqs needed - timing estimates use wake-taming multipliers.
-      </div>
-      <div class="callout callout--warn" id="tc-level-warn" hidden>
-        Levels above 150 only spawn on unofficial servers with boosted wild levels.
+        <strong>Passive Tame:</strong> Do not knock this creature out. Equip the preferred food in the
+        far-right slot (slot 0) of your hotbar, approach from behind (crouched or wearing Ghillie), and press use when prompted.
       </div>
     </form>
 
-    <div>
-      <section class="panel" aria-label="Results">
-        <h2 style="font-size:1.35rem" id="tc-result-title">Results</h2>
-        <div class="stat-grid" id="tc-stats">
-          <div class="stat"><span class="stat__label" id="tc-l-food"><Icon name="drumstick" size={13} /> Food needed</span><span class="stat__value" id="tc-food-count">–</span><span class="stat__sub" id="tc-food-sub"></span></div>
-          <div class="stat"><span class="stat__label"><Icon name="timer" size={13} /> Tame time</span><span class="stat__value" id="tc-time">–</span><span class="stat__sub" id="tc-time-sub"></span></div>
-          <div class="stat"><span class="stat__label"><Icon name="percent" size={13} /> Effectiveness</span><span class="stat__value" id="tc-te">–</span><span class="stat__sub" id="tc-te-sub"></span></div>
-          <div class="stat"><span class="stat__label"><Icon name="trending-up" size={13} /> Level after tame</span><span class="stat__value" id="tc-level-after">–</span><span class="stat__sub" id="tc-level-max"></span></div>
-        </div>
-      </section>
-
-      <section class="panel" id="tc-torpor-panel" aria-label="Torpor and knockout">
-        <h2 class="with-icon" style="font-size:1.2rem"><Icon name="moon-star" size={19} /> Torpor &amp; knockout</h2>
+    <div class="results" aria-live="polite">
+      <section class="panel" aria-label="Taming requirements">
+        <h2 class="with-icon" style="font-size:1.35rem"><Icon name="hourglass" size={20} /> Taming Projections</h2>
         <div class="stat-grid">
-          <div class="stat"><span class="stat__label"><Icon name="moon-star" size={13} /> Total torpor</span><span class="stat__value" id="tc-torpor">–</span><span class="stat__sub">to knock out</span></div>
-          <div class="stat"><span class="stat__label"><Icon name="gauge" size={13} /> Torpor drain</span><span class="stat__value" id="tc-drain">–</span><span class="stat__sub">per second while KO'd</span></div>
-          <div class="stat"><span class="stat__label"><Icon name="pill" size={13} /> Narcotics</span><span class="stat__value" id="tc-narc">–</span><span class="stat__sub" id="tc-narc-sub">+40 torpor each</span></div>
+          <div class="stat"><span class="stat__label"><Icon name="drumstick" size={13} /> Food required</span><span class="stat__value" id="tc-food-count">–</span><span class="stat__sub" id="tc-food-detail"></span></div>
+          <div class="stat"><span class="stat__label"><Icon name="clock" size={13} /> Taming duration</span><span class="stat__value" id="tc-time">–</span><span class="stat__sub" id="tc-feedings"></span></div>
+          <div class="stat"><span class="stat__label"><Icon name="percent" size={13} /> Effectiveness</span><span class="stat__value" id="tc-te">–</span><span class="stat__sub">starting at 100%</span></div>
+          <div class="stat"><span class="stat__label"><Icon name="trending-up" size={13} /> Post-tame level</span><span class="stat__value" id="tc-level-after">–</span><span class="stat__sub" id="tc-level-bonus"></span></div>
+          <div class="stat"><span class="stat__label"><Icon name="pill" size={13} /> Narcotics needed</span><span class="stat__value" id="tc-narcotics">–</span><span class="stat__sub" id="tc-narcotics-sub"></span></div>
           <div class="stat"><span class="stat__label"><Icon name="leaf" size={13} /> Biotoxin / berries</span><span class="stat__value" id="tc-biotoxin">–</span><span class="stat__sub" id="tc-berries"></span></div>
         </div>
         <div class="table-wrap" style="margin-top: .9rem">
@@ -164,7 +183,7 @@ const schema = [
       </section>
 
       <section class="panel" aria-label="Food comparison">
-        <h2 class="with-icon" style="font-size:1.2rem"><Icon name="utensils" size={19} /> All foods compared <span class="muted" style="text-transform:none;font-family:var(--font-body);font-size:.85rem">(same level &amp; rate)</span></h2>
+        <h2 class="with-icon" style="font-size:1.2rem"><Icon name="utensils" size={19} /> All Foods Compared <span class="muted" style="text-transform:none;font-family:var(--font-body);font-size:.85rem">(Same Level &amp; Rate)</span></h2>
         <div class="table-wrap">
           <table class="data" id="tc-compare-table">
             <thead>
@@ -177,8 +196,83 @@ const schema = [
     </div>
   </div>
 
+  <!-- Knockout Weapons Efficiency Guide -->
+  <section class="panel" style="margin-top: 2rem" aria-label="Knockout Weapons Guide">
+    <h2 class="with-icon"><Icon name="crosshair" size={22} /> Knockout Weapon Efficiency &amp; Lethality Benchmark</h2>
+    <p>
+      Knocking out a wild creature requires balancing torpor delivery against incoming physical damage.
+      Fragile creatures with small health pools (Dire Bear, Sabertooth, Gallimimus, Otter) will frequently die
+      if shot with weapons having a low Torpor-to-Damage ratio:
+    </p>
+    <div class="table-wrap">
+      <table class="data">
+        <thead>
+          <tr>
+            <th>Knockout Weapon &amp; Ammo</th>
+            <th class="num">Instant Torpor</th>
+            <th class="num">Over-Time Torpor</th>
+            <th class="num">Total Torpor</th>
+            <th class="num">Base Damage</th>
+            <th class="num">Torpor / Damage</th>
+            <th>Lethality Risk</th>
+          </tr>
+        </thead>
+        <tbody>
+          {weaponsData.map((w) => (
+            <tr>
+              <td><strong>{w.name}</strong></td>
+              <td class="num">{w.instantTorpor}</td>
+              <td class="num">{w.overTimeTorpor}</td>
+              <td class="num">{w.totalTorpor}</td>
+              <td class="num">{w.damage}</td>
+              <td class="num"><strong>{w.ratio}</strong></td>
+              <td><span class={`badge ${w.lethalityRisk.includes('Low') ? 'badge--pass' : 'badge--warn'}`}>{w.lethalityRisk}</span></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <div class="callout" style="margin-top: 1rem">
+      <strong>Pro Tip — The 5-Second Delay Rule:</strong> Tranq arrows and tranq darts deal torpor over a 4 to 5 second duration.
+      Firing tranq arrows in rapid succession without waiting resets the over-time torpor buff rather than stacking it additively.
+      Always pace your shots 4.5 seconds apart when taking down dangerous tames to save ammunition and prevent accidental kills.
+    </div>
+  </section>
+
+  <!-- Starve Taming Guide -->
+  <section class="panel" style="margin-top: 2rem">
+    <h2 class="with-icon"><Icon name="shield" size={22} /> Starve Taming: Facts, Myths &amp; Step-by-Step Execution</h2>
+    <div class="prose">
+      <p>
+        <strong>What Starve Taming Does:</strong> Starve taming is the practice of leaving an unconscious creature without any food in its inventory
+        until its hunger value has dropped by an amount equal to the total food requirement of the tame.
+      </p>
+      <p>
+        <strong>The Myth:</strong> Many survivors mistakenly believe starve taming saves kibble, increases final taming effectiveness, or speeds up the clock.
+        <em>It does none of these.</em> The creature requires the exact same total affinity points and must starve by the exact same amount of hunger whether it feeds
+        incrementally or all at once.
+      </p>
+      <p>
+        <strong>The Real Benefit (Risk Mitigation):</strong>
+      </p>
+      <ul>
+        <li><strong>Protection Against Wild Predators:</strong> If a wandering Carno, Raptor, or Dilo bites your unconscious Rex midway through a normal tame,
+        its Taming Effectiveness is permanently ruined, and any kibble already consumed is wasted. With starve taming, zero food has been consumed; you can let the creature wake up, reset its health and TE to 100%, and knock it out again.</li>
+        <li><strong>Protection Against Enemy Tribes (PvP):</strong> If enemy players raid your taming pen while you are starving the dino, they get zero kibble or mutton from its inventory.</li>
+        <li><strong>Food Spoilage Preservation:</strong> Raw Mutton and Raw Prime Meat spoil in under 20 minutes in a dino's inventory. By keeping food in a Preserving Bin or refrigerator until the dino is fully starved, your prime food never spoils on the beach.</li>
+      </ul>
+      <p>
+        <strong>How to Calculate Starve Target:</strong>
+        <code>Hunger Deficit Required = Total Food Items &times; Food Restored Per Item</code>
+        <br />
+        <em>Example:</em> A tame requiring 15 Exceptional Kibble (restoring 80 food each) requires the dino's food to drop by <code>15 &times; 80 = 1,200 points</code>.
+        Once its food stat is 1,200 below max, place all 15 kibble in its inventory at once. It will consume them back-to-back in seconds, finishing the tame immediately!
+      </p>
+    </div>
+  </section>
+
   <section class="panel" style="margin-top:1.5rem">
-    <h2 class="with-icon"><Icon name="triangle-alert" size={20} /> Special-mechanic tames (not in the calculator)</h2>
+    <h2 class="with-icon"><Icon name="triangle-alert" size={20} /> Special-Mechanic Tames (Not in Standard Calculator)</h2>
     <div class="table-wrap">
       <table class="data">
         <thead><tr><th>Creature</th><th>Mechanic</th></tr></thead>
@@ -192,28 +286,24 @@ const schema = [
   </section>
 
   <section class="prose" style="margin-top:2.5rem">
-    <h2>How ARK taming math actually works</h2>
+    <h2>How ARK Taming Math Works Under the Hood</h2>
     <p>
-      Every creature needs a fixed amount of <strong>taming affinity</strong> that grows
-      linearly with its level: <code>affinity = base + per-level × wild level</code>.
-      Each piece of food adds affinity at a per-creature rate (preferred kibble is
-      400 per piece, raw prime 150, raw meat 50), multiplied by your server's
-      taming rate and the hardcoded 4x bonus the live game applies since patch 313.5.
-      The count you need is simply <code>affinity ÷ affinity-per-food</code>, rounded up.
+      Every creature requires a target amount of <strong>taming affinity</strong> that scales
+      with wild level: <code>Affinity Required = BaseAffinity + (LevelAffinity &times; WildLevel)</code>.
+      Each food item provides affinity based on the species' affinity table (preferred kibble is
+      400 affinity, raw prime 150, raw meat 50), scaled by your server's taming rate multiplier.
+      The required item count is calculated as <code>ceil(Affinity Required / (AffinityPerFood &times; ServerRate))</code>.
     </p>
     <p>
-      Taming time comes from hunger: a KO'd creature only eats once its food stat
-      drops far enough, and each species drains food at its own rate. Better foods
-      restore more hunger per feeding, so the creature eats sooner and the tame
-      finishes faster - kibble tames are roughly 5x faster than raw meat for the
-      same creature.
+      Taming duration is governed by the species' food consumption rate. A knocked-out creature only eats once its food stat
+      drops by the exact food value of the selected item. High-tier foods restore more hunger per bite, allowing the tame
+      to finish with far fewer feedings and significantly less effectiveness decay.
     </p>
     <p>
-      Taming effectiveness decays per feeding as
-      <code>TE = 1 / (1 + ineffectiveness × feedings ÷ affinity-per-feeding)</code>,
-      which is why fewer feedings of better food preserve TE. Bonus levels are
-      <code>floor(level × TE / 2)</code> - displayed above as the level you'll see
-      the moment the tame finishes, with the perfect-tame ceiling alongside.
+      Taming effectiveness decays per feeding according to:
+      <code>TE = 1 / (1 + (Ineffectiveness &times; Feedings / AffinityPerFeeding))</code>.
+      Bonus wild levels awarded upon completion equal:
+      <code>floor(WildLevel &times; TE / 2)</code>.
     </p>
   </section>
 
@@ -248,104 +338,107 @@ const schema = [
     const inpLevel = el<HTMLInputElement>('tc-level');
     const rangeLevel = el<HTMLInputElement>('tc-level-range');
     const selFood = el<HTMLSelectElement>('tc-food');
-    const rateWrap = el('tc-rate');
-    const customRate = el<HTMLInputElement>('tc-rate-custom');
-    const creatureNote = el('tc-creature-note');
-    const foodNote = el('tc-food-note');
+    const foodNote = el<HTMLParagraphElement>('tc-food-note');
+    const creatureNote = el<HTMLParagraphElement>('tc-creature-note');
+    const rateWrap = el<HTMLDivElement>('tc-rates');
+    const customRate = el<HTMLInputElement>('tc-custom-rate');
 
-    let state = {
+    const state = {
       slug: 'rex',
       level: 150,
-      rate: 1 as number,
-      food: '' as string,
+      food: 'Exceptional Kibble',
+      rate: 1,
     };
 
     function creature(): Creature {
-      return bySlug.get(state.slug)!;
-    }
-
-    function foodOptions(c: Creature): { name: string; label: string }[] {
-      const foods = usableFoods(c)
-        .map((name) => {
-          const fv = getFoodValues(c, name)!;
-          const isKibble = name.endsWith('Kibble') && name !== 'Augmented Kibble';
-          const preferred = c.preferredKibble && name === `${c.preferredKibble} Kibble`;
-          return { name, fv, isKibble, preferred };
-        })
-        .sort((a, b) => b.fv.a - a.fv.a || Number(b.preferred) - Number(a.preferred));
-      return foods.map((f) => ({
-        name: f.name,
-        label: f.preferred ? `★ ${f.name} (preferred)` : f.name,
-      }));
+      return bySlug.get(state.slug) ?? tameable[0];
     }
 
     function rebuildFoods() {
       const c = creature();
-      const opts = foodOptions(c);
+      const foods = usableFoods(c);
       selFood.innerHTML = '';
-      for (const o of opts) {
+      for (const f of foods) {
         const opt = document.createElement('option');
-        opt.value = o.name;
-        opt.textContent = o.label;
+        opt.value = f;
+        opt.textContent = f;
+        if (f === `${c.preferredKibble} Kibble`) {
+          opt.textContent = `★ ${f} (preferred)`;
+        }
         selFood.appendChild(opt);
       }
-      state.food = opts[0]?.name ?? '';
-      const fv = state.food ? getFoodValues(c, state.food) : null;
-      const q = fv && (fv.q ?? 1) > 1 ? ` - eats ${fv!.q} at a time` : '';
-      foodNote.textContent = c.preferredKibble
-        ? `Preferred kibble tier: ${c.preferredKibble}${q}`
-        : `Best food by affinity${q}`;
+      const preferred = c.preferredKibble ? `${c.preferredKibble} Kibble` : foods[0];
+      state.food = foods.includes(preferred) ? preferred : foods[0];
+      selFood.value = state.food;
+
+      creatureNote.textContent = `${c.name} · ${c.group} · Base torpor ${c.baseTorpor.toLocaleString('en-US')}${
+        c.tameMethod === 'passive' ? ' · Passive tame' : ''
+      }`;
+      const fv = getFoodValues(c, state.food);
+      foodNote.textContent = fv && (fv.q ?? 1) > 1
+        ? `Eats ${fv.q} at a time - plan ${fv.q}× the stack size`
+        : c.preferredKibble
+          ? `Preferred kibble tier: ${c.preferredKibble}`
+          : '';
     }
 
-    function fmtInt(n: number): string {
-      return Math.round(n).toLocaleString('en-US');
-    }
+    const fmtInt = (n: number) => Math.round(n).toLocaleString('en-US');
 
     function render() {
       const c = creature();
-      const server: ServerSettings = { ...DEFAULT_SERVER, tamingSpeed: state.rate };
+      const server: ServerSettings = { ...DEFAULT_SERVER, tamingSpeedMultiplier: state.rate };
+      const r = computeTaming(c, state.level, state.food, server);
       const isPassive = c.tameMethod === 'passive';
 
-      creatureNote.innerHTML = `${c.role} &middot; diet: ${c.diet}` +
-        (isPassive ? ' &middot; <span class="badge badge--passive">passive</span>' : ' &middot; <span class="badge badge--ko">knockout</span>');
+      if (!r) {
+        el('tc-food-count').textContent = '–';
+        el('tc-food-detail').textContent = 'Cannot tame with this food';
+        el('tc-time').textContent = '–';
+        el('tc-feedings').textContent = '';
+        el('tc-te').textContent = '–';
+        el('tc-level-after').textContent = '–';
+        el('tc-level-bonus').textContent = '';
+        el('tc-narcotics').textContent = '–';
+        el('tc-narcotics-sub').textContent = '';
+        el('tc-biotoxin').textContent = '–';
+        el('tc-berries').textContent = '';
+        return;
+      }
 
-      const r = computeTaming(c, state.level, state.food, server);
-      if (!r) return;
-
-      el('tc-l-food').textContent = state.food.endsWith('Kibble') ? 'Kibble needed' : 'Food needed';
-      const qty = r.itemsEach > 1 ? `${fmtInt(r.itemsTotal)} (${r.feedings} × ${r.itemsEach})` : fmtInt(r.itemsTotal);
-      el('tc-food-count').textContent = qty;
-      el('tc-food-sub').textContent = `${state.food}${r.itemsEach > 1 ? ' - per feeding of ' + r.itemsEach : ''}`;
+      el('tc-food-count').textContent = fmtInt(r.itemsTotal);
+      el('tc-food-detail').textContent = `${r.feedings} feedings · ${r.itemsEach} per bite`;
       el('tc-time').textContent = formatDuration(r.seconds);
-      el('tc-time-sub').textContent = `at ${state.rate}x taming rate`;
-      el('tc-te').textContent = (r.tamingEffectiveness * 100).toFixed(1) + '%';
-      el('tc-te-sub').textContent = `+${r.bonusLevels} bonus levels`;
+      el('tc-feedings').textContent = `every ~${formatDuration(r.secondsPerFeeding)}`;
+      el('tc-te').textContent = `${(r.tamingEffectiveness * 100).toFixed(1)}%`;
       el('tc-level-after').textContent = String(r.levelAfterTame);
-      el('tc-level-max').textContent = `max possible: ${r.maxLevelAfterTame} (100% TE)`;
-      el('tc-result-title').textContent = `${c.name} - level ${state.level}`;
+      el('tc-level-bonus').textContent = `+${r.bonusLevels} levels (perfect: +${r.maxBonusLevels})`;
 
-      // torpor panel
-      const torporPanel = el('tc-torpor-panel');
       if (isPassive) {
-        torporPanel.hidden = true;
+        el('tc-narcotics').textContent = 'None';
+        el('tc-narcotics-sub').textContent = 'Passive tame';
+        el('tc-biotoxin').textContent = 'None';
+        el('tc-berries').textContent = 'Passive tame';
       } else {
-        torporPanel.hidden = false;
-        el('tc-torpor').textContent = fmtInt(r.torporTotal);
-        el('tc-drain').textContent = r.torporDepletionPS.toFixed(1) + '/s';
-        el('tc-narc').textContent = fmtInt(r.narcotics);
-        el('tc-narc-sub').textContent = r.narcotics > 0
-          ? `to hold ${formatDuration(r.seconds)} tame`
-          : 'stays KO\u2019d naturally for this tame';
-        el('tc-biotoxin').textContent = fmtInt(r.bioToxin);
-        el('tc-berries').textContent = `${fmtInt(r.narcoberries)} narcoberries (7.5 each)`;
+        el('tc-narcotics').textContent = fmtInt(r.narcotics);
+        el('tc-narcotics-sub').textContent = r.narcotics === 0 ? 'Stays down naturally' : 'To hold torpor';
+        el('tc-biotoxin').textContent = fmtInt(r.biotoxin);
+        el('tc-berries').textContent = `or ${fmtInt(r.narcoberries)} narcoberries`;
+      }
 
-        const tbody = el('tc-tranq-table').querySelector('tbody')!;
-        const tools = [
-          ['Shocking Tranq Dart', 442], ['Tranq Dart', 221], ['Tranq Spear Bolt', 306],
-          ['Tranq Arrow (crossbow)', 157.5], ['Tranq Arrow (bow)', 90],
-          ['Slingshot (stone)', 24.5], ['Wooden Club', 10],
-        ] as [string, number][];
-        tbody.innerHTML = tools.map(([name, torpor]) => {
+      // tranq table
+      const tb = el('tc-tranq-table').querySelector('tbody')!;
+      if (isPassive) {
+        tb.innerHTML = '<tr><td colspan="4" class="muted">Passive tame - do not tranq.</td></tr>';
+      } else {
+        const weapons = [
+          { name: 'Shocking Tranq Dart', torpor: 442 },
+          { name: 'Tranq Dart (Longneck)', torpor: 221 },
+          { name: 'Tranq Arrow (Crossbow)', torpor: 157.5 },
+          { name: 'Tranq Arrow (Bow)', torpor: 112.5 },
+          { name: 'Slingshot (Stone)', torpor: 14 },
+          { name: 'Wooden Club', torpor: 10 },
+        ];
+        tb.innerHTML = weapons.map(({ name, torpor }) => {
           const body = Math.ceil(r.torporTotal / torpor);
           const head = Math.ceil(r.torporTotal / (torpor * 2.5));
           return `<tr><td>${name}</td><td class="num">${fmtInt(torpor)}</td><td class="num">${fmtInt(body)}</td><td class="num">${fmtInt(head)}</td></tr>`;

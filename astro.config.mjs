@@ -6,8 +6,17 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://arctools.top',
   output: 'static',
-  trailingSlash: 'never',
-  integrations: [sitemap()],
+  trailingSlash: 'always',
+  redirects: {
+    '/sitemap.xml': '/sitemap-index.xml',
+  },
+  integrations: [
+    sitemap({
+      changefreq: 'weekly',
+      priority: 0.8,
+      lastmod: new Date(),
+    }),
+  ],
   build: {
     inlineStylesheets: 'auto',
   },

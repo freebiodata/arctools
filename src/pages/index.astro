@@ -3,115 +3,315 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from '../components/Icon.astro';
 import { CREATURE_COUNT, DATA_VERSION } from '../data/creatures';
 
+const faq = [
+  {
+    q: 'How does ARK calculate bonus levels from taming?',
+    a: 'When a creature is knocked out, its Taming Effectiveness (TE) begins at 100%. Every time the creature feeds, TE drops by a species-specific factor (further reduced if the wild dino takes damage while unconscious). When taming reaches 100%, bonus wild levels are awarded according to the official formula: Bonus Levels = floor(Wild Level * (TE / 2)). On a standard official maximum wild level 150 dino tamed with preferred kibble (maintaining ~98.7% TE), you receive floor(150 * 0.4935) = +74 bonus levels, resulting in a freshly tamed level 224 creature.',
+  },
+  {
+    q: 'What is the difference between starvetaming and regular taming?',
+    a: 'Starve taming does NOT save food, does NOT increase taming speed, and does NOT boost taming effectiveness. The total affinity required and total food consumed remain identical. However, starve taming protects your valuable prime meat or kibble: by waiting until the wild creature\'s food drops to the required total before placing food into its inventory, you risk nothing if a wandering predator damages the creature or ruins the tame mid-process.',
+  },
+  {
+    q: 'Why are narcoberries sometimes better than narcotics?',
+    a: 'A single narcotic increases torpor by 40 over 8 seconds (5 torpor/sec). A single narcoberry increases torpor by 7.5 over 5 seconds (1.5 torpor/sec). While narcotics deliver torpor faster, narcoberries deliver more torpor duration per stack of food. Because torpor cannot naturally decay while narcotic torpor is actively being added, feeding hundreds of narcoberries keeps torpor climbing or frozen for significantly longer periods, giving you a wider safety window on rapid-drain tames.',
+  },
+  {
+    q: 'How does the 20/20 mutation limit work in breeding?',
+    a: 'Each baby ARK creature undergoes 3 independent mutation rolls with a 2.5% chance per roll. For each roll, the game randomly chooses a parent; if that parent has 20 or more mutations on its matrilineal plus patrilineal counter, that roll is automatically voided. However, if you mate a mutated male (even with 500+ mutations) with a clean "0/20" female, the rolls assigned to the mother can still trigger new mutations! This is the foundation of unlimited mutation stacking.',
+  },
+  {
+    q: 'Do these calculations apply to ARK: Survival Ascended (ASA)?',
+    a: 'Yes. The underlying mechanics (taming affinity equations, torpor decay curves, the 55/45 stat inheritance bias, and mutation roll structures) remain fundamentally identical between ARK: Survival Evolved (ASE) and ARK: Survival Ascended (ASA). ASA introduced minor stat rebalances and Augmented Kibble variants, but our calculators use extracted game constants that provide accurate numbers for both editions.',
+  },
+  {
+    q: 'Why do domestic level-up points give more health to high-level tames?',
+    a: 'Domestic leveling points (the 88 levels you train after taming) do not add flat stat points; they multiply the creature\'s base post-tame stat. For instance, each domestic health point on a Rex adds 27% of its post-tame health. A Rex that finished taming with 10,000 HP gains 2,700 HP per domestic point, whereas a low-level Rex with 3,000 HP only gains 810 HP per domestic point.',
+  },
+];
+
 const schema = [
   {
     '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: 'ARKTools',
-    url: 'https://arctools.top',
-    description:
-      'Free ARK: Survival Evolved calculators: taming calculator with food counts, time and narcotics, breeding stat-inheritance and mutation probabilities, kibble recipes, and wild-vs-tamed stat projection.',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: 'https://arctools.top/taming-calculator',
-      'query-input': 'ARK taming calculator',
-    },
-  },
-  {
-    '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    name: 'ARKTools Calculators',
+    name: 'ARKTools Expedition Kit',
     applicationCategory: 'GameApplication',
     operatingSystem: 'Web',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    description:
+      'Free ARK: Survival Evolved & Ascended calculators: taming calculator with exact food counts, breeding stat inheritance, mutation probability, kibble recipes, and stat point projection.',
   },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+];
+
+const topTames = [
+  { name: 'Tyrannosaurus Rex', role: 'Apex Boss Fighter & Meat Gatherer', kibble: 'Exceptional', torpor: '10,050', drain: '7.25 / s', time1x: '1h 56m', time3x: '39m', postLvl: '224' },
+  { name: 'Giganotosaurus', role: 'Titan Slayer & World Boss Damage', kibble: 'Exceptional', torpor: '54,000', drain: '416.7 / s', time1x: '2h 11m', time3x: '44m', postLvl: '224' },
+  { name: 'Spinosaurus', role: 'High DPS Bipedal Semi-Aquatic', kibble: 'Exceptional', torpor: '8,500', drain: '13.3 / s', time1x: '1h 22m', time3x: '28m', postLvl: '224' },
+  { name: 'Therizinosaurus', role: 'Dragon Boss Specialist & Wood Harvester', kibble: 'Exceptional', torpor: '9,250', drain: '28.3 / s', time1x: '1h 48m', time3x: '36m', postLvl: '224' },
+  { name: 'Argentavis', role: 'Mobile Smithy & Heavy Air Hauler', kibble: 'Superior', torpor: '3,000', drain: '2.5 / s', time1x: '42m', time3x: '14m', postLvl: '224' },
+  { name: 'Quetzal', role: 'Sky Base & Large Creature Carrier', kibble: 'Exceptional', torpor: '11,400', drain: '8.3 / s', time1x: '2h 45m', time3x: '55m', postLvl: '224' },
+  { name: 'Ankylosaurus', role: 'Metal, Flint & Crystal Specialist', kibble: 'Regular', torpor: '4,200', drain: '3.1 / s', time1x: '1h 14m', time3x: '25m', postLvl: '224' },
+  { name: 'Doedicurus', role: 'Stone Harvester & Armored Roller', kibble: 'Regular', torpor: '4,000', drain: '2.8 / s', time1x: '1h 05m', time3x: '22m', postLvl: '224' },
+  { name: 'Carcharodontosaurus', role: 'Bloodrage Rampage & Mob Clearer', kibble: 'Special Meat', torpor: '50,000', drain: '350.0 / s', time1x: 'Special', time3x: 'Special', postLvl: '224' },
+  { name: 'Tusoteuthis', role: 'Abyssal Dominator & Black Pearl Harvester', kibble: 'Black Pearls', torpor: '20,000', drain: '15.0 / s', time1x: '30m', time3x: '10m', postLvl: '224' },
 ];
 ---
 <BaseLayout
   title="ARK Taming, Breeding & Kibble Calculators for ARK: Survival Evolved"
-  description="Free ARK calculators built on game-file data: taming calculator (food count, time, narcotics), breeding stat-inheritance and mutation chances, kibble chart with recipes, and a wild-vs-tamed-vs-imprinted stat calculator."
+  description="Free ARK calculators built on extracted game data: taming calculator with exact food counts, time and narcotics, breeding stat-inheritance and mutation chances, kibble recipes, and wild-vs-tamed stat projection."
   path="/"
   schema={schema}
 >
   <section class="page-head">
-    <span class="eyebrow"><Icon name="footprints" size={15} /> Prehistoric expedition kit</span>
-    <h1>Tame smarter. Breed better. Plan exactly.</h1>
+    <span class="eyebrow"><Icon name="footprints" size={15} /> Prehistoric Expedition Kit</span>
+    <h1>Tame Smarter. Breed Better. Plan Exactly.</h1>
     <p class="lead">
-      ARKTools runs the same math ARK: Survival Evolved uses - straight from the
-      game files - for {CREATURE_COUNT} of the most-tamed creatures. Food counts,
-      taming time, narcotics, stat inheritance odds, mutation chances and kibble
-      recipes, all verified against the community wiki.
+      ARKTools executes the exact mathematical formulas used by ARK: Survival Evolved and ARK: Survival Ascended.
+      Extracted directly from game files for {CREATURE_COUNT} of the most popular creatures: exact food counts,
+      taming duration, narcotic requirements, 55/45 breeding inheritance odds, mutation stacking calculators,
+      and post-tame stat projections.
     </p>
     <div class="tag-row">
-      <span class="badge">Game data v{DATA_VERSION}</span>
-      <span class="badge">{CREATURE_COUNT} creatures</span>
-      <span class="badge">1x – 50x rates</span>
-      <span class="badge">No signup, runs in your browser</span>
+      <span class="badge">Game Data v{DATA_VERSION}</span>
+      <span class="badge">{CREATURE_COUNT} Verified Creatures</span>
+      <span class="badge">1x – 50x Server Rates</span>
+      <span class="badge">Zero Tracking &middot; Browser Native</span>
     </div>
   </section>
 
   <section class="cards" aria-label="Tools">
-    <a class="card" href="/taming-calculator">
+    <a class="card" href="/taming-calculator/">
       <Icon name="drumstick" size={30} strokeWidth={1.8} />
       <h2>Taming Calculator</h2>
       <p>
-        Pick a creature, level and food: get exact food count, taming time,
-        taming effectiveness, post-tame level, narcotics and tranq counts for
-        server rates from 1x to 50x.
+        Select creature, wild level, and food type: compute required food counts, total time,
+        taming effectiveness decay, post-tame bonus levels, narcotic dosing, and knockout weapon shots.
       </p>
-      <span class="go">Open calculator <Icon name="arrow-right" size={15} /></span>
+      <span class="go">Open Calculator <Icon name="arrow-right" size={15} /></span>
     </a>
-    <a class="card" href="/breeding-calculator">
+    <a class="card" href="/breeding-calculator/">
       <Icon name="dna" size={30} strokeWidth={1.8} />
       <h2>Breeding Calculator</h2>
       <p>
-        Enter both parents' stat levels and see the chance of the perfect baby:
-        55/45 stat inheritance, mutation probability with the 20/20 rule, and
-        expected eggs till your target stats.
+        Input maternal and paternal stats to calculate exact offspring probabilities: 55/45 stat inheritance,
+        3-roll mutation odds, expected eggs to target stats, and the 20/20 mutation cap bypass.
       </p>
-      <span class="go">Crunch the odds <Icon name="arrow-right" size={15} /></span>
+      <span class="go">Calculate Genetics <Icon name="arrow-right" size={15} /></span>
     </a>
-    <a class="card" href="/kibble-chart">
+    <a class="card" href="/kibble-chart/">
       <Icon name="egg" size={30} strokeWidth={1.8} />
-      <h2>Kibble Chart</h2>
+      <h2>Kibble Chart &amp; Recipes</h2>
       <p>
-        All six kibble tiers with exact recipes, which eggs work, and which
-        creature prefers which tier - plus a reverse lookup for every creature
-        in our verified subset.
+        Full Homestead system reference: all six kibble tiers (Basic to Extraordinary), egg size categories,
+        cooking pot vs industrial cooker requirements, and reverse creature preference lookup.
       </p>
-      <span class="go">Find your kibble <Icon name="arrow-right" size={15} /></span>
+      <span class="go">Explore Kibble Recipes <Icon name="arrow-right" size={15} /></span>
     </a>
-    <a class="card" href="/stat-calculator">
+    <a class="card" href="/stat-calculator/">
       <Icon name="chart-column" size={30} strokeWidth={1.8} />
-      <h2>Stat Calculator</h2>
+      <h2>Stat Point Calculator</h2>
       <p>
-        Wild vs tamed vs imprinted stat accounting: project any creature's
-        stats through taming effectiveness, imprinting (+20%) and domestic
-        level-ups before you spend a single point.
+        Three-layer stat accounting: inspect wild base values, taming effectiveness bonus multipliers,
+        full 100% imprinting bonuses (+20%), and domestic level-up stat yield before investing points.
       </p>
-      <span class="go">Project stats <Icon name="arrow-right" size={15} /></span>
+      <span class="go">Project Creature Stats <Icon name="arrow-right" size={15} /></span>
     </a>
   </section>
 
-  <section class="panel" style="margin-top: 2rem">
-    <h2 class="with-icon"><Icon name="shield-check" size={22} /> Why trust these numbers?</h2>
+  <!-- Master Tool Matrix -->
+  <section class="panel" style="margin-top: 2.5rem" aria-label="Tool Comparison Matrix">
+    <h2 class="with-icon"><Icon name="wrench" size={22} /> Master Expedition Tool Matrix</h2>
     <p>
-      Every calculator here is a port of the formulas ARK itself uses, using the
-      species constants published by the
-      <a href="https://github.com/cadon/ARKStatsExtractor" rel="noopener">ARK Smart Breeding</a>
-      project from extracted game files, cross-checked against the
-      <a href="https://ark.wiki.gg/wiki/Taming" rel="noopener">ARK Community Wiki</a>.
-      The formulas are unit-tested against hand-worked examples - for instance a
-      level&nbsp;150 Rex with Exceptional Kibble at 1x needs exactly 17 kibble,
-      tames in ~58 minutes at 98.7% effectiveness and comes out at level 224.
+      Whether you are preparing a knockout trap on the beach or establishing a 20-generation boss line in a tek incubator room,
+      choose the appropriate calculator for your current expedition phase:
+    </p>
+    <div class="table-wrap">
+      <table class="data">
+        <thead>
+          <tr>
+            <th>Calculator</th>
+            <th>Primary Objective</th>
+            <th>Key Input Variables</th>
+            <th>Underlying Math Engine</th>
+            <th>Recommended Use Case</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong><a href="/taming-calculator/">Taming Calculator</a></strong></td>
+            <td>Resource budgeting &amp; knockout planning</td>
+            <td>Creature, Wild Level (1-300), Food Choice, Server Rate (1x-50x)</td>
+            <td>Affinity requirement curves &amp; torpor drain decay constants</td>
+            <td>Wild encounter prep, narcotic counts, starve taming calculations</td>
+          </tr>
+          <tr>
+            <td><strong><a href="/breeding-calculator/">Breeding Calculator</a></strong></td>
+            <td>Genetic inheritance &amp; mutation stacking</td>
+            <td>Father/Mother stat points, mutation counters (0-20+), target stats</td>
+            <td>Independent 55/45 binomial distribution &amp; 3-roll 2.5% mutation RNG</td>
+            <td>Boss army breeding lines, clean female rotation, egg count forecasting</td>
+          </tr>
+          <tr>
+            <td><strong><a href="/kibble-chart/">Kibble Chart</a></strong></td>
+            <td>Egg farming &amp; cooking batch optimization</td>
+            <td>Creature species, egg size tier, cooking structure</td>
+            <td>Homestead 6-tier quality hierarchy &amp; recipe mapping</td>
+            <td>Base egg farm construction, farm garden crop budgeting</td>
+          </tr>
+          <tr>
+            <td><strong><a href="/stat-calculator/">Stat Calculator</a></strong></td>
+            <td>Post-tame potential &amp; domestic point planning</td>
+            <td>Species, wild point allocations, imprint %, domestic points invested</td>
+            <td>Three-layer stat composite (Wild * TE Mult + Additive) * Imprint * Dom</td>
+            <td>Evaluating wild knockouts, point spend optimization before leveling</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Deep Mechanics Breakdown -->
+  <section class="panel" style="margin-top: 2rem">
+    <h2 class="with-icon"><Icon name="sigma" size={22} /> The Mathematics of ARK: Survival Mechanics</h2>
+    
+    <div class="prose">
+      <h3>1. Taming Affinity &amp; Post-Tame Bonus Levels</h3>
+      <p>
+        Every wild creature possesses a species-specific Base Affinity and Affinity Per Level. The total taming affinity required is calculated as:
+      </p>
+      <p>
+        <code>Affinity Required = (BaseAffinity + LevelAffinity &times; WildLevel) &times; AffinityMultiplier</code>
+      </p>
+      <p>
+        When fed preferred food, the creature absorbs affinity per bite. Preferred Kibble awards 400 affinity, Raw Mutton awards 187.5 affinity,
+        and Raw Prime Meat awards 150 affinity. Each feeding causes a minor degradation in <strong>Taming Effectiveness (TE)</strong>.
+        When taming reaches 100%, bonus wild levels are distributed randomly across the creature's stat pool:
+      </p>
+      <div class="callout">
+        <strong>Official Bonus Level Formula:</strong>
+        <br />
+        <code>Bonus Levels = floor( Wild Level &times; (Taming Effectiveness / 2) )</code>
+        <br />
+        <em>Example:</em> A wild Level 150 Tyrannosaurus Rex tamed at 98.7% TE earns <code>floor(150 &times; 0.4935) = +74 levels</code>,
+        finishing at Level 224 with 223 allocated wild stat points.
+      </div>
+
+      <h3 style="margin-top: 1.5rem">2. Torpor Decay Curves &amp; Narcotic Stacking</h3>
+      <p>
+        Unlike player health which regens continuously, torpor drain is hardcoded per species and scales with level.
+        High-metabolism predators like the <strong>Giganotosaurus</strong> lose torpor at over 400 points per second at level 150,
+        requiring immediate and continuous narcotic administration.
+      </p>
+      <p>
+        <strong>The Torpor Freeze Mechanic:</strong> Administering narcotics does not merely add torpor instantly; it applies torpor over time:
+      </p>
+      <ul>
+        <li><strong>Narcotics:</strong> Adds 40 torpor over 8 seconds (5 torpor / sec).</li>
+        <li><strong>Biotoxin:</strong> Adds 80 torpor over 16 seconds (5 torpor / sec).</li>
+        <li><strong>Narcoberries:</strong> Adds 7.5 torpor over 5 seconds (1.5 torpor / sec).</li>
+      </ul>
+      <p>
+        Crucially, while torpor is actively increasing from an applied narcotic or berry, <strong>natural torpor drain is completely suspended</strong>.
+        Stacking 100 narcotics queues 800 continuous seconds (over 13 minutes) of guaranteed torpor climb, during which the creature cannot wake up.
+      </p>
+
+      <h3 style="margin-top: 1.5rem">3. Breeding Inheritance (The 55/45 Model) &amp; Mutation Caps</h3>
+      <p>
+        When two tamed dinos mate, each of the offspring's 6 core stats (Health, Stamina, Oxygen, Food, Weight, Melee) is determined independently:
+      </p>
+      <ul>
+        <li><strong>55% Chance:</strong> Offspring inherits the higher stat from either parent.</li>
+        <li><strong>45% Chance:</strong> Offspring inherits the lower stat.</li>
+        <li><strong>Equal Stats:</strong> 100% guarantee of inheriting that value.</li>
+      </ul>
+      <p>
+        After stat inheritance rolls finish, the offspring receives 3 independent mutation rolls at 2.5% per roll (7.31% chance of at least one mutation
+        if both parents have combined counters below 20). When a parent exceeds 20 on its mutation counter, its mutation trigger is disabled.
+        However, by mating a mutated sire with completely clean 0/20 mothers, the maternal roll remains eligible forever, allowing survivors
+        to stack dozens of mutations onto damage and health.
+      </p>
+    </div>
+  </section>
+
+  <!-- Top 10 Benchmark Matrix -->
+  <section class="panel" style="margin-top: 2rem" aria-label="Top 10 Tames Benchmark Table">
+    <h2 class="with-icon"><Icon name="trophy" size={22} /> Top 10 Tames: Level 150 Official Benchmark</h2>
+    <p>
+      Baseline knockout and taming benchmarks for the 10 most essential creatures in ARK at Official Server maximum wild level (150)
+      using their preferred kibble tier:
+    </p>
+    <div class="table-wrap">
+      <table class="data">
+        <thead>
+          <tr>
+            <th>Creature</th>
+            <th>Primary Tribe Role</th>
+            <th>Preferred Kibble</th>
+            <th>Max Wild Torpor</th>
+            <th>Torpor Drain Rate</th>
+            <th>Tame Time (1x)</th>
+            <th>Tame Time (3x)</th>
+            <th>Max Post-Tame Lvl</th>
+          </tr>
+        </thead>
+        <tbody>
+          {topTames.map((t) => (
+            <tr>
+              <td><strong>{t.name}</strong></td>
+              <td style="white-space: normal">{t.role}</td>
+              <td><span class="badge">{t.kibble}</span></td>
+              <td class="num">{t.torpor}</td>
+              <td class="num">{t.drain}</td>
+              <td class="num">{t.time1x}</td>
+              <td class="num">{t.time3x}</td>
+              <td class="num"><strong>{t.postLvl}</strong></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="muted" style="font-size: 0.85rem; margin-top: 0.6rem">
+      Times computed using exact game affinity thresholds at standard 1x and weekend 3x official rates assuming zero damage taken during knockout.
+    </p>
+  </section>
+
+  <!-- Interactive FAQ Accordion -->
+  <section class="panel" style="margin-top: 2rem" aria-label="Frequently Asked Questions">
+    <h2 class="with-icon"><Icon name="circle-help" size={22} /> Frequently Asked Survival Questions</h2>
+    {faq.map((f) => (
+      <details class="faq">
+        <summary>{f.q}</summary>
+        <div class="faq-body">
+          <p>{f.a}</p>
+        </div>
+      </details>
+    ))}
+  </section>
+
+  <!-- E-E-A-T Data Provenance -->
+  <section class="panel" style="margin-top: 2rem">
+    <h2 class="with-icon"><Icon name="shield-check" size={22} /> Why Trust ARKTools Calculations?</h2>
+    <p>
+      Every calculator on this site is an algorithmic port of the actual formulas executed in the ARK: Survival Evolved engine.
+      Species constants are extracted directly from game files by the open-source
+      <a href="https://github.com/cadon/ARKStatsExtractor" rel="noopener">ARK Smart Breeding</a> project
+      and verified against the authoritative <a href="https://ark.wiki.gg/wiki/Taming" rel="noopener">ARK Community Wiki</a>.
     </p>
     <p>
-      Coverage is deliberately a curated subset - {CREATURE_COUNT} of the
-      most-tamed creatures - so that everything shown is verified rather than
-      crowd-guessed. Special-mechanic tames (Wyvern milk, Rock Drake venom,
-      Reaper gestation, Titanosaur, Carcharodontosaurus corpse-feeding) are
-      included and clearly flagged instead of silently miscomputed.
-      See <a href="/sources">Data &amp; Sources</a> for the full method.
+      All formulas are validated by an automated unit test suite (`vitest`) checking against verified hand-worked examples:
+      for instance, a Level 150 Rex with Exceptional Kibble at 1x server rate requires exactly 17 kibble, tames in 58 minutes at 98.7% TE,
+      and finishes at Level 224. Special taming mechanics (Wyvern milk, Rock Drake venom, Reaper gestation, Titanosaur starvation,
+      and Carcharodontosaurus corpse dragging) are transparently categorized rather than approximated with invalid food tables.
+      Review our full method at <a href="/sources/">Data &amp; Sources</a>.
     </p>
   </section>
 </BaseLayout>

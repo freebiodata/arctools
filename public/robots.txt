@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://arctools.top/sitemap-index.xml
+Sitemap: https://arctools.top/sitemap.xml
